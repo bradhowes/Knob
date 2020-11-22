@@ -1,16 +1,16 @@
 name: Swift
-
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-
 jobs:
   build:
-
     runs-on: macos-latest
-
+    strategy:
+      matrix:
+        destination: ['platform=iOS Simulator,OS=14.0,name=iPhone 12']
+        xcode: ['/Applications/Xcode_12.2.app/Contents/Developer']
     steps:
     - uses: actions/checkout@v2
     - name: Build
