@@ -12,4 +12,4 @@ jobs:
     - name: Generate xcodeproj
       run: swift package generate-xcodeproj
     - name: Run tests
-      run: xcodebuild test -destination 'name=iPhone 12' -scheme 'Knob-Package'
+      run: xcodebuild test -destination 'name=iPhone 11' -scheme 'Knob-Package'
