@@ -7,13 +7,9 @@ on:
 jobs:
   build:
     runs-on: macos-latest
-    strategy:
-      matrix:
-        destination: ['platform=iOS Simulator,OS=14.0,name=iPhone 12']
-        xcode: ['/Applications/Xcode_12.2.app/Contents/Developer']
     steps:
     - uses: actions/checkout@v2
-    - name: Build
-      run: swift build -v
+    - name: Generate xcodeproj
+      run: swift package generate-xcodeproj
     - name: Run tests
-      run: swift test -v
+      run: xcodebuild test -destination 'name=iPhone 12' -scheme 'Knob-Package'
