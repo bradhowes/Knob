@@ -24,6 +24,8 @@ Like UISlider, touch movements control the value though with some deviations. Fo
 The above picture was taken from my [SoundFonts](https://github.com/bradhowes/SoundFonts) iOS app where the
 knobs control various audio effects settings.
 
+Included is a playground for playing with a knob.
+
 ## Configuration
 
 * `minimumValue` -- the lowest value that the control will report out.
@@ -40,6 +42,10 @@ knobs control various audio effects settings.
 * `indicatorLineLength` -- the amount of the line that is drawn from the current value to the center, where 0.0 indicates no line will be drawn, and 0.5 results in a line that is half-way to the knob center point.
 * `startAngle` -- the starting point in radians of the arc (see below)
 * `endAngle` -- the ending point in radians of the arc
+* `tickCount` -- number of ticks to show
+* `tickLineLength` -- fraction of a radius to draw (0.0 - 1.0)
+* `tickLineWidth` -- width of the tick line
+* `tickColor` -- the color of the tick line
 
 Arc angles are explained well in the  [UIBezierPath documentation](https://developer.apple.com/documentation/uikit/uibezierpath/1624358-init). In brief, an angle of 0 will extend along the X axis, whereas an
 angle of π/2 will extend along the negative Y axis.
