@@ -8,6 +8,9 @@
 
 Simple UISlider-like iOS control that depicts its path as an arc using CoreAnimation layers.
 
+![](KnobMove.gif)
+
+
 ![](example.png)
 
 Like UISlider, touch movements control the value though with some deviations. For my implementation:
