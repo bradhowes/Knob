@@ -73,6 +73,7 @@ import os
     private let progressLayer = CAShapeLayer()
     private let indicatorLayer = CAShapeLayer()
     private let ticksLayer = CAShapeLayer()
+    private let updateQueue = DispatchQueue(label: "Checkbox", qos: .userInteractive, attributes: [], autoreleaseFrequency: .inherit, target: .main)
 
     private var _value: Float = 0.0
     private var panOrigin: CGPoint = .zero
@@ -126,9 +127,7 @@ extension Knob {
     override open func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
         panOrigin = touch.location(in: self)
         activeTouch = true
-        DispatchQueue.main.async {
-            self.sendActions(for: .valueChanged)
-        }
+        updateQueue.async { self.sendActions(for: .valueChanged) }
         return true
     }
 
@@ -142,26 +141,20 @@ extension Knob {
         defer { panOrigin = CGPoint(x: panOrigin.x, y: point.y) }
         let change = deltaT * (maximumValue - minimumValue)
         self.value += change
-        DispatchQueue.main.async {
-            self.sendActions(for: .valueChanged)
-        }
+        updateQueue.async { self.sendActions(for: .valueChanged) }
         return true
     }
 
     override open func cancelTracking(with event: UIEvent?) {
         activeTouch = false
         super.cancelTracking(with: event)
-        DispatchQueue.main.async {
-            self.sendActions(for: .valueChanged)
-        }
+        updateQueue.async { self.sendActions(for: .valueChanged) }
     }
 
     override open func endTracking(_ touch: UITouch?, with event: UIEvent?) {
         activeTouch = false
         super.endTracking(touch, with: event)
-        DispatchQueue.main.async {
-            self.sendActions(for: .valueChanged)
-        }
+        updateQueue.async { self.sendActions(for: .valueChanged) }
     }
 }
 
