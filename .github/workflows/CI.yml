@@ -15,7 +15,9 @@ jobs:
       run: swift package generate-xcodeproj
     - name: Show Schemes
       run: xcodebuild test -list
+    - name: Show Destinations
+      run: xcodebuild test -scheme 'Knob-Package' -showdestinations
     - name: Run Mac Tests
-      run: xcodebuild test -scheme Knob -destination 'platform=macOS'
+      run: xcodebuild test -scheme 'Knob-Package' -destination 'platform=macOS'
     - name: Run iOS Tests
       run: xcodebuild test -scheme 'Knob-Package' -destination 'name=iPhone 11'
