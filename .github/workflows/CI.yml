@@ -9,7 +9,13 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Select Xcode 12.4
+      run: sudo xcode-select -s /Applications/Xcode_12.4.app
     - name: Generate xcodeproj
       run: swift package generate-xcodeproj
-    - name: Run tests
-      run: xcodebuild test -destination 'name=iPhone 11' -scheme 'Knob-Package'
+    - name: Show Schemes
+      run: xcodebuild test -list
+    - name: Run Mac Tests
+      run: xcodebuild test -scheme Knob -destination 'platform=macOS'
+    - name: Run iOS Tests
+      run: xcodebuild test -scheme 'Knob-Package' -destination 'name=iPhone 11'
