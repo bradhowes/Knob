@@ -35,9 +35,9 @@ internal extension Color {
 
   var extendedSRGB: Color {
 #if os(macOS)
-    usingColorSpace(.extendedSRGB) ?? self
+    return usingColorSpace(.extendedSRGB) ?? self
 #else
-    self
+    return self
 #endif
   }
 
