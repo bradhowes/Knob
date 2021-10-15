@@ -9,17 +9,23 @@ final class KnobTests: XCTestCase {
     super.setUp()
   }
 
-  func makeName(_ funcName: String = #function) -> String {
+  func makeName(_ funcName: String) -> String {
+    let platform: String
 #if os(macOS)
-    let platform = "macOS"
+    platform = "macOS"
 #elseif os(iOS)
-    let platform = "iOS"
+    platform = "iOS"
 #elseif os(tvOS)
-    let platform = "tvOS"
+    platform = "tvOS"
 #else
-    let platform = "unknown"
+    platform = "unknown"
 #endif
     return funcName + "-" + platform
+  }
+
+  func assertSnapshot(matching: Knob, file: StaticString = #file, testName: String = #function, line: UInt = #line) throws {
+    try XCTSkipIf(ProcessInfo.processInfo.environment.keys.contains("GITHUB_WORKFLOW"), "GitHub CI")
+    SnapshotTesting.assertSnapshot(matching: matching, as: .image, named: makeName(testName), file: file, testName: testName, line: line)
   }
 
   func testValueClamping() {
@@ -46,84 +52,84 @@ final class KnobTests: XCTestCase {
     XCTAssertEqual(knob.value, 0.6)
   }
 
-  func testDefault() {
+  func testDefault() throws {
     let knob = Knob(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
     knob.value = 0.5
-    assertSnapshot(matching: knob, as: .image, named: makeName())
+    try assertSnapshot(matching: knob)
   }
 
-  func testTrackLineWidth() {
+  func testTrackLineWidth() throws {
     let knob = Knob(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
     knob.trackLineWidth = 12.0
     knob.trackColor = .black
     knob.value = 0.5
-    assertSnapshot(matching: knob, as: .image, named: makeName())
+    try assertSnapshot(matching: knob)
   }
 
-  func testTrackColor() {
+  func testTrackColor() throws {
     let knob = Knob(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
     knob.trackColor = .systemTeal
     knob.value = 0.5
-    assertSnapshot(matching: knob, as: .image, named: makeName())
+    try assertSnapshot(matching: knob)
   }
 
-  func testProgressLineWidth() {
+  func testProgressLineWidth() throws {
     let knob = Knob(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
     knob.progressLineWidth = 12.0
     knob.value = 0.5
-    assertSnapshot(matching: knob, as: .image, named: makeName())
+    try assertSnapshot(matching: knob)
   }
 
-  func testProgressColor() {
+  func testProgressColor() throws {
     let knob = Knob(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
     knob.progressColor = .systemTeal
     knob.value = 0.5
-    assertSnapshot(matching: knob, as: .image, named: makeName())
+    try assertSnapshot(matching: knob)
   }
 
-  func testIndicatorLineWidth() {
+  func testIndicatorLineWidth() throws {
     let knob = Knob(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
     knob.indicatorLineWidth = 12.0
     knob.value = 0.5
-    assertSnapshot(matching: knob, as: .image, named: makeName())
+    try assertSnapshot(matching: knob)
   }
 
-  func testIndicatorColor() {
+  func testIndicatorColor() throws {
     let knob = Knob(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
     knob.indicatorColor = .systemTeal
     knob.value = 0.5
-    assertSnapshot(matching: knob, as: .image, named: makeName())
+    try assertSnapshot(matching: knob)
   }
 
-  func testIndicatorLineLength() {
+  func testIndicatorLineLength() throws {
     let knob = Knob(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
     knob.indicatorLineLength = 1.0
     knob.value = 0.5
-    assertSnapshot(matching: knob, as: .image, named: makeName())
+    try assertSnapshot(matching: knob)
   }
 
-  func testTickCount() {
+  func testTickCount() throws {
     let knob = Knob(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
     knob.tickCount = 5
     knob.value = 0.3
-    assertSnapshot(matching: knob, as: .image, named: makeName())
+    try assertSnapshot(matching: knob)
   }
 
-  func testTickLineWidth() {
+  func testTickLineWidth() throws {
     let knob = Knob(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
     knob.tickCount = 5
     knob.tickLineWidth = 12.0
     knob.tickColor = .systemTeal
     knob.value = 0.3
-    assertSnapshot(matching: knob, as: .image, named: makeName())
+    try assertSnapshot(matching: knob)
   }
 
-  func testTickColor() {
+  func testTickColor() throws {
     let knob = Knob(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
     knob.tickCount = 5
     knob.tickColor = .systemTeal
     knob.value = 0.3
-    assertSnapshot(matching: knob, as: .image, named: makeName())
+    try assertSnapshot(matching: knob)
   }
 
   static var allTests = [
