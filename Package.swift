@@ -26,7 +26,8 @@ let package = Package(
             dependencies: [
               "Knob",
               "SnapshotTesting"
-            ]
+            ],
+            exclude: ["__Snapshots__/"]
         ),
     ]
 )
