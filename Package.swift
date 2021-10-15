@@ -14,12 +14,19 @@ let package = Package(
             name: "Knob",
             targets: ["Knob"]),
     ],
+    dependencies: [
+      .package(name: "SnapshotTesting", url: "https://github.com/pointfreeco/swift-snapshot-testing.git", from: "1.9.0"),
+    ],
     targets: [
-        .target(
+      .target(
             name: "Knob",
             dependencies: []),
         .testTarget(
             name: "KnobTests",
-            dependencies: ["Knob"]),
+            dependencies: [
+              "Knob",
+              "SnapshotTesting"
+            ]
+        ),
     ]
 )

@@ -22,7 +22,7 @@ class MyViewController : UIViewController {
         knob.setValue(0.3)
         knob.touchSensitivity = 2.0
         knob.tickCount = 5
-        knob.tickLineColor = .blue
+        knob.tickColor = .blue
         knob.tickLineLength = 0.2
 
         knob.addTarget(self, action: #selector(update), for: .valueChanged)
