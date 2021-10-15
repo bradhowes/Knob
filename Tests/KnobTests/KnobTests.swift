@@ -24,6 +24,12 @@ final class KnobTests: XCTestCase {
   }
 
   func assertSnapshot(matching: Knob, file: StaticString = #file, testName: String = #function, line: UInt = #line) throws {
+    let env = ProcessInfo.processInfo.environment
+
+    for key in env.keys {
+      print("\(key) = \(env[key]!)")
+    }
+
     try XCTSkipIf(ProcessInfo.processInfo.environment.keys.contains("GITHUB_WORKFLOW"), "GitHub CI")
     SnapshotTesting.assertSnapshot(matching: matching, as: .image, named: makeName(testName), file: file, testName: testName, line: line)
   }
