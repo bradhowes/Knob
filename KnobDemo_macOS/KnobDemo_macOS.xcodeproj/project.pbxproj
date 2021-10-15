@@ -1,0 +1,609 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BDD457B92719C61B000E6C2F /* KnobDemo_macOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD457B82719C61B000E6C2F /* KnobDemo_macOSApp.swift */; };
+		BDD457BB2719C61B000E6C2F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD457BA2719C61B000E6C2F /* ContentView.swift */; };
+		BDD457BD2719C61F000E6C2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD457BC2719C61F000E6C2F /* Assets.xcassets */; };
+		BDD457C02719C61F000E6C2F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD457BF2719C61F000E6C2F /* Preview Assets.xcassets */; };
+		BDD457CB2719C61F000E6C2F /* KnobDemo_macOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD457CA2719C61F000E6C2F /* KnobDemo_macOSTests.swift */; };
+		BDD457D52719C61F000E6C2F /* KnobDemo_macOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD457D42719C61F000E6C2F /* KnobDemo_macOSUITests.swift */; };
+		BDD457D72719C61F000E6C2F /* KnobDemo_macOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD457D62719C61F000E6C2F /* KnobDemo_macOSUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BDD457C72719C61F000E6C2F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDD457AD2719C61B000E6C2F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDD457B42719C61B000E6C2F;
+			remoteInfo = KnobDemo_macOS;
+		};
+		BDD457D12719C61F000E6C2F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDD457AD2719C61B000E6C2F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDD457B42719C61B000E6C2F;
+			remoteInfo = KnobDemo_macOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BDD457B52719C61B000E6C2F /* KnobDemo_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnobDemo_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDD457B82719C61B000E6C2F /* KnobDemo_macOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobDemo_macOSApp.swift; sourceTree = "<group>"; };
+		BDD457BA2719C61B000E6C2F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BDD457BC2719C61F000E6C2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BDD457BF2719C61F000E6C2F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BDD457C12719C61F000E6C2F /* KnobDemo_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KnobDemo_macOS.entitlements; sourceTree = "<group>"; };
+		BDD457C62719C61F000E6C2F /* KnobDemo_macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnobDemo_macOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDD457CA2719C61F000E6C2F /* KnobDemo_macOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobDemo_macOSTests.swift; sourceTree = "<group>"; };
+		BDD457D02719C61F000E6C2F /* KnobDemo_macOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnobDemo_macOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDD457D42719C61F000E6C2F /* KnobDemo_macOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobDemo_macOSUITests.swift; sourceTree = "<group>"; };
+		BDD457D62719C61F000E6C2F /* KnobDemo_macOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobDemo_macOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BDD457B22719C61B000E6C2F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDD457C32719C61F000E6C2F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDD457CD2719C61F000E6C2F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BDD457AC2719C61B000E6C2F = {
+			isa = PBXGroup;
+			children = (
+				BDD457B72719C61B000E6C2F /* KnobDemo_macOS */,
+				BDD457C92719C61F000E6C2F /* KnobDemo_macOSTests */,
+				BDD457D32719C61F000E6C2F /* KnobDemo_macOSUITests */,
+				BDD457B62719C61B000E6C2F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BDD457B62719C61B000E6C2F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BDD457B52719C61B000E6C2F /* KnobDemo_macOS.app */,
+				BDD457C62719C61F000E6C2F /* KnobDemo_macOSTests.xctest */,
+				BDD457D02719C61F000E6C2F /* KnobDemo_macOSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BDD457B72719C61B000E6C2F /* KnobDemo_macOS */ = {
+			isa = PBXGroup;
+			children = (
+				BDD457B82719C61B000E6C2F /* KnobDemo_macOSApp.swift */,
+				BDD457BA2719C61B000E6C2F /* ContentView.swift */,
+				BDD457BC2719C61F000E6C2F /* Assets.xcassets */,
+				BDD457C12719C61F000E6C2F /* KnobDemo_macOS.entitlements */,
+				BDD457BE2719C61F000E6C2F /* Preview Content */,
+			);
+			path = KnobDemo_macOS;
+			sourceTree = "<group>";
+		};
+		BDD457BE2719C61F000E6C2F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				BDD457BF2719C61F000E6C2F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BDD457C92719C61F000E6C2F /* KnobDemo_macOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				BDD457CA2719C61F000E6C2F /* KnobDemo_macOSTests.swift */,
+			);
+			path = KnobDemo_macOSTests;
+			sourceTree = "<group>";
+		};
+		BDD457D32719C61F000E6C2F /* KnobDemo_macOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BDD457D42719C61F000E6C2F /* KnobDemo_macOSUITests.swift */,
+				BDD457D62719C61F000E6C2F /* KnobDemo_macOSUITestsLaunchTests.swift */,
+			);
+			path = KnobDemo_macOSUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BDD457B42719C61B000E6C2F /* KnobDemo_macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDD457DA2719C61F000E6C2F /* Build configuration list for PBXNativeTarget "KnobDemo_macOS" */;
+			buildPhases = (
+				BDD457B12719C61B000E6C2F /* Sources */,
+				BDD457B22719C61B000E6C2F /* Frameworks */,
+				BDD457B32719C61B000E6C2F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KnobDemo_macOS;
+			productName = KnobDemo_macOS;
+			productReference = BDD457B52719C61B000E6C2F /* KnobDemo_macOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BDD457C52719C61F000E6C2F /* KnobDemo_macOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDD457DD2719C61F000E6C2F /* Build configuration list for PBXNativeTarget "KnobDemo_macOSTests" */;
+			buildPhases = (
+				BDD457C22719C61F000E6C2F /* Sources */,
+				BDD457C32719C61F000E6C2F /* Frameworks */,
+				BDD457C42719C61F000E6C2F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDD457C82719C61F000E6C2F /* PBXTargetDependency */,
+			);
+			name = KnobDemo_macOSTests;
+			productName = KnobDemo_macOSTests;
+			productReference = BDD457C62719C61F000E6C2F /* KnobDemo_macOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BDD457CF2719C61F000E6C2F /* KnobDemo_macOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDD457E02719C61F000E6C2F /* Build configuration list for PBXNativeTarget "KnobDemo_macOSUITests" */;
+			buildPhases = (
+				BDD457CC2719C61F000E6C2F /* Sources */,
+				BDD457CD2719C61F000E6C2F /* Frameworks */,
+				BDD457CE2719C61F000E6C2F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDD457D22719C61F000E6C2F /* PBXTargetDependency */,
+			);
+			name = KnobDemo_macOSUITests;
+			productName = KnobDemo_macOSUITests;
+			productReference = BDD457D02719C61F000E6C2F /* KnobDemo_macOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BDD457AD2719C61B000E6C2F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					BDD457B42719C61B000E6C2F = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					BDD457C52719C61F000E6C2F = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = BDD457B42719C61B000E6C2F;
+					};
+					BDD457CF2719C61F000E6C2F = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = BDD457B42719C61B000E6C2F;
+					};
+				};
+			};
+			buildConfigurationList = BDD457B02719C61B000E6C2F /* Build configuration list for PBXProject "KnobDemo_macOS" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BDD457AC2719C61B000E6C2F;
+			productRefGroup = BDD457B62719C61B000E6C2F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BDD457B42719C61B000E6C2F /* KnobDemo_macOS */,
+				BDD457C52719C61F000E6C2F /* KnobDemo_macOSTests */,
+				BDD457CF2719C61F000E6C2F /* KnobDemo_macOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BDD457B32719C61B000E6C2F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDD457C02719C61F000E6C2F /* Preview Assets.xcassets in Resources */,
+				BDD457BD2719C61F000E6C2F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDD457C42719C61F000E6C2F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDD457CE2719C61F000E6C2F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BDD457B12719C61B000E6C2F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDD457BB2719C61B000E6C2F /* ContentView.swift in Sources */,
+				BDD457B92719C61B000E6C2F /* KnobDemo_macOSApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDD457C22719C61F000E6C2F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDD457CB2719C61F000E6C2F /* KnobDemo_macOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDD457CC2719C61F000E6C2F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDD457D52719C61F000E6C2F /* KnobDemo_macOSUITests.swift in Sources */,
+				BDD457D72719C61F000E6C2F /* KnobDemo_macOSUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BDD457C82719C61F000E6C2F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDD457B42719C61B000E6C2F /* KnobDemo_macOS */;
+			targetProxy = BDD457C72719C61F000E6C2F /* PBXContainerItemProxy */;
+		};
+		BDD457D22719C61F000E6C2F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDD457B42719C61B000E6C2F /* KnobDemo_macOS */;
+			targetProxy = BDD457D12719C61F000E6C2F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BDD457D82719C61F000E6C2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BDD457D92719C61F000E6C2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		BDD457DB2719C61F000E6C2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = KnobDemo_macOS/KnobDemo_macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"KnobDemo_macOS/Preview Content\"";
+				DEVELOPMENT_TEAM = UP6SS5ES7E;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.braysoftware.KnobDemo-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		BDD457DC2719C61F000E6C2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = KnobDemo_macOS/KnobDemo_macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"KnobDemo_macOS/Preview Content\"";
+				DEVELOPMENT_TEAM = UP6SS5ES7E;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.braysoftware.KnobDemo-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		BDD457DE2719C61F000E6C2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UP6SS5ES7E;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.braysoftware.KnobDemo-macOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KnobDemo_macOS.app/Contents/MacOS/KnobDemo_macOS";
+			};
+			name = Debug;
+		};
+		BDD457DF2719C61F000E6C2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UP6SS5ES7E;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.braysoftware.KnobDemo-macOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KnobDemo_macOS.app/Contents/MacOS/KnobDemo_macOS";
+			};
+			name = Release;
+		};
+		BDD457E12719C61F000E6C2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UP6SS5ES7E;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.braysoftware.KnobDemo-macOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = KnobDemo_macOS;
+			};
+			name = Debug;
+		};
+		BDD457E22719C61F000E6C2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UP6SS5ES7E;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.braysoftware.KnobDemo-macOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = KnobDemo_macOS;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BDD457B02719C61B000E6C2F /* Build configuration list for PBXProject "KnobDemo_macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDD457D82719C61F000E6C2F /* Debug */,
+				BDD457D92719C61F000E6C2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDD457DA2719C61F000E6C2F /* Build configuration list for PBXNativeTarget "KnobDemo_macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDD457DB2719C61F000E6C2F /* Debug */,
+				BDD457DC2719C61F000E6C2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDD457DD2719C61F000E6C2F /* Build configuration list for PBXNativeTarget "KnobDemo_macOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDD457DE2719C61F000E6C2F /* Debug */,
+				BDD457DF2719C61F000E6C2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDD457E02719C61F000E6C2F /* Build configuration list for PBXNativeTarget "KnobDemo_macOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDD457E12719C61F000E6C2F /* Debug */,
+				BDD457E22719C61F000E6C2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BDD457AD2719C61B000E6C2F /* Project object */;
+}
