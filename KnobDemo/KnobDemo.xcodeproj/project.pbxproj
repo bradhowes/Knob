@@ -15,7 +15,6 @@
 		BDD457542719BDD9000E6C2F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD457532719BDD9000E6C2F /* Preview Assets.xcassets */; };
 		BDD4575E2719BDD9000E6C2F /* KnobDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD4575D2719BDD9000E6C2F /* KnobDemoTests.swift */; };
 		BDD457682719BDD9000E6C2F /* KnobDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD457672719BDD9000E6C2F /* KnobDemoUITests.swift */; };
-		BDD4576A2719BDD9000E6C2F /* KnobDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD457692719BDD9000E6C2F /* KnobDemoUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +38,7 @@
 		BDA5A260271AEB2E004FE9EF /* Knob */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Knob; path = ..; sourceTree = "<group>"; };
 		BDA5A261271AEBA3004FE9EF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BDA5A262271AEC40004FE9EF /* KnobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobView.swift; sourceTree = "<group>"; };
+		BDB6AF4E271AF1E800F7A115 /* KnobDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KnobDemo.entitlements; sourceTree = "<group>"; };
 		BDD457492719BDD7000E6C2F /* KnobDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnobDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD4574C2719BDD7000E6C2F /* KnobDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobDemoApp.swift; sourceTree = "<group>"; };
 		BDD4574E2719BDD7000E6C2F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,7 +48,6 @@
 		BDD4575D2719BDD9000E6C2F /* KnobDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobDemoTests.swift; sourceTree = "<group>"; };
 		BDD457632719BDD9000E6C2F /* KnobDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnobDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD457672719BDD9000E6C2F /* KnobDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobDemoUITests.swift; sourceTree = "<group>"; };
-		BDD457692719BDD9000E6C2F /* KnobDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +116,7 @@
 		BDD4574B2719BDD7000E6C2F /* KnobDemo */ = {
 			isa = PBXGroup;
 			children = (
+				BDB6AF4E271AF1E800F7A115 /* KnobDemo.entitlements */,
 				BDD4574C2719BDD7000E6C2F /* KnobDemoApp.swift */,
 				BDA5A262271AEC40004FE9EF /* KnobView.swift */,
 				BDD4574E2719BDD7000E6C2F /* ContentView.swift */,
@@ -147,7 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				BDD457672719BDD9000E6C2F /* KnobDemoUITests.swift */,
-				BDD457692719BDD9000E6C2F /* KnobDemoUITestsLaunchTests.swift */,
 			);
 			path = KnobDemoUITests;
 			sourceTree = "<group>";
@@ -305,7 +304,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDD4576A2719BDD9000E6C2F /* KnobDemoUITestsLaunchTests.swift in Sources */,
 				BDD457682719BDD9000E6C2F /* KnobDemoUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,6 +445,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = KnobDemo/KnobDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"KnobDemo/Preview Content\"";
@@ -466,9 +465,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.braysoftware.KnobDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
@@ -477,6 +477,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = KnobDemo/KnobDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"KnobDemo/Preview Content\"";
@@ -496,9 +497,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.braysoftware.KnobDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};

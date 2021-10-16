@@ -35,7 +35,8 @@ open class Knob: KnobParentClass {
   open var maximumValue: Float = 1.0 { didSet { setValue(_value, animated: false) } }
 
   /// The current value of the control.
-  open var value: Float { get { _value } set { setValue(newValue, animated: false) } }
+  @objc
+  open dynamic var value: Float { get { _value } set { setValue(newValue, animated: false) } }
 
   /// How much travel is need to move 4x the width or height of the knob to go from minimumValue to maximumValue.
   /// By default this is 4x the knob size.

@@ -1,40 +1,85 @@
-//
-//  KnobDemoUITests.swift
-//  KnobDemoUITests
-//
-//  Created by Brad Howes on 15/10/2021.
-//
-
 import XCTest
 
 class KnobDemoUITests: XCTestCase {
 
   override func setUpWithError() throws {
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-
-    // In UI tests it is usually best to stop immediately when a failure occurs.
     continueAfterFailure = false
-
-    // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+    XCUIApplication().launchArguments += ["-AppleLanguages", "(en)"]
+    XCUIApplication().launchArguments += ["-AppleLocale", "en_EN"]
   }
 
   override func tearDownWithError() throws {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
   }
 
-  func testExample() throws {
-    // UI tests must launch the application that they test.
+  func testSwipingUp() throws {
     let app = XCUIApplication()
     app.launch()
-    XCUIApplication().otherElements["knob"].swipeUp()
+
+    let knob = app.otherElements["knob"]
+    let value = app.staticTexts["value"]
+    XCTAssertTrue(value.waitForExistence(timeout: 5))
+
+#if os(iOS) && !targetEnvironment(macCatalyst)
+    // print(value.debugDescription)
+    knob.swipeUp()
+    XCTAssertTrue(Double(value.label)! > 0.825)
+#else
+    throw XCTSkip("only runs on iOS")
+#endif
   }
 
-  func testLaunchPerformance() throws {
-    if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-      // This measures how long it takes to launch your application.
-      measure(metrics: [XCTApplicationLaunchMetric()]) {
-        XCUIApplication().launch()
-      }
-    }
+  func testSwipingDown() throws {
+    let app = XCUIApplication()
+    app.launch()
+
+    let knob = app.otherElements["knob"]
+    let value = app.staticTexts["value"]
+    XCTAssertTrue(value.waitForExistence(timeout: 5))
+
+#if os(iOS) && !targetEnvironment(macCatalyst)
+    // print(value.debugDescription)
+    knob.swipeDown()
+    XCTAssertTrue(Double(value.label)! < 0.1)
+#else
+    throw XCTSkip("only runs on iOS")
+#endif
+  }
+
+  func testTrackingUp() throws {
+    let app = XCUIApplication()
+    app.launch()
+
+    let title = app.staticTexts["title"]
+    let knob = app.otherElements["knob"]
+    let value = app.staticTexts["value"]
+    XCTAssertTrue(value.waitForExistence(timeout: 5))
+
+#if os(macOS) || targetEnvironment(macCatalyst)
+    knob.click(forDuration: 0.2, thenDragTo: title)
+    print("value: \(value.debugDescription)")
+    print("value.label: \(value.label.debugDescription)")
+    XCTAssertTrue(Double(app.staticTexts["value"].label)! >= 0.825)
+#else
+    throw XCTSkip("only runs on iOS")
+#endif
+  }
+
+  func testTrackingDown() throws {
+    let app = XCUIApplication()
+    app.launch()
+
+    let knob = app.otherElements["knob"]
+    let value = app.staticTexts["value"]
+    XCTAssertTrue(value.waitForExistence(timeout: 5))
+
+#if os(macOS) || targetEnvironment(macCatalyst)
+    knob.click(forDuration: 0.2, thenDragTo: value)
+    print("value: \(value.debugDescription)")
+    print("value.label: \(value.label.debugDescription)")
+    XCTAssertTrue(Double(app.staticTexts["value"].label)! < 0.1)
+#else
+    throw XCTSkip("only runs on iOS")
+#endif
   }
 }

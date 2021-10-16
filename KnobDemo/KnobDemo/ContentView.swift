@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 struct ContentView: View {
   @State var value: Float = 0.25
@@ -8,11 +9,14 @@ struct ContentView: View {
       alignment: .center,
       spacing: 10
     ) {
+      Text("Touch/click inside arc and move up/down")
+        .accessibilityIdentifier("title")
       KnobView(value: $value)
         .frame(minWidth: 40, maxWidth: 240, minHeight: 40, maxHeight: 240)
         .accessibilityHint("Adjust value")
-        .accessibilityLabel("knob")
+        .accessibilityIdentifier("knob")
       Text("\(value)")
+        .accessibilityIdentifier("value")
     }
   }
 }
