@@ -1,0 +1,650 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BDA5A25F271ADE6B004FE9EF /* Knob in Frameworks */ = {isa = PBXBuildFile; productRef = BDA5A25E271ADE6B004FE9EF /* Knob */; };
+		BDA5A263271AEC40004FE9EF /* KnobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA5A262271AEC40004FE9EF /* KnobView.swift */; };
+		BDD4574D2719BDD7000E6C2F /* KnobDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD4574C2719BDD7000E6C2F /* KnobDemoApp.swift */; };
+		BDD4574F2719BDD7000E6C2F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD4574E2719BDD7000E6C2F /* ContentView.swift */; };
+		BDD457512719BDD9000E6C2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD457502719BDD9000E6C2F /* Assets.xcassets */; };
+		BDD457542719BDD9000E6C2F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD457532719BDD9000E6C2F /* Preview Assets.xcassets */; };
+		BDD4575E2719BDD9000E6C2F /* KnobDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD4575D2719BDD9000E6C2F /* KnobDemoTests.swift */; };
+		BDD457682719BDD9000E6C2F /* KnobDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD457672719BDD9000E6C2F /* KnobDemoUITests.swift */; };
+		BDD4576A2719BDD9000E6C2F /* KnobDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD457692719BDD9000E6C2F /* KnobDemoUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BDD4575A2719BDD9000E6C2F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDD457412719BDD7000E6C2F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDD457482719BDD7000E6C2F;
+			remoteInfo = KnobDemo;
+		};
+		BDD457642719BDD9000E6C2F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDD457412719BDD7000E6C2F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDD457482719BDD7000E6C2F;
+			remoteInfo = KnobDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BDA5A260271AEB2E004FE9EF /* Knob */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Knob; path = ..; sourceTree = "<group>"; };
+		BDA5A261271AEBA3004FE9EF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		BDA5A262271AEC40004FE9EF /* KnobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobView.swift; sourceTree = "<group>"; };
+		BDD457492719BDD7000E6C2F /* KnobDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnobDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDD4574C2719BDD7000E6C2F /* KnobDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobDemoApp.swift; sourceTree = "<group>"; };
+		BDD4574E2719BDD7000E6C2F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BDD457502719BDD9000E6C2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BDD457532719BDD9000E6C2F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BDD457592719BDD9000E6C2F /* KnobDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnobDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDD4575D2719BDD9000E6C2F /* KnobDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobDemoTests.swift; sourceTree = "<group>"; };
+		BDD457632719BDD9000E6C2F /* KnobDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnobDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDD457672719BDD9000E6C2F /* KnobDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobDemoUITests.swift; sourceTree = "<group>"; };
+		BDD457692719BDD9000E6C2F /* KnobDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BDD457462719BDD7000E6C2F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDA5A25F271ADE6B004FE9EF /* Knob in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDD457562719BDD9000E6C2F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDD457602719BDD9000E6C2F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BDA5A25B271ADC1E004FE9EF /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				BDA5A260271AEB2E004FE9EF /* Knob */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		BDA5A25D271ADE6B004FE9EF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BDD457402719BDD7000E6C2F = {
+			isa = PBXGroup;
+			children = (
+				BDA5A25B271ADC1E004FE9EF /* Packages */,
+				BDD4574B2719BDD7000E6C2F /* KnobDemo */,
+				BDD4575C2719BDD9000E6C2F /* KnobDemoTests */,
+				BDD457662719BDD9000E6C2F /* KnobDemoUITests */,
+				BDD4574A2719BDD7000E6C2F /* Products */,
+				BDA5A25D271ADE6B004FE9EF /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BDD4574A2719BDD7000E6C2F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BDD457492719BDD7000E6C2F /* KnobDemo.app */,
+				BDD457592719BDD9000E6C2F /* KnobDemoTests.xctest */,
+				BDD457632719BDD9000E6C2F /* KnobDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BDD4574B2719BDD7000E6C2F /* KnobDemo */ = {
+			isa = PBXGroup;
+			children = (
+				BDD4574C2719BDD7000E6C2F /* KnobDemoApp.swift */,
+				BDA5A262271AEC40004FE9EF /* KnobView.swift */,
+				BDD4574E2719BDD7000E6C2F /* ContentView.swift */,
+				BDD457502719BDD9000E6C2F /* Assets.xcassets */,
+				BDD457522719BDD9000E6C2F /* Preview Content */,
+				BDA5A261271AEBA3004FE9EF /* README.md */,
+			);
+			path = KnobDemo;
+			sourceTree = "<group>";
+		};
+		BDD457522719BDD9000E6C2F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				BDD457532719BDD9000E6C2F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BDD4575C2719BDD9000E6C2F /* KnobDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				BDD4575D2719BDD9000E6C2F /* KnobDemoTests.swift */,
+			);
+			path = KnobDemoTests;
+			sourceTree = "<group>";
+		};
+		BDD457662719BDD9000E6C2F /* KnobDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BDD457672719BDD9000E6C2F /* KnobDemoUITests.swift */,
+				BDD457692719BDD9000E6C2F /* KnobDemoUITestsLaunchTests.swift */,
+			);
+			path = KnobDemoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BDD457482719BDD7000E6C2F /* KnobDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDD4576D2719BDD9000E6C2F /* Build configuration list for PBXNativeTarget "KnobDemo" */;
+			buildPhases = (
+				BDD457452719BDD7000E6C2F /* Sources */,
+				BDD457462719BDD7000E6C2F /* Frameworks */,
+				BDD457472719BDD7000E6C2F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KnobDemo;
+			packageProductDependencies = (
+				BDA5A25E271ADE6B004FE9EF /* Knob */,
+			);
+			productName = KnobDemo;
+			productReference = BDD457492719BDD7000E6C2F /* KnobDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BDD457582719BDD9000E6C2F /* KnobDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDD457702719BDD9000E6C2F /* Build configuration list for PBXNativeTarget "KnobDemoTests" */;
+			buildPhases = (
+				BDD457552719BDD9000E6C2F /* Sources */,
+				BDD457562719BDD9000E6C2F /* Frameworks */,
+				BDD457572719BDD9000E6C2F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDD4575B2719BDD9000E6C2F /* PBXTargetDependency */,
+			);
+			name = KnobDemoTests;
+			productName = KnobDemoTests;
+			productReference = BDD457592719BDD9000E6C2F /* KnobDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BDD457622719BDD9000E6C2F /* KnobDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDD457732719BDD9000E6C2F /* Build configuration list for PBXNativeTarget "KnobDemoUITests" */;
+			buildPhases = (
+				BDD4575F2719BDD9000E6C2F /* Sources */,
+				BDD457602719BDD9000E6C2F /* Frameworks */,
+				BDD457612719BDD9000E6C2F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BDD457652719BDD9000E6C2F /* PBXTargetDependency */,
+			);
+			name = KnobDemoUITests;
+			productName = KnobDemoUITests;
+			productReference = BDD457632719BDD9000E6C2F /* KnobDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BDD457412719BDD7000E6C2F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					BDD457482719BDD7000E6C2F = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					BDD457582719BDD9000E6C2F = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = BDD457482719BDD7000E6C2F;
+					};
+					BDD457622719BDD9000E6C2F = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = BDD457482719BDD7000E6C2F;
+					};
+				};
+			};
+			buildConfigurationList = BDD457442719BDD7000E6C2F /* Build configuration list for PBXProject "KnobDemo" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BDD457402719BDD7000E6C2F;
+			packageReferences = (
+			);
+			productRefGroup = BDD4574A2719BDD7000E6C2F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BDD457482719BDD7000E6C2F /* KnobDemo */,
+				BDD457582719BDD9000E6C2F /* KnobDemoTests */,
+				BDD457622719BDD9000E6C2F /* KnobDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BDD457472719BDD7000E6C2F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDD457542719BDD9000E6C2F /* Preview Assets.xcassets in Resources */,
+				BDD457512719BDD9000E6C2F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDD457572719BDD9000E6C2F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDD457612719BDD9000E6C2F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BDD457452719BDD7000E6C2F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDD4574F2719BDD7000E6C2F /* ContentView.swift in Sources */,
+				BDA5A263271AEC40004FE9EF /* KnobView.swift in Sources */,
+				BDD4574D2719BDD7000E6C2F /* KnobDemoApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDD457552719BDD9000E6C2F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDD4575E2719BDD9000E6C2F /* KnobDemoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BDD4575F2719BDD9000E6C2F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDD4576A2719BDD9000E6C2F /* KnobDemoUITestsLaunchTests.swift in Sources */,
+				BDD457682719BDD9000E6C2F /* KnobDemoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BDD4575B2719BDD9000E6C2F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDD457482719BDD7000E6C2F /* KnobDemo */;
+			targetProxy = BDD4575A2719BDD9000E6C2F /* PBXContainerItemProxy */;
+		};
+		BDD457652719BDD9000E6C2F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDD457482719BDD7000E6C2F /* KnobDemo */;
+			targetProxy = BDD457642719BDD9000E6C2F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BDD4576B2719BDD9000E6C2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BDD4576C2719BDD9000E6C2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BDD4576E2719BDD9000E6C2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"KnobDemo/Preview Content\"";
+				DEVELOPMENT_TEAM = UP6SS5ES7E;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.braysoftware.KnobDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BDD4576F2719BDD9000E6C2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"KnobDemo/Preview Content\"";
+				DEVELOPMENT_TEAM = UP6SS5ES7E;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.braysoftware.KnobDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BDD457712719BDD9000E6C2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UP6SS5ES7E;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.braysoftware.KnobDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KnobDemo.app/KnobDemo";
+			};
+			name = Debug;
+		};
+		BDD457722719BDD9000E6C2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UP6SS5ES7E;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.braysoftware.KnobDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KnobDemo.app/KnobDemo";
+			};
+			name = Release;
+		};
+		BDD457742719BDD9000E6C2F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UP6SS5ES7E;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.braysoftware.KnobDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KnobDemo;
+			};
+			name = Debug;
+		};
+		BDD457752719BDD9000E6C2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UP6SS5ES7E;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.braysoftware.KnobDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = KnobDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BDD457442719BDD7000E6C2F /* Build configuration list for PBXProject "KnobDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDD4576B2719BDD9000E6C2F /* Debug */,
+				BDD4576C2719BDD9000E6C2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDD4576D2719BDD9000E6C2F /* Build configuration list for PBXNativeTarget "KnobDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDD4576E2719BDD9000E6C2F /* Debug */,
+				BDD4576F2719BDD9000E6C2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDD457702719BDD9000E6C2F /* Build configuration list for PBXNativeTarget "KnobDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDD457712719BDD9000E6C2F /* Debug */,
+				BDD457722719BDD9000E6C2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDD457732719BDD9000E6C2F /* Build configuration list for PBXNativeTarget "KnobDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDD457742719BDD9000E6C2F /* Debug */,
+				BDD457752719BDD9000E6C2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BDA5A25E271ADE6B004FE9EF /* Knob */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Knob;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = BDD457412719BDD7000E6C2F /* Project object */;
+}
