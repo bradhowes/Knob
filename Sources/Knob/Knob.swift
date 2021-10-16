@@ -29,13 +29,13 @@ open class Knob: KnobParentClass {
 #endif
 
   /// The minimum value reported by the control.
-  open var minimumValue: Float = 0.0 { didSet { setValue(clampedValue(value), animated: false) } }
+  open var minimumValue: Float = 0.0 { didSet { setValue(_value, animated: false) } }
 
   /// The maximum value reported by the control.
-  open var maximumValue: Float = 1.0 { didSet { setValue(clampedValue(value), animated: false) } }
+  open var maximumValue: Float = 1.0 { didSet { setValue(_value, animated: false) } }
 
   /// The current value of the control.
-  open var value: Float { get { _value } set { setValue(clampedValue(newValue), animated: false) } }
+  open var value: Float { get { _value } set { setValue(newValue, animated: false) } }
 
   /// How much travel is need to move 4x the width or height of the knob to go from minimumValue to maximumValue.
   /// By default this is 4x the knob size.
