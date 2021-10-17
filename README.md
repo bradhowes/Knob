@@ -77,3 +77,6 @@ the vertical movements become.
 The `KnobDemo` folder contains an Xcode project which you can open to build simple demo apps for macOS and iOS 
 platforms. These also contain UI tests that make sure that the knobs properly track and report out their values.
 
+The demo apps use SwiftUI for their view definitions. They both contain a `KnobView` SwiftUI struct based on 
+UIViewRepresentable (iOS) or NSViewRepresentable (macOS) that properly wires up a Knob instance so that it can respond
+to a value binding, and report out changes to same binding when the user changes the knob position.
