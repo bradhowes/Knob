@@ -13,6 +13,7 @@ class KnobDemoUITests: XCTestCase {
   }
 
   func testSwipingUp() throws {
+#if os(iOS) && !targetEnvironment(macCatalyst)
     let app = XCUIApplication()
     app.launch()
 
@@ -20,7 +21,6 @@ class KnobDemoUITests: XCTestCase {
     let value = app.staticTexts["value"]
     XCTAssertTrue(value.waitForExistence(timeout: 5))
 
-#if os(iOS) && !targetEnvironment(macCatalyst)
     // print(value.debugDescription)
     knob.swipeUp()
     XCTAssertTrue(Double(value.label)! > 0.825)
@@ -30,6 +30,7 @@ class KnobDemoUITests: XCTestCase {
   }
 
   func testSwipingDown() throws {
+#if os(iOS) && !targetEnvironment(macCatalyst)
     let app = XCUIApplication()
     app.launch()
 
@@ -37,7 +38,6 @@ class KnobDemoUITests: XCTestCase {
     let value = app.staticTexts["value"]
     XCTAssertTrue(value.waitForExistence(timeout: 5))
 
-#if os(iOS) && !targetEnvironment(macCatalyst)
     // print(value.debugDescription)
     knob.swipeDown()
     XCTAssertTrue(Double(value.label)! < 0.1)
@@ -47,6 +47,7 @@ class KnobDemoUITests: XCTestCase {
   }
 
   func testTrackingUp() throws {
+#if os(macOS) || targetEnvironment(macCatalyst)
     let app = XCUIApplication()
     app.launch()
 
@@ -55,7 +56,6 @@ class KnobDemoUITests: XCTestCase {
     let value = app.staticTexts["value"]
     XCTAssertTrue(value.waitForExistence(timeout: 5))
 
-#if os(macOS) || targetEnvironment(macCatalyst)
     knob.click(forDuration: 0.2, thenDragTo: title)
     print("value: \(value.debugDescription)")
     print("value.label: \(value.label.debugDescription)")
@@ -66,6 +66,7 @@ class KnobDemoUITests: XCTestCase {
   }
 
   func testTrackingDown() throws {
+#if os(macOS) || targetEnvironment(macCatalyst)
     let app = XCUIApplication()
     app.launch()
 
@@ -73,7 +74,6 @@ class KnobDemoUITests: XCTestCase {
     let value = app.staticTexts["value"]
     XCTAssertTrue(value.waitForExistence(timeout: 5))
 
-#if os(macOS) || targetEnvironment(macCatalyst)
     knob.click(forDuration: 0.2, thenDragTo: value)
     print("value: \(value.debugDescription)")
     print("value.label: \(value.label.debugDescription)")

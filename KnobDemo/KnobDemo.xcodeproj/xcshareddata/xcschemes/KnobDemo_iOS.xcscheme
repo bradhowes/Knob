@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BDD457482719BDD7000E6C2F"
-               BuildableName = "KnobDemo.app"
-               BlueprintName = "KnobDemo"
+               BuildableName = "KnobDemo_iOS.app"
+               BlueprintName = "KnobDemo_iOS"
                ReferencedContainer = "container:KnobDemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BDD457582719BDD9000E6C2F"
-               BuildableName = "KnobDemoTests.xctest"
-               BlueprintName = "KnobDemoTests"
+               BuildableName = "KnobDemo_iOSTests.xctest"
+               BlueprintName = "KnobDemo_iOSTests"
                ReferencedContainer = "container:KnobDemo.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -43,8 +43,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BDD457622719BDD9000E6C2F"
-               BuildableName = "KnobDemoUITests.xctest"
-               BlueprintName = "KnobDemoUITests"
+               BuildableName = "KnobDemo_iOSUITests.xctest"
+               BlueprintName = "KnobDemo_iOSUITests"
                ReferencedContainer = "container:KnobDemo.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -65,8 +65,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BDD457482719BDD7000E6C2F"
-            BuildableName = "KnobDemo.app"
-            BlueprintName = "KnobDemo"
+            BuildableName = "KnobDemo_iOS.app"
+            BlueprintName = "KnobDemo_iOS"
             ReferencedContainer = "container:KnobDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -82,8 +82,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BDD457482719BDD7000E6C2F"
-            BuildableName = "KnobDemo.app"
-            BlueprintName = "KnobDemo"
+            BuildableName = "KnobDemo_iOS.app"
+            BlueprintName = "KnobDemo_iOS"
             ReferencedContainer = "container:KnobDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

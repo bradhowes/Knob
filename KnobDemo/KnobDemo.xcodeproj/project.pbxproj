@@ -7,17 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD42C618271C85D2001E5049 /* KnobDemo_macOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD42C617271C85D2001E5049 /* KnobDemo_macOSApp.swift */; };
+		BD42C61A271C85D2001E5049 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD42C619271C85D2001E5049 /* ContentView.swift */; };
+		BD42C61C271C85D6001E5049 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD42C61B271C85D6001E5049 /* Assets.xcassets */; };
+		BD42C61F271C85D6001E5049 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD42C61E271C85D6001E5049 /* Preview Assets.xcassets */; };
+		BD42C62A271C85D6001E5049 /* KnobDemo_macOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD42C629271C85D6001E5049 /* KnobDemo_macOSTests.swift */; };
+		BD42C634271C85D6001E5049 /* KnobDemo_macOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD42C633271C85D6001E5049 /* KnobDemo_macOSUITests.swift */; };
+		BD42C641271C87E4001E5049 /* KnobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA5A262271AEC40004FE9EF /* KnobView.swift */; };
+		BD42C643271C8896001E5049 /* KnobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD42C642271C8896001E5049 /* KnobView.swift */; };
+		BD42C645271C88BE001E5049 /* Knob in Frameworks */ = {isa = PBXBuildFile; productRef = BD42C644271C88BE001E5049 /* Knob */; };
 		BDA5A25F271ADE6B004FE9EF /* Knob in Frameworks */ = {isa = PBXBuildFile; productRef = BDA5A25E271ADE6B004FE9EF /* Knob */; };
-		BDA5A263271AEC40004FE9EF /* KnobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA5A262271AEC40004FE9EF /* KnobView.swift */; };
-		BDD4574D2719BDD7000E6C2F /* KnobDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD4574C2719BDD7000E6C2F /* KnobDemoApp.swift */; };
+		BDD4574D2719BDD7000E6C2F /* KnobDemo_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD4574C2719BDD7000E6C2F /* KnobDemo_iOSApp.swift */; };
 		BDD4574F2719BDD7000E6C2F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD4574E2719BDD7000E6C2F /* ContentView.swift */; };
 		BDD457512719BDD9000E6C2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD457502719BDD9000E6C2F /* Assets.xcassets */; };
 		BDD457542719BDD9000E6C2F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD457532719BDD9000E6C2F /* Preview Assets.xcassets */; };
-		BDD4575E2719BDD9000E6C2F /* KnobDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD4575D2719BDD9000E6C2F /* KnobDemoTests.swift */; };
-		BDD457682719BDD9000E6C2F /* KnobDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD457672719BDD9000E6C2F /* KnobDemoUITests.swift */; };
+		BDD4575E2719BDD9000E6C2F /* KnobDemo_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD4575D2719BDD9000E6C2F /* KnobDemo_iOSTests.swift */; };
+		BDD457682719BDD9000E6C2F /* KnobDemo_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD457672719BDD9000E6C2F /* KnobDemo_iOSUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		BD42C626271C85D6001E5049 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDD457412719BDD7000E6C2F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BD42C614271C85D2001E5049;
+			remoteInfo = KnobDemo_macOS;
+		};
+		BD42C630271C85D6001E5049 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDD457412719BDD7000E6C2F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BD42C614271C85D2001E5049;
+			remoteInfo = KnobDemo_macOS;
+		};
 		BDD4575A2719BDD9000E6C2F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BDD457412719BDD7000E6C2F /* Project object */;
@@ -35,22 +57,55 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BD42C615271C85D2001E5049 /* KnobDemo_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnobDemo_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD42C617271C85D2001E5049 /* KnobDemo_macOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobDemo_macOSApp.swift; sourceTree = "<group>"; };
+		BD42C619271C85D2001E5049 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BD42C61B271C85D6001E5049 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BD42C61E271C85D6001E5049 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BD42C620271C85D6001E5049 /* KnobDemo_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KnobDemo_macOS.entitlements; sourceTree = "<group>"; };
+		BD42C625271C85D6001E5049 /* KnobDemo_macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnobDemo_macOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD42C629271C85D6001E5049 /* KnobDemo_macOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobDemo_macOSTests.swift; sourceTree = "<group>"; };
+		BD42C62F271C85D6001E5049 /* KnobDemo_macOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnobDemo_macOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD42C633271C85D6001E5049 /* KnobDemo_macOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobDemo_macOSUITests.swift; sourceTree = "<group>"; };
+		BD42C642271C8896001E5049 /* KnobView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KnobView.swift; sourceTree = "<group>"; };
 		BDA5A260271AEB2E004FE9EF /* Knob */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Knob; path = ..; sourceTree = "<group>"; };
 		BDA5A261271AEBA3004FE9EF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BDA5A262271AEC40004FE9EF /* KnobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobView.swift; sourceTree = "<group>"; };
-		BDB6AF4E271AF1E800F7A115 /* KnobDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KnobDemo.entitlements; sourceTree = "<group>"; };
-		BDD457492719BDD7000E6C2F /* KnobDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnobDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BDD4574C2719BDD7000E6C2F /* KnobDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobDemoApp.swift; sourceTree = "<group>"; };
+		BDB6AF4E271AF1E800F7A115 /* KnobDemo_iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KnobDemo_iOS.entitlements; sourceTree = "<group>"; };
+		BDD457492719BDD7000E6C2F /* KnobDemo_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnobDemo_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDD4574C2719BDD7000E6C2F /* KnobDemo_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobDemo_iOSApp.swift; sourceTree = "<group>"; };
 		BDD4574E2719BDD7000E6C2F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BDD457502719BDD9000E6C2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDD457532719BDD9000E6C2F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		BDD457592719BDD9000E6C2F /* KnobDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnobDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BDD4575D2719BDD9000E6C2F /* KnobDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobDemoTests.swift; sourceTree = "<group>"; };
-		BDD457632719BDD9000E6C2F /* KnobDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnobDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BDD457672719BDD9000E6C2F /* KnobDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobDemoUITests.swift; sourceTree = "<group>"; };
+		BDD457592719BDD9000E6C2F /* KnobDemo_iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnobDemo_iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDD4575D2719BDD9000E6C2F /* KnobDemo_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobDemo_iOSTests.swift; sourceTree = "<group>"; };
+		BDD457632719BDD9000E6C2F /* KnobDemo_iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnobDemo_iOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDD457672719BDD9000E6C2F /* KnobDemo_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobDemo_iOSUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BD42C612271C85D2001E5049 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD42C645271C88BE001E5049 /* Knob in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD42C622271C85D6001E5049 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD42C62C271C85D6001E5049 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BDD457462719BDD7000E6C2F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -76,6 +131,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD42C616271C85D2001E5049 /* KnobDemo_macOS */ = {
+			isa = PBXGroup;
+			children = (
+				BD42C617271C85D2001E5049 /* KnobDemo_macOSApp.swift */,
+				BD42C619271C85D2001E5049 /* ContentView.swift */,
+				BD42C642271C8896001E5049 /* KnobView.swift */,
+				BD42C61B271C85D6001E5049 /* Assets.xcassets */,
+				BD42C620271C85D6001E5049 /* KnobDemo_macOS.entitlements */,
+				BD42C61D271C85D6001E5049 /* Preview Content */,
+			);
+			path = KnobDemo_macOS;
+			sourceTree = "<group>";
+		};
+		BD42C61D271C85D6001E5049 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				BD42C61E271C85D6001E5049 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BD42C628271C85D6001E5049 /* KnobDemo_macOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				BD42C629271C85D6001E5049 /* KnobDemo_macOSTests.swift */,
+			);
+			path = KnobDemo_macOSTests;
+			sourceTree = "<group>";
+		};
+		BD42C632271C85D6001E5049 /* KnobDemo_macOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BD42C633271C85D6001E5049 /* KnobDemo_macOSUITests.swift */,
+			);
+			path = KnobDemo_macOSUITests;
+			sourceTree = "<group>";
+		};
 		BDA5A25B271ADC1E004FE9EF /* Packages */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,9 +187,12 @@
 			isa = PBXGroup;
 			children = (
 				BDA5A25B271ADC1E004FE9EF /* Packages */,
-				BDD4574B2719BDD7000E6C2F /* KnobDemo */,
-				BDD4575C2719BDD9000E6C2F /* KnobDemoTests */,
-				BDD457662719BDD9000E6C2F /* KnobDemoUITests */,
+				BDD4574B2719BDD7000E6C2F /* KnobDemo_iOS */,
+				BDD4575C2719BDD9000E6C2F /* KnobDemoTests_iOS */,
+				BDD457662719BDD9000E6C2F /* KnobDemo_iOSUITests */,
+				BD42C616271C85D2001E5049 /* KnobDemo_macOS */,
+				BD42C628271C85D6001E5049 /* KnobDemo_macOSTests */,
+				BD42C632271C85D6001E5049 /* KnobDemo_macOSUITests */,
 				BDD4574A2719BDD7000E6C2F /* Products */,
 				BDA5A25D271ADE6B004FE9EF /* Frameworks */,
 			);
@@ -106,25 +201,28 @@
 		BDD4574A2719BDD7000E6C2F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BDD457492719BDD7000E6C2F /* KnobDemo.app */,
-				BDD457592719BDD9000E6C2F /* KnobDemoTests.xctest */,
-				BDD457632719BDD9000E6C2F /* KnobDemoUITests.xctest */,
+				BDD457492719BDD7000E6C2F /* KnobDemo_iOS.app */,
+				BDD457592719BDD9000E6C2F /* KnobDemo_iOSTests.xctest */,
+				BDD457632719BDD9000E6C2F /* KnobDemo_iOSUITests.xctest */,
+				BD42C615271C85D2001E5049 /* KnobDemo_macOS.app */,
+				BD42C625271C85D6001E5049 /* KnobDemo_macOSTests.xctest */,
+				BD42C62F271C85D6001E5049 /* KnobDemo_macOSUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BDD4574B2719BDD7000E6C2F /* KnobDemo */ = {
+		BDD4574B2719BDD7000E6C2F /* KnobDemo_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				BDB6AF4E271AF1E800F7A115 /* KnobDemo.entitlements */,
-				BDD4574C2719BDD7000E6C2F /* KnobDemoApp.swift */,
+				BDB6AF4E271AF1E800F7A115 /* KnobDemo_iOS.entitlements */,
+				BDD4574C2719BDD7000E6C2F /* KnobDemo_iOSApp.swift */,
 				BDA5A262271AEC40004FE9EF /* KnobView.swift */,
 				BDD4574E2719BDD7000E6C2F /* ContentView.swift */,
 				BDD457502719BDD9000E6C2F /* Assets.xcassets */,
 				BDD457522719BDD9000E6C2F /* Preview Content */,
 				BDA5A261271AEBA3004FE9EF /* README.md */,
 			);
-			path = KnobDemo;
+			path = KnobDemo_iOS;
 			sourceTree = "<group>";
 		};
 		BDD457522719BDD9000E6C2F /* Preview Content */ = {
@@ -135,28 +233,84 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		BDD4575C2719BDD9000E6C2F /* KnobDemoTests */ = {
+		BDD4575C2719BDD9000E6C2F /* KnobDemoTests_iOS */ = {
 			isa = PBXGroup;
 			children = (
-				BDD4575D2719BDD9000E6C2F /* KnobDemoTests.swift */,
+				BDD4575D2719BDD9000E6C2F /* KnobDemo_iOSTests.swift */,
 			);
-			path = KnobDemoTests;
+			path = KnobDemoTests_iOS;
 			sourceTree = "<group>";
 		};
-		BDD457662719BDD9000E6C2F /* KnobDemoUITests */ = {
+		BDD457662719BDD9000E6C2F /* KnobDemo_iOSUITests */ = {
 			isa = PBXGroup;
 			children = (
-				BDD457672719BDD9000E6C2F /* KnobDemoUITests.swift */,
+				BDD457672719BDD9000E6C2F /* KnobDemo_iOSUITests.swift */,
 			);
-			path = KnobDemoUITests;
+			path = KnobDemo_iOSUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BDD457482719BDD7000E6C2F /* KnobDemo */ = {
+		BD42C614271C85D2001E5049 /* KnobDemo_macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BDD4576D2719BDD9000E6C2F /* Build configuration list for PBXNativeTarget "KnobDemo" */;
+			buildConfigurationList = BD42C637271C85D6001E5049 /* Build configuration list for PBXNativeTarget "KnobDemo_macOS" */;
+			buildPhases = (
+				BD42C611271C85D2001E5049 /* Sources */,
+				BD42C612271C85D2001E5049 /* Frameworks */,
+				BD42C613271C85D2001E5049 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KnobDemo_macOS;
+			packageProductDependencies = (
+				BD42C644271C88BE001E5049 /* Knob */,
+			);
+			productName = KnobDemo_macOS;
+			productReference = BD42C615271C85D2001E5049 /* KnobDemo_macOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BD42C624271C85D6001E5049 /* KnobDemo_macOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD42C63A271C85D6001E5049 /* Build configuration list for PBXNativeTarget "KnobDemo_macOSTests" */;
+			buildPhases = (
+				BD42C621271C85D6001E5049 /* Sources */,
+				BD42C622271C85D6001E5049 /* Frameworks */,
+				BD42C623271C85D6001E5049 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BD42C627271C85D6001E5049 /* PBXTargetDependency */,
+			);
+			name = KnobDemo_macOSTests;
+			productName = KnobDemo_macOSTests;
+			productReference = BD42C625271C85D6001E5049 /* KnobDemo_macOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BD42C62E271C85D6001E5049 /* KnobDemo_macOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD42C63D271C85D6001E5049 /* Build configuration list for PBXNativeTarget "KnobDemo_macOSUITests" */;
+			buildPhases = (
+				BD42C62B271C85D6001E5049 /* Sources */,
+				BD42C62C271C85D6001E5049 /* Frameworks */,
+				BD42C62D271C85D6001E5049 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BD42C631271C85D6001E5049 /* PBXTargetDependency */,
+			);
+			name = KnobDemo_macOSUITests;
+			productName = KnobDemo_macOSUITests;
+			productReference = BD42C62F271C85D6001E5049 /* KnobDemo_macOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		BDD457482719BDD7000E6C2F /* KnobDemo_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDD4576D2719BDD9000E6C2F /* Build configuration list for PBXNativeTarget "KnobDemo_iOS" */;
 			buildPhases = (
 				BDD457452719BDD7000E6C2F /* Sources */,
 				BDD457462719BDD7000E6C2F /* Frameworks */,
@@ -166,17 +320,17 @@
 			);
 			dependencies = (
 			);
-			name = KnobDemo;
+			name = KnobDemo_iOS;
 			packageProductDependencies = (
 				BDA5A25E271ADE6B004FE9EF /* Knob */,
 			);
 			productName = KnobDemo;
-			productReference = BDD457492719BDD7000E6C2F /* KnobDemo.app */;
+			productReference = BDD457492719BDD7000E6C2F /* KnobDemo_iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BDD457582719BDD9000E6C2F /* KnobDemoTests */ = {
+		BDD457582719BDD9000E6C2F /* KnobDemo_iOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BDD457702719BDD9000E6C2F /* Build configuration list for PBXNativeTarget "KnobDemoTests" */;
+			buildConfigurationList = BDD457702719BDD9000E6C2F /* Build configuration list for PBXNativeTarget "KnobDemo_iOSTests" */;
 			buildPhases = (
 				BDD457552719BDD9000E6C2F /* Sources */,
 				BDD457562719BDD9000E6C2F /* Frameworks */,
@@ -187,14 +341,14 @@
 			dependencies = (
 				BDD4575B2719BDD9000E6C2F /* PBXTargetDependency */,
 			);
-			name = KnobDemoTests;
+			name = KnobDemo_iOSTests;
 			productName = KnobDemoTests;
-			productReference = BDD457592719BDD9000E6C2F /* KnobDemoTests.xctest */;
+			productReference = BDD457592719BDD9000E6C2F /* KnobDemo_iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		BDD457622719BDD9000E6C2F /* KnobDemoUITests */ = {
+		BDD457622719BDD9000E6C2F /* KnobDemo_iOSUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BDD457732719BDD9000E6C2F /* Build configuration list for PBXNativeTarget "KnobDemoUITests" */;
+			buildConfigurationList = BDD457732719BDD9000E6C2F /* Build configuration list for PBXNativeTarget "KnobDemo_iOSUITests" */;
 			buildPhases = (
 				BDD4575F2719BDD9000E6C2F /* Sources */,
 				BDD457602719BDD9000E6C2F /* Frameworks */,
@@ -205,9 +359,9 @@
 			dependencies = (
 				BDD457652719BDD9000E6C2F /* PBXTargetDependency */,
 			);
-			name = KnobDemoUITests;
+			name = KnobDemo_iOSUITests;
 			productName = KnobDemoUITests;
-			productReference = BDD457632719BDD9000E6C2F /* KnobDemoUITests.xctest */;
+			productReference = BDD457632719BDD9000E6C2F /* KnobDemo_iOSUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -220,6 +374,17 @@
 				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
+					BD42C614271C85D2001E5049 = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					BD42C624271C85D6001E5049 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = BD42C614271C85D2001E5049;
+					};
+					BD42C62E271C85D6001E5049 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = BD42C614271C85D2001E5049;
+					};
 					BDD457482719BDD7000E6C2F = {
 						CreatedOnToolsVersion = 13.0;
 					};
@@ -248,14 +413,40 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BDD457482719BDD7000E6C2F /* KnobDemo */,
-				BDD457582719BDD9000E6C2F /* KnobDemoTests */,
-				BDD457622719BDD9000E6C2F /* KnobDemoUITests */,
+				BDD457482719BDD7000E6C2F /* KnobDemo_iOS */,
+				BDD457582719BDD9000E6C2F /* KnobDemo_iOSTests */,
+				BDD457622719BDD9000E6C2F /* KnobDemo_iOSUITests */,
+				BD42C614271C85D2001E5049 /* KnobDemo_macOS */,
+				BD42C624271C85D6001E5049 /* KnobDemo_macOSTests */,
+				BD42C62E271C85D6001E5049 /* KnobDemo_macOSUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BD42C613271C85D2001E5049 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD42C61F271C85D6001E5049 /* Preview Assets.xcassets in Resources */,
+				BD42C61C271C85D6001E5049 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD42C623271C85D6001E5049 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD42C62D271C85D6001E5049 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BDD457472719BDD7000E6C2F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -282,13 +473,39 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BD42C611271C85D2001E5049 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD42C61A271C85D2001E5049 /* ContentView.swift in Sources */,
+				BD42C643271C8896001E5049 /* KnobView.swift in Sources */,
+				BD42C618271C85D2001E5049 /* KnobDemo_macOSApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD42C621271C85D6001E5049 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD42C62A271C85D6001E5049 /* KnobDemo_macOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD42C62B271C85D6001E5049 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD42C634271C85D6001E5049 /* KnobDemo_macOSUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BDD457452719BDD7000E6C2F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				BDD4574F2719BDD7000E6C2F /* ContentView.swift in Sources */,
-				BDA5A263271AEC40004FE9EF /* KnobView.swift in Sources */,
-				BDD4574D2719BDD7000E6C2F /* KnobDemoApp.swift in Sources */,
+				BD42C641271C87E4001E5049 /* KnobView.swift in Sources */,
+				BDD4574D2719BDD7000E6C2F /* KnobDemo_iOSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,7 +513,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDD4575E2719BDD9000E6C2F /* KnobDemoTests.swift in Sources */,
+				BDD4575E2719BDD9000E6C2F /* KnobDemo_iOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,26 +521,196 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDD457682719BDD9000E6C2F /* KnobDemoUITests.swift in Sources */,
+				BDD457682719BDD9000E6C2F /* KnobDemo_iOSUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		BD42C627271C85D6001E5049 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BD42C614271C85D2001E5049 /* KnobDemo_macOS */;
+			targetProxy = BD42C626271C85D6001E5049 /* PBXContainerItemProxy */;
+		};
+		BD42C631271C85D6001E5049 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BD42C614271C85D2001E5049 /* KnobDemo_macOS */;
+			targetProxy = BD42C630271C85D6001E5049 /* PBXContainerItemProxy */;
+		};
 		BDD4575B2719BDD9000E6C2F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BDD457482719BDD7000E6C2F /* KnobDemo */;
+			target = BDD457482719BDD7000E6C2F /* KnobDemo_iOS */;
 			targetProxy = BDD4575A2719BDD9000E6C2F /* PBXContainerItemProxy */;
 		};
 		BDD457652719BDD9000E6C2F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BDD457482719BDD7000E6C2F /* KnobDemo */;
+			target = BDD457482719BDD7000E6C2F /* KnobDemo_iOS */;
 			targetProxy = BDD457642719BDD9000E6C2F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		BD42C638271C85D6001E5049 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = KnobDemo_macOS/KnobDemo_macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"KnobDemo_macOS/Preview Content\"";
+				DEVELOPMENT_TEAM = UP6SS5ES7E;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.braysoftware.KnobDemo-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		BD42C639271C85D6001E5049 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = KnobDemo_macOS/KnobDemo_macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"KnobDemo_macOS/Preview Content\"";
+				DEVELOPMENT_TEAM = UP6SS5ES7E;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.braysoftware.KnobDemo-macOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		BD42C63B271C85D6001E5049 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UP6SS5ES7E;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.braysoftware.KnobDemo-macOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KnobDemo_macOS.app/Contents/MacOS/KnobDemo_macOS";
+			};
+			name = Debug;
+		};
+		BD42C63C271C85D6001E5049 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UP6SS5ES7E;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.braysoftware.KnobDemo-macOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KnobDemo_macOS.app/Contents/MacOS/KnobDemo_macOS";
+			};
+			name = Release;
+		};
+		BD42C63E271C85D6001E5049 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UP6SS5ES7E;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.braysoftware.KnobDemo-macOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = KnobDemo_macOS;
+			};
+			name = Debug;
+		};
+		BD42C63F271C85D6001E5049 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UP6SS5ES7E;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.braysoftware.KnobDemo-macOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = KnobDemo_macOS;
+			};
+			name = Release;
+		};
 		BDD4576B2719BDD9000E6C2F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -455,6 +842,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -464,11 +852,11 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.braysoftware.KnobDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
+				PRODUCT_NAME = KnobDemo_iOS;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -487,6 +875,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -496,11 +885,11 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.braysoftware.KnobDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTS_MACCATALYST = YES;
+				PRODUCT_NAME = KnobDemo_iOS;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -603,6 +992,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BD42C637271C85D6001E5049 /* Build configuration list for PBXNativeTarget "KnobDemo_macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD42C638271C85D6001E5049 /* Debug */,
+				BD42C639271C85D6001E5049 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD42C63A271C85D6001E5049 /* Build configuration list for PBXNativeTarget "KnobDemo_macOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD42C63B271C85D6001E5049 /* Debug */,
+				BD42C63C271C85D6001E5049 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD42C63D271C85D6001E5049 /* Build configuration list for PBXNativeTarget "KnobDemo_macOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD42C63E271C85D6001E5049 /* Debug */,
+				BD42C63F271C85D6001E5049 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BDD457442719BDD7000E6C2F /* Build configuration list for PBXProject "KnobDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -612,7 +1028,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BDD4576D2719BDD9000E6C2F /* Build configuration list for PBXNativeTarget "KnobDemo" */ = {
+		BDD4576D2719BDD9000E6C2F /* Build configuration list for PBXNativeTarget "KnobDemo_iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BDD4576E2719BDD9000E6C2F /* Debug */,
@@ -621,7 +1037,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BDD457702719BDD9000E6C2F /* Build configuration list for PBXNativeTarget "KnobDemoTests" */ = {
+		BDD457702719BDD9000E6C2F /* Build configuration list for PBXNativeTarget "KnobDemo_iOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BDD457712719BDD9000E6C2F /* Debug */,
@@ -630,7 +1046,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BDD457732719BDD9000E6C2F /* Build configuration list for PBXNativeTarget "KnobDemoUITests" */ = {
+		BDD457732719BDD9000E6C2F /* Build configuration list for PBXNativeTarget "KnobDemo_iOSUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BDD457742719BDD9000E6C2F /* Debug */,
@@ -642,6 +1058,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		BD42C644271C88BE001E5049 /* Knob */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Knob;
+		};
 		BDA5A25E271ADE6B004FE9EF /* Knob */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Knob;

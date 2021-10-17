@@ -39,7 +39,7 @@ open class Knob: KnobParentClass {
   open dynamic var value: Float { get { _value } set { setValue(newValue, animated: false) } }
 
   /// How much travel is need to move 4x the width or height of the knob to go from minimumValue to maximumValue.
-  /// By default this is 4x the knob size.
+  /// By default this is 1x the knob size.
   open var touchSensitivity: Float = 1.0
 
   /// The width of the arc that is shown after the current value.
@@ -255,6 +255,13 @@ extension Knob {
   }
 #endif
 }
+
+#if os(macOS)
+extension Knob : NSAccessibilitySlider {
+  public override func isAccessibilityElement() -> Bool { true }
+  public override func isAccessibilityEnabled() -> Bool { true }
+}
+#endif
 
 // MARK: - Private
 

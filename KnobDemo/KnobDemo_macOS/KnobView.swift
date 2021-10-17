@@ -1,17 +1,11 @@
-//
-//  KnobView.swift
-//  KnobDemo
-//
-//  Created by Brad Howes on 16/10/2021.
-//
-
 import SwiftUI
 import Knob
 
 /**
  Wrapper for a Knob control that allows it to reside in and take part in a SwiftUI view definition.
  */
-struct KnobView: UIViewRepresentable {
+struct KnobView: NSViewRepresentable {
+  typealias NSViewType = Knob
 
   /// The current value of the Knob
   @Binding var value: Float
@@ -22,7 +16,7 @@ struct KnobView: UIViewRepresentable {
    - parameter context: the context where the control will live
    - returns: the new Knob control
    */
-  func makeUIView(context: Context) -> Knob {
+  func makeNSView(context: Context) -> Knob {
     let knob = Knob()
     knob.trackLineWidth = 12.0
     knob.trackColor = .darkGray
@@ -44,7 +38,7 @@ struct KnobView: UIViewRepresentable {
    - parameter uiView: the Knob to update
    - parameter context: the context where the control lives
    */
-  func updateUIView(_ uiView: Knob, context: Context) { uiView.value = value }
+  func updateNSView(_ view: Knob, context: Context) { view.value = value }
 
   /**
    Create a new coordinator that will monitor the Knob value changes.
@@ -61,7 +55,12 @@ struct KnobView: UIViewRepresentable {
     private var knobView: KnobView
 
     init(_ knobView: KnobView) { self.knobView = knobView }
-    func monitor(_ knob: Knob) { knob.addTarget(self, action: #selector(valueChanged), for: .valueChanged) }
+
+    func monitor(_ knob: Knob) {
+      knob.target = self
+      knob.action = #selector(valueChanged(_:))
+    }
+
     @objc func valueChanged(_ sender: Knob) { knobView.value = sender.value }
   }
 }
