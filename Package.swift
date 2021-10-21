@@ -10,9 +10,14 @@ let package = Package(
         .iOS(.v12),
     ],
     products: [
-        .library(
-            name: "Knob",
-            targets: ["Knob"]),
+      .library(
+        name: "Knob",
+        type: .dynamic,
+        targets: ["Knob"]),
+      .library(
+        name: "KnobStatic",
+        type: .static,
+        targets: ["Knob"]),
     ],
     dependencies: [
       .package(url: "https://github.com/pointfreeco/swift-snapshot-testing.git", from: "1.9.0"),
