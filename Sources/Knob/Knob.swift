@@ -23,9 +23,11 @@ open class Knob: KnobParentClass {
 #if os(iOS) || os(tvOS)
   public typealias Color = UIColor
   public typealias BezierPath = UIBezierPath
+  public typealias Label = UILabel
 #elseif os(macOS)
   public typealias Color = NSColor
   public typealias BezierPath = NSBezierPath
+  public typealias Label = NSText
 #endif
 
   /// The minimum value reported by the control.
@@ -85,6 +87,13 @@ open class Knob: KnobParentClass {
   /// The color of the tick line.
   open var tickColor: Color = .black { didSet { ticksLayer.strokeColor = tickColor.cgColor } }
 
+  open var valueLabel: Label?
+  open var valueName: String?
+  open var valueFormatter: NumberFormatter?
+  open var formattedValue: String { valueFormatter?.string(from: .init(value: _value)) ?? "\(_value)" }
+  open var valuePersistence: TimeInterval = 1.0
+  open var nameTransitionDuration = 0.5
+
   /**
    The starting angle of the arc where a value of 0.0 is located. Arc angles are explained in the UIBezier
    documentation for init(arcCenter:radius:startAngle:endAngle:clockwise:). In short, a value of 0.0 will start on
@@ -106,6 +115,7 @@ open class Knob: KnobParentClass {
   private var _value: Float = 0.0
   private var panOrigin: CGPoint = .zero
   private var activeTouch: Bool = false
+  private var restorationTimer: Timer?
 
 #if os(macOS)
   override public var acceptsFirstResponder: Bool { get { return true } }
@@ -152,6 +162,39 @@ extension Knob {
 #if os(macOS)
     updateLayer()
 #endif
+    restorationTimer?.invalidate()
+#if os(macOS)
+    valueLabel?.string = formattedValue
+#elseif os(iOS) || os(tvOS)
+    valueLabel?.text = formattedValue
+#endif
+  }
+}
+
+extension Knob {
+
+  open func restoreLabelWithName() {
+    restorationTimer?.invalidate()
+    guard
+      let valueLabel = self.valueLabel,
+      let valueName = self.valueName
+    else { return }
+
+    restorationTimer = Timer.scheduledTimer(withTimeInterval: valuePersistence, repeats: false) { [weak self] _ in
+      guard let self = self else { return }
+#if os(macOS)
+
+#elseif os(iOS) || os(tvOS)
+      UIView.transition(with: valueLabel, duration: self.nameTransitionDuration,
+                        options: [.curveLinear, .transitionCrossDissolve]) {
+        valueLabel.text = valueName
+      } completion: { _ in
+        valueLabel.text = valueName
+      }
+#endif
+    }
+
+    updateQueue.async { self.sendActions(for: .touchCancel) }
   }
 }
 
@@ -245,13 +288,13 @@ extension Knob {
   override open func cancelTracking(with event: UIEvent?) {
     activeTouch = false
     super.cancelTracking(with: event)
-    updateQueue.async { self.sendActions(for: .valueChanged) }
+    restoreLabelWithName()
   }
 
   override open func endTracking(_ touch: UITouch?, with event: UIEvent?) {
     activeTouch = false
     super.endTracking(touch, with: event)
-    updateQueue.async { self.sendActions(for: .valueChanged) }
+    restoreLabelWithName()
   }
 #endif
 }
