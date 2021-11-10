@@ -5,10 +5,11 @@ import Knob
  Wrapper for a Knob control that allows it to reside in and take part in a SwiftUI view definition.
  */
 struct KnobView: NSViewRepresentable {
-  typealias NSViewType = Knob
 
   /// The current value of the Knob
   @Binding var value: Float
+  /// Signal that the knob is being manipulated
+  @Binding var manipulating: Bool
 
   /**
    Create a new Knob control to be managed in SwiftUI.
@@ -61,7 +62,10 @@ struct KnobView: NSViewRepresentable {
       knob.action = #selector(valueChanged(_:))
     }
 
-    @objc func valueChanged(_ sender: Knob) { knobView.value = sender.value }
+    @objc func valueChanged(_ sender: Knob) {
+      knobView.value = sender.value
+      knobView.manipulating = sender.manipulating
+    }
   }
 }
 

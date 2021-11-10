@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import KnobDemo
+@testable import KnobDemo_iOS
 
 class KnobDemoTests: XCTestCase {
 

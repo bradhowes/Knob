@@ -8,6 +8,8 @@ struct KnobView: UIViewRepresentable {
 
   /// The current value of the Knob
   @Binding var value: Float
+  /// Signal that the knob is being manipulated
+  @Binding var manipulating: Bool
 
   /**
    Create a new Knob control to be managed in SwiftUI.
@@ -55,7 +57,10 @@ struct KnobView: UIViewRepresentable {
 
     init(_ knobView: KnobView) { self.knobView = knobView }
     func monitor(_ knob: Knob) { knob.addTarget(self, action: #selector(valueChanged), for: .valueChanged) }
-    @objc func valueChanged(_ sender: Knob) { knobView.value = sender.value }
+    @objc func valueChanged(_ sender: Knob) {
+      knobView.value = sender.value
+      knobView.manipulating = sender.manipulating
+    }
   }
 }
 
