@@ -9,9 +9,9 @@ public typealias KnobParentClass = NSControl
 #endif
 
 /**
- Custom UIControl that depicts a value as a point on a circle. Changing the value is done by touching on the control
- and moving up to increase and down to decrease the current value. While touching, moving away from the control in
- either direction will increase the resolution of the touch changes, causing the value to change more slowly as
+ Custom UIControl/NSControl that depicts a value as a point on a circle. Changing the value is done by touching on the
+ control and moving up to increase and down to decrease the current value. While touching, moving away from the control
+ in either direction will increase the resolution of the touch changes, causing the value to change more slowly as
  vertical distance changes. Pretty much works like UISlider but with the travel path as an arc.
 
  Visual representation of the knob is done via CoreAnimation components, namely CAShapeLayer and UIBezierPath. The
@@ -302,14 +302,13 @@ extension Knob : NSAccessibilitySlider {
 extension Knob {
 
   private func updateValue(with point: CGPoint) {
-    // Scale touchSensitivity by how far away in the X direction the touch is -- farther away the larger the
-    // sensitivity, thus making for smaller value changes for the same
-    // distance traveled in the Y direction.
-    let scaleT = log10(max(abs(Float(panOrigin.x - point.x)), 1.0)) + 1
+    // Scale Y changes by how far away in the X direction the touch is -- farther away the more one must travel in Y
+    // to achieve the same change in value. Use `touchSensitivity` to increase/reduce this effect.
+    let scaleT = 1 / (1.0 + log10(max(abs(Float(panOrigin.x - point.x) / 10.0), 1.0)))
 #if os(macOS)
-    let deltaT = Float(point.y - panOrigin.y) / (Float(min(bounds.height, bounds.width)) * touchSensitivity * scaleT)
+    let deltaT = Float(point.y - panOrigin.y) / (Float(min(bounds.height, bounds.width))) * touchSensitivity * scaleT
 #elseif os(iOS) || os(tvOS)
-    let deltaT = Float(panOrigin.y - point.y) / (Float(min(bounds.height, bounds.width)) * touchSensitivity * scaleT)
+    let deltaT = Float(panOrigin.y - point.y) / (Float(min(bounds.height, bounds.width))) * touchSensitivity * scaleT
 #endif
     defer { panOrigin = CGPoint(x: panOrigin.x, y: point.y) }
     let change = deltaT * (maximumValue - minimumValue)
