@@ -21,7 +21,7 @@ Like a slider, touch movements in the control change the value. For my implement
   change the value from 0.0 to 1.0. See the documentation for the `touchSensitivity` parameter.
 * Touch sensitivity can be increased by moving the touch horizontally away from the control (either direction).
   This is similar to the change in "scrubbing" speed when watching a video -- the further the touch moves away
-  from the scrubber, the finer the positioning is within the video.
+  from the scrubber, the finer the positioning is within the video (larger movements for same amount of change in value)
 * For now, this control reports value changes continuously -- there is no way to disable this as there is for
   a UISlider.
 
@@ -34,14 +34,15 @@ Included is a playground for playing with a knob.
 
 * `minimumValue` -- the lowest value that the control will report out.
 * `maximumValue` -- the highest value that the control will report out.
-* `value` -- the current value of the control.
+* `value` -- the current value of the control (settable).
 * `touchSensitivity` -- scaling factor between touch movement and value change. The default is `1` which means that one
 must drag 1x the size of the widget in order to change the value from `miminimumValue` to `maximumValue`.
 * `trackLineWidth` -- the line width of the knob's arc that is drawn from the current value to the end.
 * `trackColor` -- the color of the arc that is drawn from the current value to the end.
 * `progressLineWidth` -- the line width of the knob's arc that is drawn from the start to the current value.
 * `progressColor` -- the color of the arc thta is drawn from the start to the current value.
-* `indicatorLineWidth` -- the line width of the knob's indicator that is draw from the current value towards the knob center.
+* `indicatorLineWidth` -- the line width of the knob's indicator that is draw from the current value towards the 
+knob center.
 * `indicatorColor` -- the color of the line that is drawn from the current value to the center.
 * `indicatorLineLength` -- the amount of the line that is drawn from the current value to the center, where 0.0 
 indicates no line will be drawn, and 0.5 results in a line that is half-way to the knob center point.
@@ -51,6 +52,12 @@ indicates no line will be drawn, and 0.5 results in a line that is half-way to t
 * `tickLineLength` -- fraction of a radius to draw (0.0 - 1.0)
 * `tickLineWidth` -- width of the tick line
 * `tickColor` -- the color of the tick line
+* `valueLabel` -- an optional UILabel/NSText to use to show a formatted textual representation of the current value.
+* `valueName` -- optional name to show in the `valueLabel` when the knob is not being manipulated. If `nil`, the knob 
+value is always shown.
+* `valueFormatter` -- optional NumberFormatter to use to generate the textual representation shown in the `valueLabel`.
+* `valuePersistence` -- the number of seconds to persist the last value shown before showing the `valueName` 
+(if non-nil). Only applies after the end of a mouse or touch event.
 
 Arc angles are explained well in the 
 [UIBezierPath documentation](https://developer.apple.com/documentation/uikit/uibezierpath/1624358-init). In brief, an 
