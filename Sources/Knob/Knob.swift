@@ -76,6 +76,8 @@ open class Knob: KnobParentClass {
   /// the `maximumValue`
   public var tickCount: Int = 0 { didSet { createShapes() } }
 
+  /// Offset for the start of a tick line. Range is from 0.0 to 1.0 where 0.0 starts at the circumference of the arc,
+  /// and 0.5 is midway between the circumference and the center along a radial.
   public var tickLineOffset: CGFloat = 0.1 { didSet { createShapes() } }
 
   /// Length of the tick. Range is from 0.0 to 1.0 where 1.0 will draw a line ending at the center of the knob.
@@ -87,13 +89,28 @@ open class Knob: KnobParentClass {
   /// The color of the tick line.
   public var tickColor: Color = .black { didSet { ticksLayer.strokeColor = tickColor.cgColor } }
 
+  /// The text element to use to show the knob's value and name.
   public var valueLabel: Label?
+
+  /// The name to show when the knob is not being manipulated. If nil, the knob's value is always shown.
   public var valueName: String?
+
+  /// The formatter to use to generate a textual representation of the knob's current value. If nil, use Swift's default
+  /// formatting for floating-point numbers.
   public var valueFormatter: NumberFormatter?
-  public var formattedValue: String { valueFormatter?.string(from: .init(value: _value)) ?? "\(_value)" }
+
+  /// Time to show the last value once manipulation has ceased, before the name is shown.
   public var valuePersistence: TimeInterval = 1.0
+
+  /// Duration of the animation used when transitioning from the value to the name in the label. Value of 0.0 implies no
+  /// animation.
   public var nameTransitionDuration = 0.5
 
+  /// Obtain a formatted value of the knob's current value.
+  public var formattedValue: String { valueFormatter?.string(from: .init(value: _value)) ?? "\(_value)" }
+
+  /// Obtain the manipulating state of the knob. This is `true` during a touch event or a mouse-down event, and it goes
+  /// back to `false` once the event ends.
   public private(set) var manipulating = false
 
   /**
@@ -102,10 +119,10 @@ open class Knob: KnobParentClass {
    the positive X axis, a positive PI/2 will lie on the negative Y axis. The default values will leave a 90° gap at
    the bottom.
    */
-  private let startAngle: CGFloat = -CGFloat.pi / 180.0 * 225.0
+  public var startAngle: CGFloat = -CGFloat.pi / 180.0 * 225.0 { didSet { createShapes() } }
 
   /// The ending angle of the arc where a value of 1.0 is located. See `startAngle` for additional info.
-  private let endAngle: CGFloat = CGFloat.pi / 180.0 * 45.0
+  public var endAngle: CGFloat = CGFloat.pi / 180.0 * 45.0 { didSet { createShapes() } }
 
   private let trackLayer = CAShapeLayer()
   private let progressLayer = CAShapeLayer()
