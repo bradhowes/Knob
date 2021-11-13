@@ -1,3 +1,5 @@
+// Copyright © 2021 Brad Howes. All rights reserved.
+
 import SwiftUI
 import Knob
 
