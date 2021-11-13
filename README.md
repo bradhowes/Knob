@@ -35,8 +35,14 @@ Included is a playground for playing with a knob.
 * `minimumValue` -- the lowest value that the control will report out.
 * `maximumValue` -- the highest value that the control will report out.
 * `value` -- the current value of the control (settable).
+* `travelDistance` -- the number of pixels to use in mouse/touch event distance calculations. By default this is the 
+smaller of the frame width/height.
 * `touchSensitivity` -- scaling factor between touch movement and value change. The default is `1` which means that one
-must drag 1x the size of the widget in order to change the value from `miminimumValue` to `maximumValue`.
+must drag 1x `travelDistance` in order to change the value from `miminimumValue` to `maximumValue`; a value of `2` would
+require 2x `travelDistance`.
+* `maxChangeRegionWidthPercentage` -- percentage of `travelDistance` that will always produce maximum value change. This
+defines a vertical region in the center of the view. Mouse/touch events outside of this region will have increased 
+sensitivity as the event X is further from the view center X, requiring more movement for the same change in value.
 * `trackLineWidth` -- the line width of the knob's arc that is drawn from the current value to the end.
 * `trackColor` -- the color of the arc that is drawn from the current value to the end.
 * `progressLineWidth` -- the line width of the knob's arc that is drawn from the start to the current value.
