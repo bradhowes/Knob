@@ -40,9 +40,19 @@ open class Knob: KnobParentClass {
   @objc
   public dynamic var value: Float { get { _value } set { setValue(newValue, animated: false) } }
 
-  /// How much travel is need to move 4x the width or height of the knob to go from minimumValue to maximumValue.
-  /// By default this is 1x the knob size.
-  public var touchSensitivity: Float = 1.0
+  /// The distance in pixels used for calculating mouse/touch changes to the knob value. By default, use the smaller of
+  /// the view's width and height.
+  open var travelDistance: CGFloat { (min(bounds.height, bounds.width)) }
+
+  /// How much travel is need to change the knob from `minimumValue` to `maximumValue`.
+  /// By default this is 1x the `travelDistance` value. Setting it to 2 will require 2x the `travelDistance` to go from
+  /// `minimumValue` to `maximumValue`.
+  public var touchSensitivity: CGFloat = 1.0
+
+  /// Percentage of `travelDistance` where a touch/mouse event will perform maximum value change. This defines a
+  /// vertical region in the middle of the view. Events outside of this region will have finer sensitivity and control
+  /// over value changes.
+  public var maxChangeRegionWidthPercentage: CGFloat = 0.1
 
   /// The width of the arc that is shown after the current value.
   public var trackLineWidth: CGFloat = 6 { didSet { trackLayer.lineWidth = trackLineWidth } }
@@ -189,6 +199,8 @@ extension Knob {
   }
 }
 
+// MARK: - Label updating
+
 extension Knob {
 
   open func restoreLabelWithName() {
@@ -201,23 +213,29 @@ extension Knob {
 
     restorationTimer = Timer.scheduledTimer(withTimeInterval: valuePersistence, repeats: false) { [weak self] _ in
       guard let self = self else { return }
-#if os(macOS)
-      NSAnimationContext.runAnimationGroup({ context in
-        context.duration = 1
-        valueLabel.animator().string = valueName
-      }) {
-        valueLabel.animator().string = valueName
-      }
-#elseif os(iOS) || os(tvOS)
-      UIView.transition(with: valueLabel, duration: self.nameTransitionDuration,
-                        options: [.curveLinear, .transitionCrossDissolve]) {
-        valueLabel.text = valueName
-      } completion: { _ in
-        valueLabel.text = valueName
-      }
-#endif
+      self.performRestoration(label: valueLabel, value: valueName)
     }
   }
+
+#if os(macOS)
+  private func performRestoration(label: Label, value: String) {
+      NSAnimationContext.runAnimationGroup({ context in
+        context.duration = nameTransitionDuration
+        label.animator().string = value
+      }) {
+        label.animator().string = value
+      }
+  }
+#elseif os(iOS) || os(tvOS)
+  private func performRestoration(label: Label, value: String) {
+      UIView.transition(with: label, duration: nameTransitionDuration,
+                        options: [.curveLinear, .transitionCrossDissolve]) {
+        label.text = value
+      } completion: { _ in
+        label.text = value
+      }
+  }
+#endif
 }
 
 // MARK: - Layout
@@ -318,16 +336,31 @@ extension Knob : NSAccessibilitySlider {
 
 extension Knob {
 
+  private var maxChangeRegionWidthHalf: CGFloat { min(4, travelDistance * maxChangeRegionWidthPercentage) / 2 }
+  private var halfTravelDistance: CGFloat { travelDistance / 2 }
+
   private func updateValue(with point: CGPoint) {
+    defer { panOrigin = CGPoint(x: panOrigin.x, y: point.y) }
+
+    // dX should never be equal to or greater than minDimensionHalf
+    let dX = min(abs(frame.midX - point.x), halfTravelDistance - 1)
+
+#if os(macOS)
+    let dY = point.y - panOrigin.y
+#elseif os(iOS) || os(tvOS)
+    let dY = panOrigin.y - point.y
+#endif
+
     // Scale Y changes by how far away in the X direction the touch is -- farther away the more one must travel in Y
     // to achieve the same change in value. Use `touchSensitivity` to increase/reduce this effect.
-    let scaleT = 1 / (1.0 + log10(max(abs(Float(panOrigin.x - point.x) / 10.0), 1.0)))
-#if os(macOS)
-    let deltaT = Float(point.y - panOrigin.y) / (Float(min(bounds.height, bounds.width))) * touchSensitivity * scaleT
-#elseif os(iOS) || os(tvOS)
-    let deltaT = Float(panOrigin.y - point.y) / (Float(min(bounds.height, bounds.width))) * touchSensitivity * scaleT
-#endif
-    defer { panOrigin = CGPoint(x: panOrigin.x, y: point.y) }
+    //
+    // - if the touch/mouse is <= maxChangeRegionWidthHalf pixels from the center X then scaleT is 1.0
+    // - otherwise, it linearly gets smaller as X moves away from the center
+    //
+    let scaleT = dX <= maxChangeRegionWidthHalf ? 1.0 : (1.0 - dX / halfTravelDistance)
+    print(dX, scaleT)
+
+    let deltaT = Float((dY * scaleT) / (travelDistance * touchSensitivity))
     let change = deltaT * (maximumValue - minimumValue)
     self.value += change
     notifyTarget()
