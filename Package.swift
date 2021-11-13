@@ -7,8 +7,7 @@ let package = Package(
     name: "Knob",
     platforms: [
         .macOS(.v10_15),
-        .iOS(.v12),
-        .tvOS(.v12)
+        .iOS(.v12)
     ],
     products: [
       .library(

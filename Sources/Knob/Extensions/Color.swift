@@ -1,6 +1,6 @@
 // Copyright © 2021 Brad Howes. All rights reserved.
 
-#if os(iOS) || os(tvOS)
+#if os(iOS)
 import UIKit
 internal typealias Color = UIColor
 #elseif os(macOS)

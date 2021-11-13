@@ -15,8 +15,6 @@ final class KnobTests: XCTestCase {
     platform = "macOS"
 #elseif os(iOS)
     platform = "iOS"
-#elseif os(tvOS)
-    platform = "tvOS"
 #else
     platform = "unknown"
 #endif

@@ -3,7 +3,7 @@
 import SwiftUI
 import Knob
 
-#if os(iOS) || os(tvOS)
+#if os(iOS)
 import UIKit
 public typealias KnobViewParentClass = UIViewRepresentable
 #elseif os(macOS)
@@ -49,7 +49,7 @@ struct KnobView: KnobViewParentClass {
     self.maximumValue = maximum
   }
 
-#if os(iOS) || os(tvOS)
+#if os(iOS)
 
   /**
    Create a new Knob control to be managed in SwiftUI.
@@ -95,7 +95,7 @@ struct KnobView: KnobViewParentClass {
   }
 
   func updateView(_ view: Knob, context: Context) {
-#if os(iOS) || os(tvOS)
+#if os(iOS)
     typealias KnobViewColorClass = UIColor
 #elseif os(macOS)
     typealias KnobViewColorClass = NSColor
@@ -143,7 +143,7 @@ struct KnobView: KnobViewParentClass {
     init(_ knobView: KnobView) { self.knobView = knobView }
 
     func monitor(_ knob: Knob) {
-#if os(iOS) || os(tvOS)
+#if os(iOS)
       knob.addTarget(self, action: #selector(valueChanged), for: .valueChanged)
 #elseif os(macOS)
       knob.target = self

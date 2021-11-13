@@ -11,13 +11,6 @@
 		BD3EB9082740159B00610223 /* KnobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD42C642271C8896001E5049 /* KnobView.swift */; };
 		BD3EB909274015A800610223 /* KnobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA5A262271AEC40004FE9EF /* KnobView.swift */; };
 		BD3EB90A274015A800610223 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD4574E2719BDD7000E6C2F /* ContentView.swift */; };
-		BD3EB91227403C3D00610223 /* KnobDemo_tvOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3EB91127403C3D00610223 /* KnobDemo_tvOSApp.swift */; };
-		BD3EB91427403C3D00610223 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3EB91327403C3D00610223 /* ContentView.swift */; };
-		BD3EB91627403C3E00610223 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD3EB91527403C3E00610223 /* Assets.xcassets */; };
-		BD3EB91927403C3E00610223 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD3EB91827403C3E00610223 /* Preview Assets.xcassets */; };
-		BD3EB92327403C3E00610223 /* KnobDemo_tvOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3EB92227403C3E00610223 /* KnobDemo_tvOSTests.swift */; };
-		BD3EB92D27403C3F00610223 /* KnobDemo_tvOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3EB92C27403C3F00610223 /* KnobDemo_tvOSUITests.swift */; };
-		BD3EB92F27403C3F00610223 /* KnobDemo_tvOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3EB92E27403C3F00610223 /* KnobDemo_tvOSUITestsLaunchTests.swift */; };
 		BD42C618271C85D2001E5049 /* KnobDemo_macOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD42C617271C85D2001E5049 /* KnobDemo_macOSApp.swift */; };
 		BD42C61C271C85D6001E5049 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD42C61B271C85D6001E5049 /* Assets.xcassets */; };
 		BD42C61F271C85D6001E5049 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD42C61E271C85D6001E5049 /* Preview Assets.xcassets */; };
@@ -33,20 +26,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		BD3EB91F27403C3E00610223 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BDD457412719BDD7000E6C2F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BD3EB90E27403C3D00610223;
-			remoteInfo = KnobDemo_tvOS;
-		};
-		BD3EB92927403C3E00610223 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BDD457412719BDD7000E6C2F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BD3EB90E27403C3D00610223;
-			remoteInfo = KnobDemo_tvOS;
-		};
 		BD42C626271C85D6001E5049 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BDD457412719BDD7000E6C2F /* Project object */;
@@ -78,16 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BD3EB90F27403C3D00610223 /* KnobDemo_tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnobDemo_tvOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD3EB91127403C3D00610223 /* KnobDemo_tvOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobDemo_tvOSApp.swift; sourceTree = "<group>"; };
-		BD3EB91327403C3D00610223 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		BD3EB91527403C3E00610223 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BD3EB91827403C3E00610223 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		BD3EB91E27403C3E00610223 /* KnobDemo_tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnobDemo_tvOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD3EB92227403C3E00610223 /* KnobDemo_tvOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobDemo_tvOSTests.swift; sourceTree = "<group>"; };
-		BD3EB92827403C3E00610223 /* KnobDemo_tvOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnobDemo_tvOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD3EB92C27403C3F00610223 /* KnobDemo_tvOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobDemo_tvOSUITests.swift; sourceTree = "<group>"; };
-		BD3EB92E27403C3F00610223 /* KnobDemo_tvOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobDemo_tvOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BD298E5327403DA7001BAF6B /* KnobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KnobView.swift; path = KnobDemo_tvOS/KnobView.swift; sourceTree = "<group>"; };
 		BD42C615271C85D2001E5049 /* KnobDemo_macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnobDemo_macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD42C617271C85D2001E5049 /* KnobDemo_macOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobDemo_macOSApp.swift; sourceTree = "<group>"; };
 		BD42C619271C85D2001E5049 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -115,27 +85,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		BD3EB90C27403C3D00610223 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BD3EB91B27403C3E00610223 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BD3EB92527403C3E00610223 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		BD42C612271C85D2001E5049 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -183,42 +132,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BD3EB91027403C3D00610223 /* KnobDemo_tvOS */ = {
-			isa = PBXGroup;
-			children = (
-				BD3EB91127403C3D00610223 /* KnobDemo_tvOSApp.swift */,
-				BD3EB91327403C3D00610223 /* ContentView.swift */,
-				BD3EB91527403C3E00610223 /* Assets.xcassets */,
-				BD3EB91727403C3E00610223 /* Preview Content */,
-			);
-			path = KnobDemo_tvOS;
-			sourceTree = "<group>";
-		};
-		BD3EB91727403C3E00610223 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				BD3EB91827403C3E00610223 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		BD3EB92127403C3E00610223 /* KnobDemo_tvOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				BD3EB92227403C3E00610223 /* KnobDemo_tvOSTests.swift */,
-			);
-			path = KnobDemo_tvOSTests;
-			sourceTree = "<group>";
-		};
-		BD3EB92B27403C3F00610223 /* KnobDemo_tvOSUITests */ = {
-			isa = PBXGroup;
-			children = (
-				BD3EB92C27403C3F00610223 /* KnobDemo_tvOSUITests.swift */,
-				BD3EB92E27403C3F00610223 /* KnobDemo_tvOSUITestsLaunchTests.swift */,
-			);
-			path = KnobDemo_tvOSUITests;
-			sourceTree = "<group>";
-		};
 		BD42C616271C85D2001E5049 /* KnobDemo_macOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,16 +187,14 @@
 		BDD457402719BDD7000E6C2F = {
 			isa = PBXGroup;
 			children = (
+				BD298E5327403DA7001BAF6B /* KnobView.swift */,
 				BDA5A25B271ADC1E004FE9EF /* Packages */,
 				BDD4574B2719BDD7000E6C2F /* KnobDemo_iOS */,
-				BDD4575C2719BDD9000E6C2F /* KnobDemoTests_iOS */,
+				BDD4575C2719BDD9000E6C2F /* KnobDemo_iOSTests */,
 				BDD457662719BDD9000E6C2F /* KnobDemo_iOSUITests */,
 				BD42C616271C85D2001E5049 /* KnobDemo_macOS */,
 				BD42C628271C85D6001E5049 /* KnobDemo_macOSTests */,
 				BD42C632271C85D6001E5049 /* KnobDemo_macOSUITests */,
-				BD3EB91027403C3D00610223 /* KnobDemo_tvOS */,
-				BD3EB92127403C3E00610223 /* KnobDemo_tvOSTests */,
-				BD3EB92B27403C3F00610223 /* KnobDemo_tvOSUITests */,
 				BDD4574A2719BDD7000E6C2F /* Products */,
 				BDA5A25D271ADE6B004FE9EF /* Frameworks */,
 			);
@@ -298,9 +209,6 @@
 				BD42C615271C85D2001E5049 /* KnobDemo_macOS.app */,
 				BD42C625271C85D6001E5049 /* KnobDemo_macOSTests.xctest */,
 				BD42C62F271C85D6001E5049 /* KnobDemo_macOSUITests.xctest */,
-				BD3EB90F27403C3D00610223 /* KnobDemo_tvOS.app */,
-				BD3EB91E27403C3E00610223 /* KnobDemo_tvOSTests.xctest */,
-				BD3EB92827403C3E00610223 /* KnobDemo_tvOSUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -327,12 +235,12 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		BDD4575C2719BDD9000E6C2F /* KnobDemoTests_iOS */ = {
+		BDD4575C2719BDD9000E6C2F /* KnobDemo_iOSTests */ = {
 			isa = PBXGroup;
 			children = (
 				BDD4575D2719BDD9000E6C2F /* KnobDemo_iOSTests.swift */,
 			);
-			path = KnobDemoTests_iOS;
+			path = KnobDemo_iOSTests;
 			sourceTree = "<group>";
 		};
 		BDD457662719BDD9000E6C2F /* KnobDemo_iOSUITests */ = {
@@ -346,59 +254,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		BD3EB90E27403C3D00610223 /* KnobDemo_tvOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BD3EB93027403C3F00610223 /* Build configuration list for PBXNativeTarget "KnobDemo_tvOS" */;
-			buildPhases = (
-				BD3EB90B27403C3D00610223 /* Sources */,
-				BD3EB90C27403C3D00610223 /* Frameworks */,
-				BD3EB90D27403C3D00610223 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = KnobDemo_tvOS;
-			productName = KnobDemo_tvOS;
-			productReference = BD3EB90F27403C3D00610223 /* KnobDemo_tvOS.app */;
-			productType = "com.apple.product-type.application";
-		};
-		BD3EB91D27403C3E00610223 /* KnobDemo_tvOSTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BD3EB93327403C3F00610223 /* Build configuration list for PBXNativeTarget "KnobDemo_tvOSTests" */;
-			buildPhases = (
-				BD3EB91A27403C3E00610223 /* Sources */,
-				BD3EB91B27403C3E00610223 /* Frameworks */,
-				BD3EB91C27403C3E00610223 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BD3EB92027403C3E00610223 /* PBXTargetDependency */,
-			);
-			name = KnobDemo_tvOSTests;
-			productName = KnobDemo_tvOSTests;
-			productReference = BD3EB91E27403C3E00610223 /* KnobDemo_tvOSTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		BD3EB92727403C3E00610223 /* KnobDemo_tvOSUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BD3EB93627403C3F00610223 /* Build configuration list for PBXNativeTarget "KnobDemo_tvOSUITests" */;
-			buildPhases = (
-				BD3EB92427403C3E00610223 /* Sources */,
-				BD3EB92527403C3E00610223 /* Frameworks */,
-				BD3EB92627403C3E00610223 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BD3EB92A27403C3E00610223 /* PBXTargetDependency */,
-			);
-			name = KnobDemo_tvOSUITests;
-			productName = KnobDemo_tvOSUITests;
-			productReference = BD3EB92827403C3E00610223 /* KnobDemo_tvOSUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		BD42C614271C85D2001E5049 /* KnobDemo_macOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BD42C637271C85D6001E5049 /* Build configuration list for PBXNativeTarget "KnobDemo_macOS" */;
@@ -521,17 +376,6 @@
 				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1310;
 				TargetAttributes = {
-					BD3EB90E27403C3D00610223 = {
-						CreatedOnToolsVersion = 13.1;
-					};
-					BD3EB91D27403C3E00610223 = {
-						CreatedOnToolsVersion = 13.1;
-						TestTargetID = BD3EB90E27403C3D00610223;
-					};
-					BD3EB92727403C3E00610223 = {
-						CreatedOnToolsVersion = 13.1;
-						TestTargetID = BD3EB90E27403C3D00610223;
-					};
 					BD42C614271C85D2001E5049 = {
 						CreatedOnToolsVersion = 13.0;
 					};
@@ -577,37 +421,11 @@
 				BD42C614271C85D2001E5049 /* KnobDemo_macOS */,
 				BD42C624271C85D6001E5049 /* KnobDemo_macOSTests */,
 				BD42C62E271C85D6001E5049 /* KnobDemo_macOSUITests */,
-				BD3EB90E27403C3D00610223 /* KnobDemo_tvOS */,
-				BD3EB91D27403C3E00610223 /* KnobDemo_tvOSTests */,
-				BD3EB92727403C3E00610223 /* KnobDemo_tvOSUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		BD3EB90D27403C3D00610223 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BD3EB91927403C3E00610223 /* Preview Assets.xcassets in Resources */,
-				BD3EB91627403C3E00610223 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BD3EB91C27403C3E00610223 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BD3EB92627403C3E00610223 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		BD42C613271C85D2001E5049 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -657,32 +475,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		BD3EB90B27403C3D00610223 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BD3EB91427403C3D00610223 /* ContentView.swift in Sources */,
-				BD3EB91227403C3D00610223 /* KnobDemo_tvOSApp.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BD3EB91A27403C3E00610223 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BD3EB92327403C3E00610223 /* KnobDemo_tvOSTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BD3EB92427403C3E00610223 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BD3EB92D27403C3F00610223 /* KnobDemo_tvOSUITests.swift in Sources */,
-				BD3EB92F27403C3F00610223 /* KnobDemo_tvOSUITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		BD42C611271C85D2001E5049 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -738,16 +530,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		BD3EB92027403C3E00610223 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BD3EB90E27403C3D00610223 /* KnobDemo_tvOS */;
-			targetProxy = BD3EB91F27403C3E00610223 /* PBXContainerItemProxy */;
-		};
-		BD3EB92A27403C3E00610223 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BD3EB90E27403C3D00610223 /* KnobDemo_tvOS */;
-			targetProxy = BD3EB92927403C3E00610223 /* PBXContainerItemProxy */;
-		};
 		BD42C627271C85D6001E5049 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = BD42C614271C85D2001E5049 /* KnobDemo_macOS */;
@@ -771,164 +553,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		BD3EB93127403C3F00610223 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"KnobDemo_tvOS/Preview Content\"";
-				DEVELOPMENT_TEAM = UP6SS5ES7E;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.braysoftware.KnobDemo-tvOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 15.0;
-			};
-			name = Debug;
-		};
-		BD3EB93227403C3F00610223 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"KnobDemo_tvOS/Preview Content\"";
-				DEVELOPMENT_TEAM = UP6SS5ES7E;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.braysoftware.KnobDemo-tvOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 15.0;
-			};
-			name = Release;
-		};
-		BD3EB93427403C3F00610223 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UP6SS5ES7E;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.braysoftware.KnobDemo-tvOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 3;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KnobDemo_tvOS.app/KnobDemo_tvOS";
-				TVOS_DEPLOYMENT_TARGET = 15.0;
-			};
-			name = Debug;
-		};
-		BD3EB93527403C3F00610223 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UP6SS5ES7E;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.braysoftware.KnobDemo-tvOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 3;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KnobDemo_tvOS.app/KnobDemo_tvOS";
-				TVOS_DEPLOYMENT_TARGET = 15.0;
-			};
-			name = Release;
-		};
-		BD3EB93727403C3F00610223 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UP6SS5ES7E;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.braysoftware.KnobDemo-tvOSUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 3;
-				TEST_TARGET_NAME = KnobDemo_tvOS;
-				TVOS_DEPLOYMENT_TARGET = 15.0;
-			};
-			name = Debug;
-		};
-		BD3EB93827403C3F00610223 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UP6SS5ES7E;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.braysoftware.KnobDemo-tvOSUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 3;
-				TEST_TARGET_NAME = KnobDemo_tvOS;
-				TVOS_DEPLOYMENT_TARGET = 15.0;
-			};
-			name = Release;
-		};
 		BD42C638271C85D6001E5049 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1372,33 +996,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BD3EB93027403C3F00610223 /* Build configuration list for PBXNativeTarget "KnobDemo_tvOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BD3EB93127403C3F00610223 /* Debug */,
-				BD3EB93227403C3F00610223 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BD3EB93327403C3F00610223 /* Build configuration list for PBXNativeTarget "KnobDemo_tvOSTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BD3EB93427403C3F00610223 /* Debug */,
-				BD3EB93527403C3F00610223 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BD3EB93627403C3F00610223 /* Build configuration list for PBXNativeTarget "KnobDemo_tvOSUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BD3EB93727403C3F00610223 /* Debug */,
-				BD3EB93827403C3F00610223 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		BD42C637271C85D6001E5049 /* Build configuration list for PBXNativeTarget "KnobDemo_macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

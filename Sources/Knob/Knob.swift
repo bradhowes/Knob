@@ -1,6 +1,6 @@
 // Copyright © 2018 Brad Howes. All rights reserved.
 
-#if os(iOS) || os(tvOS)
+#if os(iOS)
 import UIKit
 public typealias KnobParentClass = UIControl
 #elseif os(macOS)
@@ -20,7 +20,7 @@ public typealias KnobParentClass = NSControl
  */
 open class Knob: KnobParentClass {
 
-#if os(iOS) || os(tvOS)
+#if os(iOS)
   public typealias Color = UIColor
   public typealias BezierPath = UIBezierPath
   public typealias Label = UILabel
@@ -193,7 +193,7 @@ extension Knob {
     restorationTimer?.invalidate()
 #if os(macOS)
     valueLabel?.string = formattedValue
-#elseif os(iOS) || os(tvOS)
+#elseif os(iOS)
     valueLabel?.text = formattedValue
 #endif
   }
@@ -226,7 +226,7 @@ extension Knob {
         label.animator().string = value
       }
   }
-#elseif os(iOS) || os(tvOS)
+#elseif os(iOS)
   private func performRestoration(label: Label, value: String) {
       UIView.transition(with: label, duration: nameTransitionDuration,
                         options: [.curveLinear, .transitionCrossDissolve]) {
@@ -250,7 +250,7 @@ extension Knob {
     super.layout()
     doLayoutSubviews()
   }
-#elseif os(iOS) || os(tvOS)
+#elseif os(iOS)
   public override func layoutSubviews() {
     super.layoutSubviews()
     doLayoutSubviews()
@@ -296,7 +296,7 @@ extension Knob {
     restoreLabelWithName()
   }
 
-#elseif os(iOS) || os(tvOS)
+#elseif os(iOS)
 
   override open func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
     panOrigin = touch.location(in: self)
@@ -364,7 +364,7 @@ extension Knob {
   private func notifyTarget() {
 #if os(macOS)
     updateQueue.async { self.sendAction(self.action, to: self.target) }
-#elseif os(iOS) || os(tvOS)
+#elseif os(iOS)
     updateQueue.async { self.sendActions(for: .valueChanged) }
 #endif
   }
@@ -387,7 +387,7 @@ extension Knob {
     backingLayer.addSublayer(trackLayer)
     backingLayer.addSublayer(progressLayer)
     backingLayer.addSublayer(indicatorLayer)
-#elseif os(iOS) || os(tvOS)
+#elseif os(iOS)
     layer.addSublayer(ticksLayer)
     layer.addSublayer(trackLayer)
     layer.addSublayer(progressLayer)
@@ -441,7 +441,7 @@ extension Knob {
 
     ring.appendPoints(&points, count: points.count)
     ring.apply(CGAffineTransform(rotationAngle: CGFloat.pi / 180.0 * (90 + 45)))
-#elseif os(iOS) || os(tvOS)
+#elseif os(iOS)
     let ring = UIBezierPath(arcCenter: CGPoint.zero, radius: radius, startAngle: startAngle, endAngle: endAngle,
                             clockwise: true)
 #endif
@@ -460,7 +460,7 @@ extension Knob {
     indicator.move(to: CGPoint(x: radius, y: 0.0))
 #if os(macOS)
     indicator.line(to: CGPoint(x: radius * (1.0 - indicatorLineLength), y: 0.0))
-#elseif os(iOS) || os(tvOS)
+#elseif os(iOS)
     indicator.addLine(to: CGPoint(x: radius * (1.0 - indicatorLineLength), y: 0.0))
 #endif
     indicatorLayer.path = indicator.cgPath
