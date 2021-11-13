@@ -8,17 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		BD42C618271C85D2001E5049 /* KnobDemo_macOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD42C617271C85D2001E5049 /* KnobDemo_macOSApp.swift */; };
-		BD42C61A271C85D2001E5049 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD42C619271C85D2001E5049 /* ContentView.swift */; };
 		BD42C61C271C85D6001E5049 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD42C61B271C85D6001E5049 /* Assets.xcassets */; };
 		BD42C61F271C85D6001E5049 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD42C61E271C85D6001E5049 /* Preview Assets.xcassets */; };
 		BD42C62A271C85D6001E5049 /* KnobDemo_macOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD42C629271C85D6001E5049 /* KnobDemo_macOSTests.swift */; };
 		BD42C634271C85D6001E5049 /* KnobDemo_macOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD42C633271C85D6001E5049 /* KnobDemo_macOSUITests.swift */; };
-		BD42C641271C87E4001E5049 /* KnobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA5A262271AEC40004FE9EF /* KnobView.swift */; };
-		BD42C643271C8896001E5049 /* KnobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD42C642271C8896001E5049 /* KnobView.swift */; };
 		BD5B79A52721E0B200FC577D /* KnobStatic in Frameworks */ = {isa = PBXBuildFile; productRef = BD5B79A42721E0B200FC577D /* KnobStatic */; };
 		BD5B79A72721E0BF00FC577D /* KnobStatic in Frameworks */ = {isa = PBXBuildFile; productRef = BD5B79A62721E0BF00FC577D /* KnobStatic */; };
 		BDD4574D2719BDD7000E6C2F /* KnobDemo_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD4574C2719BDD7000E6C2F /* KnobDemo_iOSApp.swift */; };
-		BDD4574F2719BDD7000E6C2F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD4574E2719BDD7000E6C2F /* ContentView.swift */; };
 		BDD457512719BDD9000E6C2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD457502719BDD9000E6C2F /* Assets.xcassets */; };
 		BDD457542719BDD9000E6C2F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD457532719BDD9000E6C2F /* Preview Assets.xcassets */; };
 		BDD4575E2719BDD9000E6C2F /* KnobDemo_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD4575D2719BDD9000E6C2F /* KnobDemo_iOSTests.swift */; };
@@ -477,8 +473,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD42C61A271C85D2001E5049 /* ContentView.swift in Sources */,
-				BD42C643271C8896001E5049 /* KnobView.swift in Sources */,
 				BD42C618271C85D2001E5049 /* KnobDemo_macOSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -503,8 +497,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDD4574F2719BDD7000E6C2F /* ContentView.swift in Sources */,
-				BD42C641271C87E4001E5049 /* KnobView.swift in Sources */,
 				BDD4574D2719BDD7000E6C2F /* KnobDemo_iOSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

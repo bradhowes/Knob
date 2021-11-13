@@ -281,14 +281,14 @@ extension Knob {
   }
 
   override open func mouseDown(with event: NSEvent) {
-    panOrigin = event.locationInWindow
+    panOrigin = convert(event.locationInWindow, from: nil)
     manipulating = true
     notifyTarget()
   }
 
   override open func mouseDragged(with event: NSEvent) {
     guard manipulating == true else { return }
-    updateValue(with: event.locationInWindow)
+    updateValue(with: convert(event.locationInWindow, from: nil))
   }
 
   override open func mouseUp(with event: NSEvent) {
@@ -343,13 +343,8 @@ extension Knob {
     defer { panOrigin = CGPoint(x: panOrigin.x, y: point.y) }
 
     // dX should never be equal to or greater than minDimensionHalf
-    let dX = min(abs(frame.midX - point.x), halfTravelDistance - 1)
-
-#if os(macOS)
-    let dY = point.y - panOrigin.y
-#elseif os(iOS) || os(tvOS)
+    let dX = min(abs(bounds.midX - point.x), halfTravelDistance - 1)
     let dY = panOrigin.y - point.y
-#endif
 
     // Scale Y changes by how far away in the X direction the touch is -- farther away the more one must travel in Y
     // to achieve the same change in value. Use `touchSensitivity` to increase/reduce this effect.

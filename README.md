@@ -92,4 +92,34 @@ platforms. These also contain UI tests that make sure that the knobs properly tr
 
 The demo apps use SwiftUI for their view definitions. They both contain a `KnobView` SwiftUI struct based on 
 UIViewRepresentable (iOS) or NSViewRepresentable (macOS) that properly wires up a Knob instance so that it can respond
-to a value binding, and report out changes to same binding when the user changes the knob position.
+to a value binding, and report out changes to same binding when the user changes the knob position. Below is the version
+for iOS:
+
+```
+struct KnobView: UIViewRepresentable {
+
+  @Binding var value: Float
+  @Binding var manipulating: Bool
+
+  func makeUIView(context: Context) -> Knob {
+    let knob = Knob()
+    context.coordinator.monitor(knob)
+    return knob
+  }
+
+  func updateUIView(_ view: Knob, context: Context) { view.value = value }
+  func makeCoordinator() -> KnobView.Coordinator { Coordinator(self) }
+
+  class Coordinator: NSObject {
+    private var knobView: KnobView
+
+    init(_ knobView: KnobView) { self.knobView = knobView }
+    func monitor(_ knob: Knob) { knob.addTarget(self, action: #selector(valueChanged), for: .valueChanged) }
+    @objc func valueChanged(_ sender: Knob) {
+      knobView.value = sender.value
+      knobView.manipulating = sender.manipulating
+    }
+  }
+}
+
+```

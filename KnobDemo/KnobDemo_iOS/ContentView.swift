@@ -1,8 +1,11 @@
 import SwiftUI
 
 struct ContentView: View {
-  @State var value: Float = 0.25
-  @State var manipulating: Bool = false
+  @State var volumeValue: Float = 0.25
+  @State var volumeManipulating: Bool = false
+
+  @State var delayValue: Float = 0.25
+  @State var delayManipulating: Bool = false
 
   let valueFormatter: NumberFormatter = {
     let valueFormatter = NumberFormatter()
@@ -16,7 +19,7 @@ struct ContentView: View {
   var body: some View {
     ZStack {
       Color.black
-        .ignoresSafeArea() // 1
+        .ignoresSafeArea()
       VStack(
         alignment: .center,
         spacing: 10
@@ -26,20 +29,40 @@ struct ContentView: View {
           .font(.system(size: 14, weight: .medium, design: .default))
           .foregroundColor(Color(red: 0.7, green: 0.5, blue: 0.3))
 
-        KnobView(value: $value, manipulating: $manipulating)
-          .frame(minWidth: 40, maxWidth: 240, minHeight: 40, maxHeight: 240)
-          .accessibilityIdentifier("knob")
+        HStack(alignment: .center, spacing: 10) {
+          VStack(alignment: .center, spacing: 10) {
+            KnobView(value: $volumeValue, manipulating: $volumeManipulating)
+              .frame(minWidth: 40, maxWidth: 240, minHeight: 40, maxHeight: 240)
+              .accessibilityIdentifier("volume knob")
 
-        let textValue = manipulating ? valueFormatter.string(for: value * 100.0) ?? "?" : "Volume"
-        let duration = manipulating ? 0.0 : 0.4
-        let delay = manipulating ? 0.0 : 0.5
-        Text(textValue)
-          .padding(Edge.Set(.top), -24)
-          .font(.system(size: 24, weight: .medium, design: .default))
-          .foregroundColor(Color(red: 0.7, green: 0.5, blue: 0.3))
-          .accessibilityIdentifier("value")
-          .transition(.opacity.animation(.linear(duration: duration).delay(delay)))
-          .id("Volume \(manipulating)")
+            let textValue = volumeManipulating ? valueFormatter.string(for: volumeValue * 100.0) ?? "?" : "Volume"
+            let duration = volumeManipulating ? 0.0 : 0.4
+            let delay = volumeManipulating ? 0.0 : 0.5
+            Text(textValue)
+              .padding(Edge.Set(.top), -24)
+              .font(.system(size: 24, weight: .medium, design: .default))
+              .foregroundColor(Color(red: 0.7, green: 0.5, blue: 0.3))
+              .accessibilityIdentifier("volume label")
+              .transition(.opacity.animation(.linear(duration: duration).delay(delay)))
+              .id("Volume \(volumeManipulating)")
+          }
+          VStack(alignment: .center, spacing: 10) {
+            KnobView(value: $delayValue, manipulating: $delayManipulating)
+              .frame(minWidth: 40, maxWidth: 240, minHeight: 40, maxHeight: 240)
+              .accessibilityIdentifier("delay knob")
+
+            let textValue = delayManipulating ? valueFormatter.string(for: delayValue * 100.0) ?? "?" : "Delay"
+            let duration = delayManipulating ? 0.0 : 0.4
+            let delay = delayManipulating ? 0.0 : 0.5
+            Text(textValue)
+              .padding(Edge.Set(.top), -24)
+              .font(.system(size: 24, weight: .medium, design: .default))
+              .foregroundColor(Color(red: 0.7, green: 0.5, blue: 0.3))
+              .accessibilityIdentifier("delay label")
+              .transition(.opacity.animation(.linear(duration: duration).delay(delay)))
+              .id("Delay \(delayManipulating)")
+          }
+        }
       }
     }
   }
