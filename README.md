@@ -83,43 +83,26 @@ As one would expect, a touch in the knob's view area is tracked and any changes 
 * Moving vertically down will decrease the knob's value
 * Moving horizontally does not affect the value but it does alter the `touchSensitivity` value that is used to generate 
 updates to the control's `value`, and the further away a touch moves horizontally from the center, the more sensitive 
-the vertical movements become.
+the vertical movements become -- one must move larger vertical distances to achieve the same value change.
+
+# SwiftUI Support
+
+The package also includes a SwiftUI implementation: `KnobView`. The defaults should be good enough to start with, but 
+there are modifiers you can apply to your KnobView to configure the look you want. The `KnobView` constructor requires
+two state bindings, one for the knob's value and another for the knob's manipulating flag. Additionally, you can provide
+the `minimumValue` and `maximumValue` values to override the defaults of 0.0 and 1.0 respectively.
+
+```
+KnobView(value: $volumeValue, manipulating: $volumeManipulating, minimum: 0.0, maximum: 1.0)
+  .trackStyle(width: trackWidth, color: trackColor)
+  .progressStyle(width: progressWidth, color: progressColor)
+  .indicatorStyle(width: progressWidth, color: progressColor, length: 0.3)
+```
 
 # Demo Apps
 
 The `KnobDemo` folder contains an Xcode project which you can open to build simple demo apps for macOS and iOS 
 platforms. These also contain UI tests that make sure that the knobs properly track and report out their values.
 
-The demo apps use SwiftUI for their view definitions. They both contain a `KnobView` SwiftUI struct based on 
-UIViewRepresentable (iOS) or NSViewRepresentable (macOS) that properly wires up a Knob instance so that it can respond
-to a value binding, and report out changes to same binding when the user changes the knob position. Below is the version
-for iOS:
-
-```
-struct KnobView: UIViewRepresentable {
-
-  @Binding var value: Float
-  @Binding var manipulating: Bool
-
-  func makeUIView(context: Context) -> Knob {
-    let knob = Knob()
-    context.coordinator.monitor(knob)
-    return knob
-  }
-
-  func updateUIView(_ view: Knob, context: Context) { view.value = value }
-  func makeCoordinator() -> KnobView.Coordinator { Coordinator(self) }
-
-  class Coordinator: NSObject {
-    private var knobView: KnobView
-
-    init(_ knobView: KnobView) { self.knobView = knobView }
-    func monitor(_ knob: Knob) { knob.addTarget(self, action: #selector(valueChanged), for: .valueChanged) }
-    @objc func valueChanged(_ sender: Knob) {
-      knobView.value = sender.value
-      knobView.manipulating = sender.manipulating
-    }
-  }
-}
-
-```
+The demo apps use SwiftUI for their view definitions. They both contain a `ContentView` properly wires up two `KnobView`
+instances with a `Text` view that shows the value of a KnobView.
