@@ -1,6 +1,7 @@
 // Copyright © 2021 Brad Howes. All rights reserved.
 
 import SwiftUI
+import Knob
 
 struct ContentView: View {
   @State var volumeValue: Float = 0.25
@@ -19,6 +20,11 @@ struct ContentView: View {
   }()
 
   var body: some View {
+    let trackWidth: CGFloat = 14
+    let trackColor = Color(red: 0.25, green: 0.25, blue: 0.25)
+    let progressWidth: CGFloat = 12
+    let progressColor = Color(red: 1.0, green: 0.575, blue: 0.0)
+
     ZStack {
       Color.black
         .ignoresSafeArea()
@@ -34,6 +40,9 @@ struct ContentView: View {
         HStack(alignment: .center, spacing: 10) {
           VStack(alignment: .center, spacing: 10) {
             KnobView(value: $volumeValue, manipulating: $volumeManipulating)
+              .trackStyle(width: trackWidth, color: trackColor)
+              .progressStyle(width: progressWidth, color: progressColor)
+              .indicatorStyle(width: progressWidth, color: progressColor, length: 0.3)
               .frame(minWidth: 40, maxWidth: 240, minHeight: 40, maxHeight: 240)
               .accessibilityIdentifier("volume knob")
 
@@ -50,6 +59,9 @@ struct ContentView: View {
           }
           VStack(alignment: .center, spacing: 10) {
             KnobView(value: $delayValue, manipulating: $delayManipulating)
+              .trackStyle(width: trackWidth, color: trackColor)
+              .progressStyle(width: progressWidth, color: progressColor)
+              .indicatorStyle(width: progressWidth, color: progressColor, length: 0.3)
               .frame(minWidth: 40, maxWidth: 240, minHeight: 40, maxHeight: 240)
               .accessibilityIdentifier("delay knob")
 

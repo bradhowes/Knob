@@ -2,13 +2,11 @@
 
 #if os(iOS)
 import UIKit
-internal typealias Color = UIColor
 #elseif os(macOS)
 import AppKit
-internal typealias Color = NSColor
 #endif
 
-internal extension Color {
+internal extension Knob.KnobColor {
 
 #if os(macOS)
   convenience init(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
@@ -33,7 +31,7 @@ internal extension Color {
               alpha: alpha)
   }
 
-  var extendedSRGB: Color {
+  var extendedSRGB: Knob.KnobColor {
 #if os(macOS)
     return usingColorSpace(.extendedSRGB) ?? self
 #else
@@ -42,22 +40,22 @@ internal extension Color {
   }
 
   /// Obtain a darker variation of the current color
-  var darker: Color {
+  var darker: Knob.KnobColor {
     var hue: CGFloat = 0
     var saturation: CGFloat = 0
     var brightness: CGFloat = 0
     var alpha: CGFloat = 0
     extendedSRGB.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
-    return Color(hue: hue, saturation: saturation, brightness: brightness * 0.8, alpha: alpha)
+    return Self(hue: hue, saturation: saturation, brightness: brightness * 0.8, alpha: alpha)
   }
 
   /// Obtain a lighter variation of the current color
-  var lighter: Color {
+  var lighter: Knob.KnobColor {
     var hue: CGFloat = 0
     var saturation: CGFloat = 0
     var brightness: CGFloat = 0
     var alpha: CGFloat = 0
     extendedSRGB.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
-    return Color(hue: hue, saturation: saturation, brightness: brightness * 1.2, alpha: alpha)
+    return Self(hue: hue, saturation: saturation, brightness: brightness * 1.2, alpha: alpha)
   }
 }

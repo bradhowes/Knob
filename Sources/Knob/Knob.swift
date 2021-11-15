@@ -21,11 +21,11 @@ public typealias KnobParentClass = NSControl
 open class Knob: KnobParentClass {
 
 #if os(iOS)
-  public typealias Color = UIColor
+  public typealias KnobColor = UIColor
   public typealias BezierPath = UIBezierPath
   public typealias Label = UILabel
 #elseif os(macOS)
-  public typealias Color = NSColor
+  public typealias KnobColor = NSColor
   public typealias BezierPath = NSBezierPath
   public typealias Label = NSText
 #endif
@@ -58,7 +58,7 @@ open class Knob: KnobParentClass {
   public var trackLineWidth: CGFloat = 6 { didSet { trackLayer.lineWidth = trackLineWidth } }
 
   /// The color of the arc shown after the current value.
-  public var trackColor: Color = Color.darkGray.darker.darker.darker
+  public var trackColor: KnobColor = KnobColor.darkGray.darker.darker.darker
   { didSet { trackLayer.strokeColor = trackColor.cgColor } }
 
   /// The width of the arc from the start up to the current value.
@@ -66,7 +66,7 @@ open class Knob: KnobParentClass {
   { didSet { progressLayer.lineWidth = progressLineWidth } }
 
   /// The color of the arc from the start up to the current value.
-  public var progressColor: Color = Color(red: 1.0, green: 0.575, blue: 0.0, alpha: 1.0)
+  public var progressColor: KnobColor = KnobColor(red: 1.0, green: 0.575, blue: 0.0, alpha: 1.0)
   { didSet { progressLayer.strokeColor = progressColor.cgColor } }
 
   /// The width of the radial line drawn from the current value on the arc towards the arc center.
@@ -74,7 +74,7 @@ open class Knob: KnobParentClass {
   { didSet { indicatorLayer.lineWidth = indicatorLineWidth } }
 
   /// The color of the radial line drawn from the current value on the arc towards the arc center.
-  public var indicatorColor: Color = Color(red: 1.0, green: 0.575, blue: 0.0, alpha: 1.0)
+  public var indicatorColor: KnobColor = KnobColor(red: 1.0, green: 0.575, blue: 0.0, alpha: 1.0)
   { didSet { indicatorLayer.strokeColor = indicatorColor.cgColor } }
 
   /// The proportion of the radial line drawn from the current value on the arc towards the arc center.
@@ -97,7 +97,7 @@ open class Knob: KnobParentClass {
   public var tickLineWidth: CGFloat = 1.0 { didSet { ticksLayer.lineWidth = tickLineWidth } }
 
   /// The color of the tick line.
-  public var tickColor: Color = .black { didSet { ticksLayer.strokeColor = tickColor.cgColor } }
+  public var tickColor: KnobColor = .black { didSet { ticksLayer.strokeColor = tickColor.cgColor } }
 
   /// The text element to use to show the knob's value and name.
   public var valueLabel: Label?
@@ -394,10 +394,10 @@ extension Knob {
     layer.addSublayer(indicatorLayer)
 #endif
 
-    trackLayer.fillColor = Color.clear.cgColor
-    progressLayer.fillColor = Color.clear.cgColor
-    indicatorLayer.fillColor = Color.clear.cgColor
-    ticksLayer.fillColor = Color.clear.cgColor
+    trackLayer.fillColor = KnobColor.clear.cgColor
+    progressLayer.fillColor = KnobColor.clear.cgColor
+    indicatorLayer.fillColor = KnobColor.clear.cgColor
+    ticksLayer.fillColor = KnobColor.clear.cgColor
 
     trackLayer.lineWidth = trackLineWidth
     trackLayer.strokeColor = trackColor.cgColor
