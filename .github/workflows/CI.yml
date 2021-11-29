@@ -24,7 +24,7 @@ jobs:
       uses: schneegans/dynamic-badges-action@v1.1.0
       with:
         auth: ${{ secrets.GIST_UPDATE }}
-        gistID: ad941184ed256708952a2057fc5d7bb4
+        gistID: b307c10e9eb7882e6a83a3bcb1e5cd5d
         filename: Knob-coverage.json
         label: Coverage
         message: ${{ env.PERCENTAGE }}
