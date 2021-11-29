@@ -1,5 +1,5 @@
 [![CI](https://github.com/bradhowes/Knob/workflows/CI/badge.svg)](https://github.com/bradhowes/Knob)
-[![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
+[![COV](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/bradhowes/b307c10e9eb7882e6a83a3bcb1e5cd5d/raw/Knob-coverage.json)](https://github.com/bradhowes/swift-math-parser/blob/main/.github/workflows/CI.yml)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fbradhowes%2FKnob%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/bradhowes/Knob)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fbradhowes%2FKnob%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/bradhowes/Knob)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
