@@ -3,9 +3,18 @@
 #if os(iOS)
 import UIKit
 public typealias KnobParentClass = UIControl
+public typealias KnobLabel = UILabel
+
 #elseif os(macOS)
 import AppKit
+
+// *NOTE*: there is a bug in InterfaceBuilder that prevents you from associating an action with a Knob instance in a
+// storyboard. The best workaround so far is to change the class of the view from `Knob` to `NSSlider`, establish the
+// relation, and then change back to `Knob` as the custom class.
+
 public typealias KnobParentClass = NSControl
+public typealias KnobLabel = NSTextField
+
 #endif
 
 /**
@@ -23,11 +32,9 @@ open class Knob: KnobParentClass {
 #if os(iOS)
   public typealias KnobColor = UIColor
   public typealias BezierPath = UIBezierPath
-  public typealias Label = UILabel
 #elseif os(macOS)
   public typealias KnobColor = NSColor
   public typealias BezierPath = NSBezierPath
-  public typealias Label = NSText
 #endif
 
   /// The minimum value reported by the control.
@@ -100,7 +107,7 @@ open class Knob: KnobParentClass {
   public var tickColor: KnobColor = .black { didSet { ticksLayer.strokeColor = tickColor.cgColor } }
 
   /// The text element to use to show the knob's value and name.
-  public var valueLabel: Label?
+  public var valueLabel: KnobLabel?
 
   /// The name to show when the knob is not being manipulated. If nil, the knob's value is always shown.
   public var valueName: String?
@@ -191,11 +198,7 @@ extension Knob {
     updateLayer()
 #endif
     restorationTimer?.invalidate()
-#if os(macOS)
-    valueLabel?.string = formattedValue
-#elseif os(iOS)
     valueLabel?.text = formattedValue
-#endif
   }
 }
 
@@ -218,16 +221,16 @@ extension Knob {
   }
 
 #if os(macOS)
-  private func performRestoration(label: Label, value: String) {
+  private func performRestoration(label: KnobLabel, value: String) {
       NSAnimationContext.runAnimationGroup({ context in
         context.duration = nameTransitionDuration
-        label.animator().string = value
+        label.animator().text = value
       }) {
-        label.animator().string = value
+        label.animator().text = value
       }
   }
 #elseif os(iOS)
-  private func performRestoration(label: Label, value: String) {
+  private func performRestoration(label: KnobLabel, value: String) {
       UIView.transition(with: label, duration: nameTransitionDuration,
                         options: [.curveLinear, .transitionCrossDissolve]) {
         label.text = value
