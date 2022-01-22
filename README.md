@@ -9,17 +9,19 @@
 Simple slider-like control that depicts its path as an arc using CoreAnimation layers. Supports both iOS and macOS 
 platforms.
 
-![](KnobMove.gif)
+<table>
+  <tr>
+    <td><img src="https://github.com/bradhowes/Knob/blob/main/KnobMove.gif?raw=true" alt="Animation of knob"/></td>
+    <td><img src="https://github.com/bradhowes/Knob/blob/main/example.png?raw=true" alt="Knobs in SoundFonts app"/></td>
+  </tr>
+</table>
 
+Like a slider, touch movements in the control change the value. For this implementation:
 
-![](example.png)
-
-Like a slider, touch movements in the control change the value. For my implementation:
-
-* Only vertical movements change the value. Moving up will increase the value, moving down will decrease it.
+* Only vertical movements change the value. Moving up will increase the value, moving down will decrease it. Simple.
 * By default, touch sensitivity is set to 1x the height of the knob -- a touch moving 1x the height would
   change the value from 0.0 to 1.0. See the documentation for the `touchSensitivity` parameter.
-* Touch sensitivity can be increased by moving the touch horizontally away from the control (either direction).
+* Touch sensitivity can be decreased by moving the touch horizontally away from the control (either direction).
   This is similar to the change in "scrubbing" speed when watching a video -- the further the touch moves away
   from the scrubber, the finer the positioning is within the video (larger movements for same amount of change in value)
 * For now, this control reports value changes continuously -- there is no way to disable this as there is for
@@ -82,7 +84,7 @@ As one would expect, a touch in the knob's view area is tracked and any changes 
 * Moving vertically up will increase the knob's value
 * Moving vertically down will decrease the knob's value
 * Moving horizontally does not affect the value but it does alter the `touchSensitivity` value that is used to generate 
-updates to the control's `value`, and the further away a touch moves horizontally from the center, the more sensitive 
+updates to the control's `value`, and the further away a touch moves horizontally from the center, the less sensitive 
 the vertical movements become -- one must move larger vertical distances to achieve the same value change.
 
 # SwiftUI Support
