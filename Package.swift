@@ -27,7 +27,7 @@ let package = Package(
       name: "Knob",
       dependencies: [],
       swiftSettings: [
-        .define("APPLICATION_EXTENSION_API_ONLY=YES")
+        .define("APPLICATION_EXTENSION_API_ONLY")
       ]),
     .testTarget(
       name: "KnobTests",
