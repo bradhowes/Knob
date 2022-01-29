@@ -6,39 +6,39 @@ let package = Package(
   name: "KnobPackage",
   platforms: [.macOS(.v10_15), .iOS(.v12)],
   products: [
-    .library(name: "Knob-iOS", targets: ["Knob_iOS"]),
-    .library(name: "Knob-macOS", targets: ["Knob_macOS"]),
+    .library(name: "Knob-iOS", targets: ["Knob-iOS"]),
+    .library(name: "Knob-macOS", targets: ["Knob-macOS"]),
   ],
   dependencies: [
     .package(url: "https://github.com/pointfreeco/swift-snapshot-testing.git", from: "1.9.0"),
   ],
   targets: [
     .target(
-      name: "Knob_iOS",
+      name: "Knob-iOS",
       dependencies: [],
       swiftSettings: [
         .define("APPLICATION_EXTENSION_API_ONLY")
       ]
     ),
     .target(
-      name: "Knob_macOS",
+      name: "Knob-macOS",
       dependencies: [],
       swiftSettings: [
         .define("APPLICATION_EXTENSION_API_ONLY")
       ]
     ),
     .testTarget(
-      name: "Knob_iOSTests",
+      name: "Knob-iOSTests",
       dependencies: [
-        "Knob_iOS",
+        "Knob-iOS",
         .productItem(name: "SnapshotTesting", package: "swift-snapshot-testing", condition: .none)
       ],
       exclude: ["__Snapshots__"]
     ),
     .testTarget(
-      name: "Knob_macOSTests",
+      name: "Knob-macOSTests",
       dependencies: [
-        "Knob_macOS",
+        "Knob-macOS",
         .productItem(name: "SnapshotTesting", package: "swift-snapshot-testing", condition: .none)
       ],
       exclude: ["__Snapshots__"]
