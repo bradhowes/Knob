@@ -1,22 +1,15 @@
 // Copyright © 2021 Brad Howes. All rights reserved.
 
-import SwiftUI
+#if os(macOS)
 
-#if os(iOS)
-import UIKit
-@available(iOS 13, *)
-public typealias KnobViewParentClass = UIViewRepresentable
-#elseif os(macOS)
+import SwiftUI
 import AppKit
-@available(macOS 10.15, *)
-public typealias KnobViewParentClass = NSViewRepresentable
-#endif
 
 /**
  Wrapper for a Knob control that allows it to reside in and take part in a SwiftUI view definition.
  */
 @available(iOS 13, macOS 10.15, *)
-public struct KnobView: KnobViewParentClass {
+public struct KnobView: NSViewRepresentable {
 
   /// The current value of the Knob
   @Binding private var value: Float
@@ -51,26 +44,6 @@ public struct KnobView: KnobViewParentClass {
     self.maximumValue = maximum
   }
 
-#if os(iOS)
-
-  /**
-   Create a new Knob control to be managed in SwiftUI.
-
-   - parameter context: the context where the control will live
-   - returns: the new Knob control
-   */
-  public func makeUIView(context: Context) -> Knob { makeView(context: context) }
-
-  /**
-   Update the Knob to show changes in the value binding.
-
-   - parameter uiView: the Knob to update
-   - parameter context: the context where the control lives
-   */
-  public func updateUIView(_ view: Knob, context: Context) { updateView(view, context: context) }
-
-#elseif os(macOS)
-
   /**
    Create a new Knob control to be managed in SwiftUI.
 
@@ -86,8 +59,6 @@ public struct KnobView: KnobViewParentClass {
    - parameter context: the context where the control lives
    */
   public func updateNSView(_ view: Knob, context: Context) { updateView(view, context: context) }
-
-#endif
 
   func makeView(context: Context) -> Knob {
     let knob = Knob()
@@ -117,10 +88,10 @@ public struct KnobView: KnobViewParentClass {
     view.tickLineWidth = tickLineWidth
 
     if #available(iOS 14, macOS 11, *) {
-      view.trackColor = Knob.KnobColor(trackColor)
-      view.progressColor = Knob.KnobColor(progressColor)
-      view.indicatorColor = Knob.KnobColor(indicatorColor)
-      view.tickColor = Knob.KnobColor(tickColor)
+      view.trackColor = NSColor(trackColor)
+      view.progressColor = NSColor(progressColor)
+      view.indicatorColor = NSColor(indicatorColor)
+      view.tickColor = NSColor(tickColor)
     }
   }
 
@@ -141,12 +112,8 @@ public struct KnobView: KnobViewParentClass {
     public init(_ knobView: KnobView) { self.knobView = knobView }
 
     func monitor(_ knob: Knob) {
-#if os(iOS)
-      knob.addTarget(self, action: #selector(valueChanged), for: .valueChanged)
-#elseif os(macOS)
       knob.target = self
       knob.action = #selector(valueChanged(_:))
-#endif
     }
 
     @objc func valueChanged(_ sender: Knob) {
@@ -211,3 +178,5 @@ public extension KnobView {
     return view
   }
 }
+
+#endif

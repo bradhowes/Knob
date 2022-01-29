@@ -1,18 +1,10 @@
 // Copyright © 2021 Brad Howes. All rights reserved.
 
 #if os(iOS)
+
 import UIKit
-#elseif os(macOS)
-import AppKit
-#endif
 
-internal extension Knob.KnobColor {
-
-#if os(macOS)
-  convenience init(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
-    self.init(deviceRed: red, green: green, blue: blue, alpha: alpha)
-  }
-#endif
+internal extension UIColor {
 
   convenience init(hex: String, alpha: CGFloat = 1.0) {
     var hexFormatted = hex.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).uppercased()
@@ -31,16 +23,10 @@ internal extension Knob.KnobColor {
               alpha: alpha)
   }
 
-  var extendedSRGB: Knob.KnobColor {
-#if os(macOS)
-    return usingColorSpace(.extendedSRGB) ?? self
-#else
-    return self
-#endif
-  }
+  var extendedSRGB: UIColor { self }
 
   /// Obtain a darker variation of the current color
-  var darker: Knob.KnobColor {
+  var darker: Self {
     var hue: CGFloat = 0
     var saturation: CGFloat = 0
     var brightness: CGFloat = 0
@@ -50,7 +36,7 @@ internal extension Knob.KnobColor {
   }
 
   /// Obtain a lighter variation of the current color
-  var lighter: Knob.KnobColor {
+  var lighter: Self {
     var hue: CGFloat = 0
     var saturation: CGFloat = 0
     var brightness: CGFloat = 0
@@ -59,3 +45,5 @@ internal extension Knob.KnobColor {
     return Self(hue: hue, saturation: saturation, brightness: brightness * 1.2, alpha: alpha)
   }
 }
+
+#endif

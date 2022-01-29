@@ -1,6 +1,8 @@
 import XCTest
 import SnapshotTesting
-@testable import Knob
+@testable import Knob_iOS
+
+#if os(iOS)
 
 final class KnobTests: XCTestCase {
 
@@ -11,13 +13,7 @@ final class KnobTests: XCTestCase {
 
   func makeName(_ funcName: String) -> String {
     let platform: String
-#if os(macOS)
-    platform = "macOS"
-#elseif os(iOS)
     platform = "iOS"
-#else
-    platform = "unknown"
-#endif
     return funcName + "-" + platform
   }
 
@@ -140,3 +136,5 @@ final class KnobTests: XCTestCase {
     ("testExample", testValueClamping),
   ]
 }
+
+#endif

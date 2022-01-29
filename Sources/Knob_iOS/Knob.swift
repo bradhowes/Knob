@@ -1,21 +1,8 @@
 // Copyright © 2018 Brad Howes. All rights reserved.
 
 #if os(iOS)
+
 import UIKit
-public typealias KnobParentClass = UIControl
-public typealias KnobLabel = UILabel
-
-#elseif os(macOS)
-import AppKit
-
-// *NOTE*: there is a bug in InterfaceBuilder that prevents you from associating an action with a Knob instance in a
-// storyboard. The best workaround so far is to change the class of the view from `Knob` to `NSSlider`, establish the
-// relation, and then change back to `Knob` as the custom class.
-
-public typealias KnobParentClass = NSControl
-public typealias KnobLabel = NSTextField
-
-#endif
 
 /**
  Custom UIControl/NSControl that depicts a value as a point on a circle. Changing the value is done by touching on the
@@ -27,15 +14,7 @@ public typealias KnobLabel = NSTextField
  diameter of the arc of the knob is defined by the min(width, height) of the view's frame. The start and end of the arc
  is controlled by the `startAngle` and `endAngle` settings.
  */
-open class Knob: KnobParentClass {
-
-#if os(iOS)
-  public typealias KnobColor = UIColor
-  public typealias BezierPath = UIBezierPath
-#elseif os(macOS)
-  public typealias KnobColor = NSColor
-  public typealias BezierPath = NSBezierPath
-#endif
+open class Knob: UIControl {
 
   /// The minimum value reported by the control.
   public var minimumValue: Float = 0.0 { didSet { setValue(_value, animated: false) } }
@@ -65,7 +44,7 @@ open class Knob: KnobParentClass {
   public var trackLineWidth: CGFloat = 6 { didSet { trackLayer.lineWidth = trackLineWidth } }
 
   /// The color of the arc shown after the current value.
-  public var trackColor: KnobColor = KnobColor.darkGray.darker.darker.darker
+  public var trackColor: UIColor = UIColor.darkGray.darker.darker.darker
   { didSet { trackLayer.strokeColor = trackColor.cgColor } }
 
   /// The width of the arc from the start up to the current value.
@@ -73,7 +52,7 @@ open class Knob: KnobParentClass {
   { didSet { progressLayer.lineWidth = progressLineWidth } }
 
   /// The color of the arc from the start up to the current value.
-  public var progressColor: KnobColor = KnobColor(red: 1.0, green: 0.575, blue: 0.0, alpha: 1.0)
+  public var progressColor: UIColor = .init(red: 1.0, green: 0.575, blue: 0.0, alpha: 1.0)
   { didSet { progressLayer.strokeColor = progressColor.cgColor } }
 
   /// The width of the radial line drawn from the current value on the arc towards the arc center.
@@ -81,7 +60,7 @@ open class Knob: KnobParentClass {
   { didSet { indicatorLayer.lineWidth = indicatorLineWidth } }
 
   /// The color of the radial line drawn from the current value on the arc towards the arc center.
-  public var indicatorColor: KnobColor = KnobColor(red: 1.0, green: 0.575, blue: 0.0, alpha: 1.0)
+  public var indicatorColor: UIColor = .init(red: 1.0, green: 0.575, blue: 0.0, alpha: 1.0)
   { didSet { indicatorLayer.strokeColor = indicatorColor.cgColor } }
 
   /// The proportion of the radial line drawn from the current value on the arc towards the arc center.
@@ -104,10 +83,10 @@ open class Knob: KnobParentClass {
   public var tickLineWidth: CGFloat = 1.0 { didSet { ticksLayer.lineWidth = tickLineWidth } }
 
   /// The color of the tick line.
-  public var tickColor: KnobColor = .black { didSet { ticksLayer.strokeColor = tickColor.cgColor } }
+  public var tickColor: UIColor = .black { didSet { ticksLayer.strokeColor = tickColor.cgColor } }
 
   /// The text element to use to show the knob's value and name.
-  public var valueLabel: KnobLabel?
+  public var valueLabel: UILabel?
 
   /// The name to show when the knob is not being manipulated. If nil, the knob's value is always shown.
   public var valueName: String?
@@ -152,13 +131,6 @@ open class Knob: KnobParentClass {
   private var panOrigin: CGPoint = .zero
   private var restorationTimer: Timer?
 
-#if os(macOS)
-  override public var acceptsFirstResponder: Bool { get { return true } }
-  var backingLayer: CALayer { layer! }
-  override public var wantsUpdateLayer: Bool { true }
-  override public var isFlipped: Bool { true }
-#endif
-
   /**
    Construction from an encoded representation.
 
@@ -194,9 +166,6 @@ extension Knob {
   public func setValue(_ value: Float, animated: Bool = false) {
     _value = clampedValue(value)
     draw(animated: animated)
-#if os(macOS)
-    updateLayer()
-#endif
     restorationTimer?.invalidate()
     valueLabel?.text = formattedValue
   }
@@ -220,17 +189,7 @@ extension Knob {
     }
   }
 
-#if os(macOS)
-  private func performRestoration(label: KnobLabel, value: String) {
-      NSAnimationContext.runAnimationGroup({ context in
-        context.duration = nameTransitionDuration
-        label.animator().text = value
-      }) {
-        label.animator().text = value
-      }
-  }
-#elseif os(iOS)
-  private func performRestoration(label: KnobLabel, value: String) {
+  private func performRestoration(label: UILabel, value: String) {
       UIView.transition(with: label, duration: nameTransitionDuration,
                         options: [.curveLinear, .transitionCrossDissolve]) {
         label.text = value
@@ -238,7 +197,6 @@ extension Knob {
         label.text = value
       }
   }
-#endif
 }
 
 // MARK: - Layout
@@ -248,17 +206,10 @@ extension Knob {
   /**
    Reposition layers to reflect new size.
    */
-#if os(macOS)
-  public override func layout() {
-    super.layout()
-    doLayoutSubviews()
-  }
-#elseif os(iOS)
   public override func layoutSubviews() {
     super.layoutSubviews()
     doLayoutSubviews()
   }
-#endif
 
   private func doLayoutSubviews() {
 
@@ -276,30 +227,6 @@ extension Knob {
 // MARK: - Event Tracking
 
 extension Knob {
-
-#if os(macOS)
-
-  override public func acceptsFirstMouse(for event: NSEvent?) -> Bool {
-    return true
-  }
-
-  override open func mouseDown(with event: NSEvent) {
-    panOrigin = convert(event.locationInWindow, from: nil)
-    manipulating = true
-    notifyTarget()
-  }
-
-  override open func mouseDragged(with event: NSEvent) {
-    guard manipulating == true else { return }
-    updateValue(with: convert(event.locationInWindow, from: nil))
-  }
-
-  override open func mouseUp(with event: NSEvent) {
-    manipulating = false
-    restoreLabelWithName()
-  }
-
-#elseif os(iOS)
 
   override open func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
     panOrigin = touch.location(in: self)
@@ -324,16 +251,7 @@ extension Knob {
     super.endTracking(touch, with: event)
     restoreLabelWithName()
   }
-
-#endif
 }
-
-#if os(macOS)
-extension Knob : NSAccessibilitySlider {
-  public override func isAccessibilityElement() -> Bool { true }
-  public override func isAccessibilityEnabled() -> Bool { true }
-}
-#endif
 
 // MARK: - Private
 
@@ -365,42 +283,22 @@ extension Knob {
   }
 
   private func notifyTarget() {
-#if os(macOS)
-    updateQueue.async { self.sendAction(self.action, to: self.target) }
-#elseif os(iOS)
     updateQueue.async { self.sendActions(for: .valueChanged) }
-#endif
   }
 }
 
 extension Knob {
 
   private func initialize() {
-#if os(macOS)
-    layer = CALayer()
-    wantsLayer = true
-
-    backingLayer.drawsAsynchronously = true
-    trackLayer.drawsAsynchronously = true
-    progressLayer.drawsAsynchronously = true
-    indicatorLayer.drawsAsynchronously = true
-    ticksLayer.drawsAsynchronously = true
-
-    backingLayer.addSublayer(ticksLayer)
-    backingLayer.addSublayer(trackLayer)
-    backingLayer.addSublayer(progressLayer)
-    backingLayer.addSublayer(indicatorLayer)
-#elseif os(iOS)
     layer.addSublayer(ticksLayer)
     layer.addSublayer(trackLayer)
     layer.addSublayer(progressLayer)
     layer.addSublayer(indicatorLayer)
-#endif
 
-    trackLayer.fillColor = KnobColor.clear.cgColor
-    progressLayer.fillColor = KnobColor.clear.cgColor
-    indicatorLayer.fillColor = KnobColor.clear.cgColor
-    ticksLayer.fillColor = KnobColor.clear.cgColor
+    trackLayer.fillColor = UIColor.clear.cgColor
+    progressLayer.fillColor = UIColor.clear.cgColor
+    indicatorLayer.fillColor = UIColor.clear.cgColor
+    ticksLayer.fillColor = UIColor.clear.cgColor
 
     trackLayer.lineWidth = trackLineWidth
     trackLayer.strokeColor = trackColor.cgColor
@@ -432,24 +330,8 @@ extension Knob {
     draw(animated: false)
   }
 
-  private func createRing() -> BezierPath {
-#if os(macOS)
-    let ring = BezierPath()
-    var points = [CGPoint]()
-    for theta in 0...270 {
-      let x = radius * cos(CGFloat(theta) * .pi / 180.0)
-      let y = radius * sin(CGFloat(theta) * .pi / 180.0)
-      points.append(CGPoint(x: x, y: y))
-    }
-
-    ring.appendPoints(&points, count: points.count)
-    ring.apply(CGAffineTransform(rotationAngle: CGFloat.pi / 180.0 * (90 + 45)))
-#elseif os(iOS)
-    let ring = UIBezierPath(arcCenter: CGPoint.zero, radius: radius, startAngle: startAngle, endAngle: endAngle,
-                            clockwise: true)
-#endif
-
-    return ring
+  private func createRing() -> UIBezierPath {
+    .init(arcCenter: CGPoint.zero, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
   }
 
   private func createTrack() {
@@ -459,13 +341,9 @@ extension Knob {
   }
 
   private func createIndicator() {
-    let indicator = BezierPath()
+    let indicator = UIBezierPath()
     indicator.move(to: CGPoint(x: radius, y: 0.0))
-#if os(macOS)
-    indicator.line(to: CGPoint(x: radius * (1.0 - indicatorLineLength), y: 0.0))
-#elseif os(iOS)
     indicator.addLine(to: CGPoint(x: radius * (1.0 - indicatorLineLength), y: 0.0))
-#endif
     indicatorLayer.path = indicator.cgPath
   }
 
@@ -475,9 +353,9 @@ extension Knob {
   }
 
   private func createTicks() {
-    let ticks = BezierPath()
+    let ticks = UIBezierPath()
     for tickIndex in 0..<tickCount {
-      let tick = BezierPath()
+      let tick = UIBezierPath()
       let theta = angle(for: Float(tickIndex) / max(1.0, Float(tickCount - 1)))
       tick.move(to: CGPoint(x: 0.0 + radius * (1.0 - tickLineOffset), y: 0.0))
       tick.addLine(to: CGPoint(x: 0.0 + radius * (1.0 - tickLineLength), y: 0.0))
@@ -489,10 +367,6 @@ extension Knob {
 
   private func draw(animated: Bool = false) {
     if manipulating || !animated { CATransaction.setDisableActions(true) }
-#if os(macOS)
-    progressLayer.removeAllAnimations()
-    indicatorLayer.removeAllAnimations()
-#endif
     progressLayer.strokeEnd = CGFloat((value - minimumValue) / (maximumValue - minimumValue))
     indicatorLayer.transform = CATransform3DMakeRotation(angleForValue, 0, 0, 1)
   }
@@ -507,3 +381,5 @@ extension Knob {
 
   private func clampedValue(_ value: Float) -> Float { min(maximumValue, max(minimumValue, value)) }
 }
+
+#endif
