@@ -136,6 +136,13 @@ open class Knob: NSControl {
   override public var wantsUpdateLayer: Bool { true }
   override public var isFlipped: Bool { true }
 
+  override public var tag: Int {
+    get { tag_ }
+    set { tag_ = newValue }
+  }
+
+  private var tag_: Int = -1
+
   /**
    Construction from an encoded representation.
 
