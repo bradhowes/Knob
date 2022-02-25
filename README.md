@@ -48,7 +48,7 @@ sensitivity as the event X is further from the view center X, requiring more mov
 * `trackLineWidth` -- the line width of the knob's arc that is drawn from the current value to the end.
 * `trackColor` -- the color of the arc that is drawn from the current value to the end.
 * `progressLineWidth` -- the line width of the knob's arc that is drawn from the start to the current value.
-* `progressColor` -- the color of the arc thta is drawn from the start to the current value.
+* `progressColor` -- the color of the arc that is drawn from the start to the current value.
 * `indicatorLineWidth` -- the line width of the knob's indicator that is draw from the current value towards the 
 knob center.
 * `indicatorColor` -- the color of the line that is drawn from the current value to the center.
