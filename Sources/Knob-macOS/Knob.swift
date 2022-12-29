@@ -180,7 +180,7 @@ extension Knob {
     draw(animated: animated)
     updateLayer()
     restorationTimer?.invalidate()
-    valueLabel?.text = formattedValue
+    valueLabel?.stringValue = formattedValue
   }
 }
 
@@ -205,9 +205,9 @@ extension Knob {
   private func performRestoration(label: NSTextField, value: String) {
       NSAnimationContext.runAnimationGroup({ context in
         context.duration = nameTransitionDuration
-        label.animator().text = value
+        label.animator().stringValue = value
       }) {
-        label.animator().text = value
+        label.animator().stringValue = value
       }
   }
 }
@@ -391,7 +391,7 @@ extension Knob {
       let tick = NSBezierPath()
       let theta = angle(for: Float(tickIndex) / max(1.0, Float(tickCount - 1)))
       tick.move(to: CGPoint(x: 0.0 + radius * (1.0 - tickLineOffset), y: 0.0))
-      tick.addLine(to: CGPoint(x: 0.0 + radius * (1.0 - tickLineLength), y: 0.0))
+      tick.line(to: CGPoint(x: 0.0 + radius * (1.0 - tickLineLength), y: 0.0))
       tick.apply(CGAffineTransform(rotationAngle: theta))
       ticks.append(tick)
     }

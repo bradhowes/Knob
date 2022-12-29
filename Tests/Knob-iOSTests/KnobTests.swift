@@ -132,6 +132,59 @@ final class KnobTests: XCTestCase {
     try assertSnapshot(matching: knob)
   }
 
+  func testTickLineLength() throws {
+    let knob = Knob(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
+    knob.tickCount = 5
+    knob.tickLineLength = 0.5
+    knob.tickColor = .systemTeal
+    knob.value = 0.3
+    try assertSnapshot(matching: knob)
+  }
+
+  func testTickLineOffset() throws {
+    let knob = Knob(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
+    knob.tickCount = 5
+    knob.tickLineOffset = 0.5
+    knob.tickColor = .systemTeal
+    knob.value = 0.3
+    try assertSnapshot(matching: knob)
+  }
+
+  func testFormattedValue() throws {
+    let knob = Knob(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
+    knob.value = 0.3
+    XCTAssertEqual(knob.formattedValue, "0.3")
+    let valueFormatter = NumberFormatter()
+    valueFormatter.minimumFractionDigits = 6
+    knob.valueFormatter = valueFormatter
+    XCTAssertEqual(knob.formattedValue, "0.300000")
+  }
+
+  func testStartAngle() throws {
+    let knob = Knob(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
+    knob.startAngle = -CGFloat.pi / 180.0 * 220.0
+    try assertSnapshot(matching: knob)
+  }
+
+  func testEndAngle() throws {
+    let knob = Knob(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
+    knob.endAngle = -CGFloat.pi / 180.0 * 240.0
+    try assertSnapshot(matching: knob)
+  }
+
+  func testTagging() throws {
+    let knob = Knob(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
+    knob.tag = 12345
+    XCTAssertEqual(knob.tag, 12345)
+  }
+
+  func testSetValue() throws {
+    let knob = Knob(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
+    knob.setValue(0.5)
+    XCTAssertEqual(knob.value, 0.5)
+    try assertSnapshot(matching: knob)
+  }
+
   static var allTests = [
     ("testExample", testValueClamping),
   ]

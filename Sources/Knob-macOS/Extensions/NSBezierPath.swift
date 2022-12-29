@@ -11,8 +11,6 @@ internal extension NSBezierPath {
                                                m22: transform.d, tX: transform.tx, tY: transform.ty))
   }
 
-  func addLine(to: CGPoint) { self.line(to: to) }
-
   var cgPath: CGPath {
     let path = CGMutablePath()
     var points = [CGPoint](repeating: .zero, count: 3)
