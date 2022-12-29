@@ -175,7 +175,7 @@ extension Knob {
 
 extension Knob {
 
-  open func restoreLabelWithName() {
+  public func restoreLabelWithName() {
     notifyTarget()
     restorationTimer?.invalidate()
     guard
