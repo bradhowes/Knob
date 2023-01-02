@@ -1,7 +1,7 @@
 // Copyright © 2021 Brad Howes. All rights reserved.
 
 import SwiftUI
-import Knob
+import Knob_iOS
 
 struct ContentView: View {
   @State var volumeValue: Float = 0.25

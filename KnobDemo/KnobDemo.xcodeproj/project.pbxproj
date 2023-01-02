@@ -14,8 +14,8 @@
 		BD42C61F271C85D6001E5049 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD42C61E271C85D6001E5049 /* Preview Assets.xcassets */; };
 		BD42C62A271C85D6001E5049 /* KnobDemo_macOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD42C629271C85D6001E5049 /* KnobDemo_macOSTests.swift */; };
 		BD42C634271C85D6001E5049 /* KnobDemo_macOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD42C633271C85D6001E5049 /* KnobDemo_macOSUITests.swift */; };
-		BD5B79A52721E0B200FC577D /* KnobStatic in Frameworks */ = {isa = PBXBuildFile; productRef = BD5B79A42721E0B200FC577D /* KnobStatic */; };
-		BD5B79A72721E0BF00FC577D /* KnobStatic in Frameworks */ = {isa = PBXBuildFile; productRef = BD5B79A62721E0BF00FC577D /* KnobStatic */; };
+		BDD08413296339B00098859A /* Knob-iOS in Frameworks */ = {isa = PBXBuildFile; productRef = BDD08412296339B00098859A /* Knob-iOS */; };
+		BDD08415296339C10098859A /* Knob-macOS in Frameworks */ = {isa = PBXBuildFile; productRef = BDD08414296339C10098859A /* Knob-macOS */; };
 		BDD4574D2719BDD7000E6C2F /* KnobDemo_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD4574C2719BDD7000E6C2F /* KnobDemo_iOSApp.swift */; };
 		BDD457512719BDD9000E6C2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD457502719BDD9000E6C2F /* Assets.xcassets */; };
 		BDD457542719BDD9000E6C2F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD457532719BDD9000E6C2F /* Preview Assets.xcassets */; };
@@ -66,10 +66,11 @@
 		BD42C62F271C85D6001E5049 /* KnobDemo_macOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnobDemo_macOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD42C633271C85D6001E5049 /* KnobDemo_macOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobDemo_macOSUITests.swift; sourceTree = "<group>"; };
 		BD42C642271C8896001E5049 /* KnobView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KnobView.swift; sourceTree = "<group>"; };
-		BDA5A260271AEB2E004FE9EF /* Knob */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Knob; path = ..; sourceTree = "<group>"; };
 		BDA5A261271AEBA3004FE9EF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BDA5A262271AEC40004FE9EF /* KnobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobView.swift; sourceTree = "<group>"; };
 		BDB6AF4E271AF1E800F7A115 /* KnobDemo_iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KnobDemo_iOS.entitlements; sourceTree = "<group>"; };
+		BDD0840E2963396F0098859A /* Knob */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Knob; path = ..; sourceTree = "<group>"; };
+		BDD0840F296339920098859A /* KnobDemo-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "KnobDemo-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		BDD457492719BDD7000E6C2F /* KnobDemo_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnobDemo_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDD4574C2719BDD7000E6C2F /* KnobDemo_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobDemo_iOSApp.swift; sourceTree = "<group>"; };
 		BDD4574E2719BDD7000E6C2F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -86,7 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD5B79A72721E0BF00FC577D /* KnobStatic in Frameworks */,
+				BDD08415296339C10098859A /* Knob-macOS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,7 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD5B79A52721E0B200FC577D /* KnobStatic in Frameworks */,
+				BDD08413296339B00098859A /* Knob-iOS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,7 +170,7 @@
 		BDA5A25B271ADC1E004FE9EF /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				BDA5A260271AEB2E004FE9EF /* Knob */,
+				BDD0840E2963396F0098859A /* Knob */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -212,6 +213,7 @@
 		BDD4574B2719BDD7000E6C2F /* KnobDemo_iOS */ = {
 			isa = PBXGroup;
 			children = (
+				BDD0840F296339920098859A /* KnobDemo-iOS-Info.plist */,
 				BDB6AF4E271AF1E800F7A115 /* KnobDemo_iOS.entitlements */,
 				BDD4574C2719BDD7000E6C2F /* KnobDemo_iOSApp.swift */,
 				BDA5A262271AEC40004FE9EF /* KnobView.swift */,
@@ -264,7 +266,7 @@
 			);
 			name = KnobDemo_macOS;
 			packageProductDependencies = (
-				BD5B79A62721E0BF00FC577D /* KnobStatic */,
+				BDD08414296339C10098859A /* Knob-macOS */,
 			);
 			productName = KnobDemo_macOS;
 			productReference = BD42C615271C85D2001E5049 /* KnobDemo_macOS.app */;
@@ -320,7 +322,7 @@
 			);
 			name = KnobDemo_iOS;
 			packageProductDependencies = (
-				BD5B79A42721E0B200FC577D /* KnobStatic */,
+				BDD08412296339B00098859A /* Knob-iOS */,
 			);
 			productName = KnobDemo;
 			productReference = BDD457492719BDD7000E6C2F /* KnobDemo_iOS.app */;
@@ -370,7 +372,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1310;
-				LastUpgradeCheck = 1310;
+				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					BD42C614271C85D2001E5049 = {
 						CreatedOnToolsVersion = 13.0;
@@ -557,6 +559,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"KnobDemo_macOS/Preview Content\"";
 				DEVELOPMENT_TEAM = UP6SS5ES7E;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -587,6 +590,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"KnobDemo_macOS/Preview Content\"";
 				DEVELOPMENT_TEAM = UP6SS5ES7E;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -615,6 +619,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = UP6SS5ES7E;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -641,6 +646,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = UP6SS5ES7E;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -666,6 +672,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = UP6SS5ES7E;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -691,6 +698,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = UP6SS5ES7E;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -837,6 +845,7 @@
 				DEVELOPMENT_TEAM = UP6SS5ES7E;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "KnobDemo-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -870,6 +879,7 @@
 				DEVELOPMENT_TEAM = UP6SS5ES7E;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "KnobDemo-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1056,13 +1066,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		BD5B79A42721E0B200FC577D /* KnobStatic */ = {
+		BDD08412296339B00098859A /* Knob-iOS */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = KnobStatic;
+			productName = "Knob-iOS";
 		};
-		BD5B79A62721E0BF00FC577D /* KnobStatic */ = {
+		BDD08414296339C10098859A /* Knob-macOS */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = KnobStatic;
+			productName = "Knob-macOS";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
