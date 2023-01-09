@@ -60,7 +60,7 @@ final class KnobTests: XCTestCase {
 
   func testTrackLineWidth() throws {
     let knob = Knob(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
-    knob.trackLineWidth = 12.0
+    knob.trackWidthFactor = 0.07
     knob.trackColor = .black
     knob.value = 0.5
     try assertSnapshot(matching: knob)
@@ -75,7 +75,7 @@ final class KnobTests: XCTestCase {
 
   func testProgressLineWidth() throws {
     let knob = Knob(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
-    knob.progressLineWidth = 12.0
+    knob.progressWidthFactor = 0.6
     knob.value = 0.5
     try assertSnapshot(matching: knob)
   }
@@ -89,7 +89,7 @@ final class KnobTests: XCTestCase {
 
   func testIndicatorLineWidth() throws {
     let knob = Knob(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
-    knob.indicatorLineWidth = 12.0
+    knob.indicatorWidthFactor = 0.04
     knob.value = 0.5
     try assertSnapshot(matching: knob)
   }
