@@ -7,8 +7,8 @@ import AppKit
 internal extension NSBezierPath {
 
   func apply(_ transform: CGAffineTransform) {
-    self.transform(using: AffineTransform.init(m11: transform.a, m12: transform.b, m21: transform.c,
-                                               m22: transform.d, tX: transform.tx, tY: transform.ty))
+    self.transform(using: .init(m11: transform.a, m12: transform.b, m21: transform.c, m22: transform.d,
+                                tX: transform.tx, tY: transform.ty))
   }
 
   var cgPath: CGPath {

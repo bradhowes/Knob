@@ -1,4 +1,4 @@
-// Copyright © 2018 Brad Howes. All rights reserved.
+// Copyright © 2023 Brad Howes. All rights reserved.
 
 #if os(macOS)
 
@@ -23,8 +23,10 @@ open class Knob: NSControl {
   public var maximumValue: Float = 1.0 { didSet { setValue(_value, animated: false) } }
 
   /// The current value of the control.
-  @objc
-  public dynamic var value: Float { get { _value } set { setValue(newValue, animated: false) } }
+  @objc public dynamic var value: Float {
+    get { _value }
+    set { setValue(newValue, animated: false) }
+  }
 
   /// The distance in pixels used for calculating mouse/touch changes to the knob value. By default, use the smaller of
   /// the view's width and height.
@@ -40,50 +42,49 @@ open class Knob: NSControl {
   /// over value changes.
   public var maxChangeRegionWidthPercentage: CGFloat = 0.1
 
-  /// The width of the arc that is shown after the current value.
-  public var trackLineWidth: CGFloat = 6 { didSet { trackLayer.lineWidth = trackLineWidth } }
+  /// Controls the width of the track arc that is shown behind the progress track. The track with will be the smaller of
+  /// the width/height of the bounds times this value.
+  public var trackWidthFactor: CGFloat = 0.08 { didSet { trackLayer.setNeedsDisplay() } }
 
   /// The color of the arc shown after the current value.
-  public var trackColor: NSColor = NSColor.darkGray.darker.darker.darker
-  { didSet { trackLayer.strokeColor = trackColor.cgColor } }
+  public var trackColor: NSColor = .darkGray.darker.darker.darker { didSet { trackLayer.setNeedsDisplay() } }
 
-  /// The width of the arc from the start up to the current value.
-  public var progressLineWidth: CGFloat = 4
-  { didSet { progressLayer.lineWidth = progressLineWidth } }
+  /// Controls the width of the progress arc that is shown on top of the track arc. The width with will be the smaller
+  /// of the width/height of the bounds times this value. See `trackWidthFactor`.
+  public var progressWidthFactor: CGFloat = 0.055 { didSet { progressLayer.setNeedsDisplay() } }
 
   /// The color of the arc from the start up to the current value.
   public var progressColor: NSColor = .init(red: 1.0, green: 0.575, blue: 0.0, alpha: 1.0)
-  { didSet { progressLayer.strokeColor = progressColor.cgColor } }
+  { didSet { progressLayer.setNeedsDisplay() } }
 
   /// The width of the radial line drawn from the current value on the arc towards the arc center.
-  public var indicatorLineWidth: CGFloat = 2
-  { didSet { indicatorLayer.lineWidth = indicatorLineWidth } }
+  public var indicatorWidthFactor: CGFloat = 0.055 { didSet { indicatorLayer.setNeedsDisplay() } }
 
   /// The color of the radial line drawn from the current value on the arc towards the arc center.
   public var indicatorColor: NSColor = .init(red: 1.0, green: 0.575, blue: 0.0, alpha: 1.0)
-  { didSet { indicatorLayer.strokeColor = indicatorColor.cgColor } }
+  { didSet { indicatorLayer.setNeedsDisplay() } }
 
   /// The proportion of the radial line drawn from the current value on the arc towards the arc center.
   /// Range is from 0.0 to 1.0, where 1.0 will draw a complete line, and anything less will draw that fraction of it
   /// starting from the arc.
-  public var indicatorLineLength: CGFloat = 0.3 { didSet { createShapes() } }
+  public var indicatorLineLength: CGFloat = 0.3 { didSet { indicatorLayer.setNeedsDisplay() } }
 
   /// Number of ticks to show inside the track, with the first indicating the `minimumValue` and the last indicating
   /// the `maximumValue`
-  public var tickCount: Int = 0 { didSet { createShapes() } }
+  public var tickCount: Int = 0 { didSet { ticksLayer.setNeedsDisplay() } }
 
   /// Offset for the start of a tick line. Range is from 0.0 to 1.0 where 0.0 starts at the circumference of the arc,
   /// and 0.5 is midway between the circumference and the center along a radial.
-  public var tickLineOffset: CGFloat = 0.1 { didSet { createShapes() } }
+  public var tickLineOffset: CGFloat = 0.1 { didSet { ticksLayer.setNeedsDisplay() } }
 
   /// Length of the tick. Range is from 0.0 to 1.0 where 1.0 will draw a line ending at the center of the knob.
-  public var tickLineLength: CGFloat = 0.2 { didSet { createShapes() } }
+  public var tickLineLength: CGFloat = 0.2 { didSet { ticksLayer.setNeedsDisplay() } }
 
   /// The width of the tick line.
-  public var tickLineWidth: CGFloat = 1.0 { didSet { ticksLayer.lineWidth = tickLineWidth } }
+  public var tickLineWidth: CGFloat = 1.0 { didSet { ticksLayer.setNeedsDisplay() } }
 
   /// The color of the tick line.
-  public var tickColor: NSColor = .black { didSet { ticksLayer.strokeColor = tickColor.cgColor } }
+  public var tickColor: NSColor = .black { didSet { ticksLayer.setNeedsDisplay() } }
 
   /// The text element to use to show the knob's value and name.
   public var valueLabel: NSTextField?
@@ -115,10 +116,24 @@ open class Knob: NSControl {
    the positive X axis, a positive PI/2 will lie on the negative Y axis. The default values will leave a 90° gap at
    the bottom.
    */
-  public var startAngle: CGFloat = -CGFloat.pi / 180.0 * 225.0 { didSet { createShapes() } }
+  public var startAngle: CGFloat = -.pi / 180.0 * 225.0 {
+    didSet {
+      trackLayer.setNeedsDisplay()
+      progressLayer.setNeedsDisplay()
+      indicatorLayer.setNeedsDisplay()
+      ticksLayer.setNeedsDisplay()
+    }
+  }
 
   /// The ending angle of the arc where a value of 1.0 is located. See `startAngle` for additional info.
-  public var endAngle: CGFloat = CGFloat.pi / 180.0 * 45.0 { didSet { createShapes() } }
+  public var endAngle: CGFloat = .pi / 180.0 * 45.0 {
+    didSet {
+      trackLayer.setNeedsDisplay()
+      progressLayer.setNeedsDisplay()
+      indicatorLayer.setNeedsDisplay()
+      ticksLayer.setNeedsDisplay()
+    }
+  }
 
   private let trackLayer = CAShapeLayer()
   private let progressLayer = CAShapeLayer()
@@ -126,14 +141,26 @@ open class Knob: NSControl {
   private let ticksLayer = CAShapeLayer()
   private let updateQueue = DispatchQueue(label: "KnobUpdates", qos: .userInteractive, attributes: [],
                                           autoreleaseFrequency: .inherit, target: .main)
-
   private var _value: Float = 0.0
   private var panOrigin: CGPoint = .zero
   private var restorationTimer: Timer?
+  private var backingLayer: CALayer { layer! }
 
-  override public var acceptsFirstResponder: Bool { get { return true } }
-  var backingLayer: CALayer { layer! }
-  override public var wantsUpdateLayer: Bool { true }
+  private var expanse: CGFloat { min(bounds.width, bounds.height) }
+  private var radius: CGFloat { expanse / 2 - trackLineWidth }
+  private var angleForValue: CGFloat { angle(for: (self.value - minimumValue) / (maximumValue - minimumValue)) }
+
+  private var trackLineWidth: CGFloat { expanse * trackWidthFactor }
+  private var progressLineWidth: CGFloat { expanse * progressWidthFactor }
+  private var indicatorLineWidth: CGFloat { expanse * indicatorWidthFactor }
+
+  private func angle(for normalizedValue: Float) -> CGFloat {
+    .init(normalizedValue) * (endAngle - startAngle) + startAngle
+  }
+
+  private func clampedValue(_ value: Float) -> Float { min(maximumValue, max(minimumValue, value)) }
+
+  override public var acceptsFirstResponder: Bool { get { true } }
   override public var isFlipped: Bool { true }
 
   override public var tag: Int {
@@ -163,6 +190,12 @@ open class Knob: NSControl {
     super.init(frame: frame)
     initialize()
   }
+
+  public override func makeBackingLayer() -> CALayer {
+    let layer = CAShapeLayer()
+    layer.layoutManager = CAConstraintLayoutManager()
+    return layer
+  }
 }
 
 // MARK: - Setting Value
@@ -177,10 +210,36 @@ extension Knob {
    */
   public func setValue(_ value: Float, animated: Bool = false) {
     _value = clampedValue(value)
-    draw(animated: animated)
-    updateLayer()
     restorationTimer?.invalidate()
     valueLabel?.stringValue = formattedValue
+    progressLayer.setNeedsDisplay()
+    indicatorLayer.setNeedsDisplay()
+  }
+}
+
+// MARK: - CALayerDelegate
+
+extension Knob: CALayerDelegate {
+
+  public func display(_ layer: CALayer) {
+    if layer === trackLayer {
+      trackLayer.lineWidth = trackLineWidth
+      trackLayer.strokeColor = trackColor.cgColor
+      trackLayer.path = createRing().cgPath
+    } else if layer === progressLayer {
+      progressLayer.lineWidth = progressLineWidth
+      progressLayer.strokeColor = progressColor.cgColor
+      progressLayer.path = createRing().cgPath
+      progressLayer.strokeEnd = CGFloat((value - minimumValue) / (maximumValue - minimumValue))
+    } else if layer === ticksLayer {
+      ticksLayer.lineWidth = tickLineWidth
+      ticksLayer.strokeColor = tickColor.cgColor
+      createTicks()
+    } else if layer === indicatorLayer {
+      indicatorLayer.lineWidth = indicatorLineWidth
+      indicatorLayer.strokeColor = indicatorColor.cgColor
+      createIndicator()
+    }
   }
 }
 
@@ -209,31 +268,6 @@ extension Knob {
       }) {
         label.animator().stringValue = value
       }
-  }
-}
-
-// MARK: - Layout
-
-extension Knob {
-
-  /**
-   Reposition layers to reflect new size.
-   */
-  public override func layout() {
-    super.layout()
-    doLayoutSubviews()
-  }
-
-  private func doLayoutSubviews() {
-
-    // To make future calculations easier, configure the layers so that (0, 0) is their center
-    let layerBounds = bounds.offsetBy(dx: -bounds.midX, dy: -bounds.midY)
-    let layerCenter = CGPoint(x: bounds.midX, y: bounds.midY)
-    for layer in [trackLayer, progressLayer, indicatorLayer, ticksLayer] {
-      layer.bounds = layerBounds
-      layer.position = layerCenter
-    }
-    createShapes()
   }
 }
 
@@ -304,53 +338,30 @@ extension Knob {
 extension Knob {
 
   private func initialize() {
-    layer = CALayer()
     wantsLayer = true
+    backingLayer.backgroundColor = .clear
 
-    backingLayer.drawsAsynchronously = true
-    trackLayer.drawsAsynchronously = true
-    progressLayer.drawsAsynchronously = true
-    indicatorLayer.drawsAsynchronously = true
-    ticksLayer.drawsAsynchronously = true
+    let leftConstraint = CAConstraint(attribute: .minX, relativeTo: "superlayer", attribute: .minX)
+    let rightConstraint = CAConstraint(attribute: .maxX, relativeTo: "superlayer", attribute: .maxX)
+    let bottomConstraint = CAConstraint(attribute: .minY, relativeTo: "superlayer", attribute: .minY)
+    let topConstraint = CAConstraint(attribute: .maxY, relativeTo: "superlayer", attribute: .maxY)
 
-    backingLayer.addSublayer(ticksLayer)
-    backingLayer.addSublayer(trackLayer)
-    backingLayer.addSublayer(progressLayer)
-    backingLayer.addSublayer(indicatorLayer)
+    for layer in [trackLayer, ticksLayer, progressLayer, indicatorLayer] {
+      backingLayer.addSublayer(layer)
+      layer.needsDisplayOnBoundsChange = true
+      layer.delegate = self
+      layer.autoresizingMask = [] // .layerHeightSizable, .layerWidthSizable]
+      layer.constraints = [leftConstraint, rightConstraint, bottomConstraint, topConstraint]
+      layer.fillColor = .clear
+      layer.backgroundColor = .clear
+      layer.allowsEdgeAntialiasing = true
+      layer.lineCap = .round
+      layer.strokeStart = 0.0
+    }
 
-    trackLayer.fillColor = NSColor.clear.cgColor
-    progressLayer.fillColor = NSColor.clear.cgColor
-    indicatorLayer.fillColor = NSColor.clear.cgColor
-    ticksLayer.fillColor = NSColor.clear.cgColor
-
-    trackLayer.lineWidth = trackLineWidth
-    trackLayer.strokeColor = trackColor.cgColor
-    trackLayer.lineCap = .round
-    trackLayer.strokeStart = 0.0
     trackLayer.strokeEnd = 1.0
-
-    progressLayer.lineWidth = progressLineWidth
-    progressLayer.strokeColor = progressColor.cgColor
-    progressLayer.lineCap = .round
-    progressLayer.strokeStart = 0.0
     progressLayer.strokeEnd = 0.0
-
-    indicatorLayer.lineWidth = indicatorLineWidth
-    indicatorLayer.strokeColor = indicatorColor.cgColor
-    indicatorLayer.lineCap = .round
-
-    ticksLayer.lineWidth = tickLineWidth
-    ticksLayer.strokeColor = tickColor.cgColor
-    ticksLayer.lineCap = .round
-  }
-
-  private func createShapes() {
-    createTrack()
-    createIndicator()
-    createTicks()
-    createProgressTrack()
-
-    draw(animated: false)
+    indicatorLayer.strokeEnd = 1.0
   }
 
   private func createRing() -> NSBezierPath {
@@ -363,58 +374,34 @@ extension Knob {
     }
 
     ring.appendPoints(&points, count: points.count)
-    ring.apply(CGAffineTransform(rotationAngle: CGFloat.pi / 180.0 * (90 + 45)))
+    ring.apply(.init(translationX: bounds.width / 2, y: bounds.height / 2)
+      .rotated(by: CGFloat.pi / 180.0 * (90 + 45)))
     return ring
-  }
-
-  private func createTrack() {
-    let ring = createRing()
-    trackLayer.path = ring.cgPath
-
   }
 
   private func createIndicator() {
     let indicator = NSBezierPath()
     indicator.move(to: CGPoint(x: radius, y: 0.0))
     indicator.line(to: CGPoint(x: radius * (1.0 - indicatorLineLength), y: 0.0))
+    indicator.apply(.init(translationX: bounds.width / 2, y: bounds.height / 2)
+      .rotated(by: angle(for: value)))
     indicatorLayer.path = indicator.cgPath
-  }
-
-  private func createProgressTrack() {
-    let progressRing = createRing()
-    progressLayer.path = progressRing.cgPath
   }
 
   private func createTicks() {
     let ticks = NSBezierPath()
+    let span = radius - trackLineWidth / 2.0
     for tickIndex in 0..<tickCount {
       let tick = NSBezierPath()
       let theta = angle(for: Float(tickIndex) / max(1.0, Float(tickCount - 1)))
-      tick.move(to: CGPoint(x: 0.0 + radius * (1.0 - tickLineOffset), y: 0.0))
-      tick.line(to: CGPoint(x: 0.0 + radius * (1.0 - tickLineLength), y: 0.0))
-      tick.apply(CGAffineTransform(rotationAngle: theta))
+      tick.move(to: CGPoint(x: 0.0 + span * (1.0 - tickLineOffset), y: 0.0))
+      tick.line(to: CGPoint(x: 0.0 + span * (1.0 - tickLineLength), y: 0.0))
+      tick.apply(.init(rotationAngle: theta))
       ticks.append(tick)
     }
+    ticks.apply(CGAffineTransform(translationX: bounds.width / 2, y: bounds.height / 2))
     ticksLayer.path = ticks.cgPath
   }
-
-  private func draw(animated: Bool = false) {
-    if manipulating || !animated { CATransaction.setDisableActions(true) }
-    progressLayer.removeAllAnimations()
-    indicatorLayer.removeAllAnimations()
-    progressLayer.strokeEnd = CGFloat((value - minimumValue) / (maximumValue - minimumValue))
-    indicatorLayer.transform = CATransform3DMakeRotation(angleForValue, 0, 0, 1)
-  }
-
-  private var radius: CGFloat { (min(trackLayer.bounds.width, trackLayer.bounds.height) / 2) - trackLineWidth }
-
-  private var angleForValue: CGFloat { angle(for: (self.value - minimumValue) / (maximumValue - minimumValue)) }
-
-  private func angle(for normalizedValue: Float) -> CGFloat {
-    CGFloat(normalizedValue) * (endAngle - startAngle) + startAngle
-  }
-
-  private func clampedValue(_ value: Float) -> Float { min(maximumValue, max(minimumValue, value)) }
 }
 
 #endif

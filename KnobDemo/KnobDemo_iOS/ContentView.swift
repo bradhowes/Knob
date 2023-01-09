@@ -20,60 +20,74 @@ struct ContentView: View {
   }()
 
   var body: some View {
-    let trackWidth: CGFloat = 14
-    let trackColor = Color(red: 0.25, green: 0.25, blue: 0.25)
-    let progressWidth: CGFloat = 12
+    let trackWidthFactor: CGFloat = 0.08
+    let trackColor = Color(red: 0.10, green: 0.10, blue: 0.10)
+    let progressWidthFactor: CGFloat = 0.055
     let progressColor = Color(red: 1.0, green: 0.575, blue: 0.0)
+    let textColor = Color(red: 0.7, green: 0.5, blue: 0.3)
 
     ZStack {
       Color.black
         .ignoresSafeArea()
-      VStack(
-        alignment: .center,
-        spacing: 10
-      ) {
+
+      VStack(alignment: .center,  spacing: 10) {
+
         Text("Touch/click inside arc and move up/down")
           .accessibilityIdentifier("title")
           .font(.system(size: 14, weight: .medium, design: .default))
           .foregroundColor(Color(red: 0.7, green: 0.5, blue: 0.3))
 
         HStack(alignment: .center, spacing: 10) {
-          VStack(alignment: .center, spacing: 10) {
+          
+          VStack(alignment: .center, spacing: -24) {
+
             KnobView(value: $volumeValue, manipulating: $volumeManipulating)
-              .trackStyle(width: trackWidth, color: trackColor)
-              .progressStyle(width: progressWidth, color: progressColor)
-              .indicatorStyle(width: progressWidth, color: progressColor, length: 0.3)
-              .frame(minWidth: 40, maxWidth: 240, minHeight: 40, maxHeight: 240)
+              .trackStyle(widthFactor: trackWidthFactor, color: trackColor)
+              .progressStyle(widthFactor: progressWidthFactor, color: progressColor)
+              .indicatorStyle(widthFactor: progressWidthFactor, color: progressColor, length: 0.3)
               .accessibilityIdentifier("volume knob")
+              .frame(minWidth: 40, maxWidth: 240, minHeight: 40, maxHeight: 240)
+              .aspectRatio(1.0, contentMode: .fit)
 
             let textValue = volumeManipulating ? valueFormatter.string(for: volumeValue * 100.0) ?? "?" : "Volume"
-            let duration = volumeManipulating ? 0.0 : 0.4
-            let delay = volumeManipulating ? 0.0 : 0.5
+            let inDuration = volumeManipulating ? 0.0 : 0.4
+            let inDelay = volumeManipulating ? 0.0 : 0.5
+            let outDuration = volumeManipulating ? 0.4 : 0.0
+            let outDelay = volumeManipulating ? 0.5 : 0.0
+
             Text(textValue)
-              .padding(Edge.Set(.top), -24)
               .font(.system(size: 24, weight: .medium, design: .default))
-              .foregroundColor(Color(red: 0.7, green: 0.5, blue: 0.3))
+              .foregroundColor(textColor)
               .accessibilityIdentifier("volume label")
-              .transition(.opacity.animation(.linear(duration: duration).delay(delay)))
+              .transition(.asymmetric(
+                insertion: .opacity.animation(.linear(duration: inDuration).delay(inDelay)),
+                removal: .opacity.animation(.linear(duration: outDuration).delay(outDelay))))
               .id("Volume \(volumeManipulating)")
           }
-          VStack(alignment: .center, spacing: 10) {
+
+          VStack(alignment: .center, spacing: -24) {
+
             KnobView(value: $delayValue, manipulating: $delayManipulating)
-              .trackStyle(width: trackWidth, color: trackColor)
-              .progressStyle(width: progressWidth, color: progressColor)
-              .indicatorStyle(width: progressWidth, color: progressColor, length: 0.3)
-              .frame(minWidth: 40, maxWidth: 240, minHeight: 40, maxHeight: 240)
+              .trackStyle(widthFactor: trackWidthFactor, color: trackColor)
+              .progressStyle(widthFactor: progressWidthFactor, color: progressColor)
+              .indicatorStyle(widthFactor: progressWidthFactor, color: progressColor, length: 0.3)
               .accessibilityIdentifier("delay knob")
+              .frame(minWidth: 40, maxWidth: 240, minHeight: 40, maxHeight: 240)
+              .aspectRatio(1.0, contentMode: .fit)
 
             let textValue = delayManipulating ? valueFormatter.string(for: delayValue * 100.0) ?? "?" : "Delay"
-            let duration = delayManipulating ? 0.0 : 0.4
-            let delay = delayManipulating ? 0.0 : 0.5
+            let inDuration = delayManipulating ? 0.0 : 0.4
+            let inDelay = delayManipulating ? 0.0 : 0.5
+            let outDuration = delayManipulating ? 0.4 : 0.0
+            let outDelay = delayManipulating ? 0.5 : 0.0
+
             Text(textValue)
-              .padding(Edge.Set(.top), -24)
               .font(.system(size: 24, weight: .medium, design: .default))
-              .foregroundColor(Color(red: 0.7, green: 0.5, blue: 0.3))
+              .foregroundColor(textColor)
               .accessibilityIdentifier("delay label")
-              .transition(.opacity.animation(.linear(duration: duration).delay(delay)))
+              .transition(.asymmetric(
+                insertion: .opacity.animation(.linear(duration: inDuration).delay(inDelay)),
+                removal: .opacity.animation(.linear(duration: outDuration).delay(outDelay))))
               .id("Delay \(delayManipulating)")
           }
         }

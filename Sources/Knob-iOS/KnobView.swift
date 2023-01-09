@@ -21,13 +21,13 @@ public struct KnobView: UIViewRepresentable {
   private var touchSensitivity: CGFloat = 1.0
   private var maxChangeRegionWidthPercentage: CGFloat = 0.1
 
-  private var trackLineWidth: CGFloat = 6
+  private var trackWidthFactor: CGFloat = 0.08
   private var trackColor: Color = Color(red: 0.25, green: 0.25, blue: 0.25)
 
-  private var progressLineWidth: CGFloat = 4
+  private var progressWidthFactor: CGFloat = 0.055
   private var progressColor: Color = Color(red: 1.0, green: 0.575, blue: 0.0)
 
-  private var indicatorLineWidth: CGFloat = 4
+  private var indicatorWidthFactor: CGFloat = 0.055
   private var indicatorColor: Color = Color(red: 1.0, green: 0.575, blue: 0.0)
   private var indicatorLineLength: CGFloat = 0.3
 
@@ -76,10 +76,10 @@ public struct KnobView: UIViewRepresentable {
     view.touchSensitivity = touchSensitivity
     view.maxChangeRegionWidthPercentage = maxChangeRegionWidthPercentage
 
-    view.trackLineWidth = trackLineWidth
-    view.progressLineWidth = progressLineWidth
+    view.trackWidthFactor = trackWidthFactor
+    view.progressWidthFactor = progressWidthFactor
 
-    view.indicatorLineWidth = indicatorLineWidth
+    view.indicatorWidthFactor = indicatorWidthFactor
     view.indicatorLineLength = indicatorLineLength
 
     view.tickCount = tickCount
@@ -137,31 +137,31 @@ public extension KnobView {
     return view
   }
 
-  func trackStyle(width: CGFloat, color: Color) -> KnobView {
+  func trackStyle(widthFactor: CGFloat, color: Color) -> KnobView {
     var view = self
-    view.trackLineWidth = width
+    view.trackWidthFactor = widthFactor
     view.trackColor = color
     return view
   }
 
-  func progressStyle(width: CGFloat, color: Color) -> KnobView {
+  func progressStyle(widthFactor: CGFloat, color: Color) -> KnobView {
     var view = self
-    view.progressLineWidth = width
+    view.progressWidthFactor = widthFactor
     view.progressColor = color
     return view
   }
 
   func indicatorStyle(length: CGFloat) -> KnobView {
     var view = self
-    view.indicatorLineWidth = progressLineWidth
-    view.indicatorColor = progressColor
+    view.indicatorWidthFactor = indicatorWidthFactor
+    view.indicatorColor = indicatorColor
     view.indicatorLineLength = length
     return view
   }
 
-  func indicatorStyle(width: CGFloat, color: Color, length: CGFloat) -> KnobView {
+  func indicatorStyle(widthFactor: CGFloat, color: Color, length: CGFloat) -> KnobView {
     var view = self
-    view.indicatorLineWidth = width
+    view.indicatorWidthFactor = widthFactor
     view.indicatorColor = color
     view.indicatorLineLength = length
     return view
