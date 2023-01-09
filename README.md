@@ -32,6 +32,15 @@ knobs control various audio effects settings.
 
 Included is a playground for playing with a knob.
 
+# Versions
+
+There are two major versions that have a slight change in the API. Originally (up to v1.6.0) the width of the knob's track and indicator were given as
+notional pixel values. With v2.0.0, this changed to _factor_ which is multiplied with the minimum of the bounds width and height values to arrive at the
+width value to use. This allows for scaling of the knob features as the bounds of the knob changes.
+
+* old-style track/indicator width values -- use version v1.6.0
+* new-style track/indicator scaling factor values -- use version v2.x.y
+
 ## Configuration
 
 * `minimumValue` -- the lowest value that the control will report out.
@@ -45,12 +54,13 @@ require 2x `travelDistance`.
 * `maxChangeRegionWidthPercentage` -- percentage of `travelDistance` that will always produce maximum value change. This
 defines a vertical region in the center of the view. Mouse/touch events outside of this region will have increased 
 sensitivity as the event X is further from the view center X, requiring more movement for the same change in value.
-* `trackLineWidth` -- the line width of the knob's arc that is drawn from the current value to the end.
+* `trackWidthFactor` -- the line width of the knob's arc that appears as a track for the progress indicator. This is multiplied by the min width/height
+bounds value. Allows for scaling of the knob as the size increases.
 * `trackColor` -- the color of the arc that is drawn from the current value to the end.
-* `progressLineWidth` -- the line width of the knob's arc that is drawn from the start to the current value.
+* `progressWidthFactor` -- the line width of the knob's arc that is drawn from the start to the current value. This is multipled by the min width/height
+bounds value. Allows for scaling of the knob as the size increases.
 * `progressColor` -- the color of the arc that is drawn from the start to the current value.
-* `indicatorLineWidth` -- the line width of the knob's indicator that is draw from the current value towards the 
-knob center.
+* `indicatorWidthFactor` -- the line width of the knob's indicator that is draw from the current value towards the knob center. See `progressWidthFactor`.
 * `indicatorColor` -- the color of the line that is drawn from the current value to the center.
 * `indicatorLineLength` -- the amount of the line that is drawn from the current value to the center, where 0.0 
 indicates no line will be drawn, and 0.5 results in a line that is half-way to the knob center point.
