@@ -17,13 +17,12 @@ class KnobDemoUITests: XCTestCase {
     let app = XCUIApplication()
     app.launch()
 
-    let knob = app.otherElements["knob"]
-    let value = app.staticTexts["value"]
-    XCTAssertTrue(value.waitForExistence(timeout: 5))
+    let knob = app.otherElements["volume knob"]
+    let label = app.staticTexts["volume label"]
+    XCTAssertTrue(knob.waitForExistence(timeout: 5))
 
-    // print(value.debugDescription)
     knob.swipeUp()
-    XCTAssertTrue(Double(value.label)! > 0.825)
+    XCTAssertTrue(Double(label.label)! > 50.0)
 #else
     throw XCTSkip("only runs on iOS")
 #endif
@@ -34,52 +33,65 @@ class KnobDemoUITests: XCTestCase {
     let app = XCUIApplication()
     app.launch()
 
-    let knob = app.otherElements["knob"]
-    let value = app.staticTexts["value"]
-    XCTAssertTrue(value.waitForExistence(timeout: 5))
+    let knob = app.otherElements["volume knob"]
+    let label = app.staticTexts["volume label"]
+    XCTAssertTrue(knob.waitForExistence(timeout: 5))
 
-    // print(value.debugDescription)
     knob.swipeDown()
-    XCTAssertTrue(Double(value.label)! < 0.1)
+    XCTAssertTrue(Double(label.label)! < 0.1)
 #else
     throw XCTSkip("only runs on iOS")
 #endif
   }
 
   func testTrackingUp() throws {
-#if os(macOS) || targetEnvironment(macCatalyst)
+#if os(macOS)
     let app = XCUIApplication()
     app.launch()
+    print(app.debugDescription)
 
-    let title = app.staticTexts["title"]
-    let knob = app.otherElements["knob"]
-    let value = app.staticTexts["value"]
-    XCTAssertTrue(value.waitForExistence(timeout: 5))
+    let knob = app.sliders["volume knob"]
+    XCTAssertTrue(knob.waitForExistence(timeout: 5))
 
-    knob.click(forDuration: 0.2, thenDragTo: title)
-    print("value: \(value.debugDescription)")
-    print("value.label: \(value.label.debugDescription)")
-    XCTAssertTrue(Double(app.staticTexts["value"].label)! >= 0.825)
+    let label = app.staticTexts["volume label"]
+    XCTAssertTrue(label.waitForExistence(timeout: 5))
+
+    let posA = knob.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
+    let posB = knob.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.0))
+    posA.press(forDuration: 0.1, thenDragTo: posB)
+
+    print("value: \(label.debugDescription)")
+    print("value.label: \(label.label.debugDescription)")
+    print("value.value: \(label.value.debugDescription)")
+
+    XCTAssertTrue(Double(label.value as! String)! >= 70.0)
 #else
-    throw XCTSkip("only runs on iOS")
+    throw XCTSkip("only runs on macOS")
 #endif
   }
 
   func testTrackingDown() throws {
-#if os(macOS) || targetEnvironment(macCatalyst)
+#if os(macOS)
     let app = XCUIApplication()
     app.launch()
 
-    let knob = app.otherElements["knob"]
-    let value = app.staticTexts["value"]
-    XCTAssertTrue(value.waitForExistence(timeout: 5))
+    let knob = app.sliders["volume knob"]
+    XCTAssertTrue(knob.waitForExistence(timeout: 5))
 
-    knob.click(forDuration: 0.2, thenDragTo: value)
-    print("value: \(value.debugDescription)")
-    print("value.label: \(value.label.debugDescription)")
-    XCTAssertTrue(Double(app.staticTexts["value"].label)! < 0.1)
+    let label = app.staticTexts["volume label"]
+    XCTAssertTrue(label.waitForExistence(timeout: 5))
+
+    let posA = knob.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
+    let posB = knob.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.9))
+    posA.press(forDuration: 0.1, thenDragTo: posB)
+
+    print("value: \(label.debugDescription)")
+    print("value.label: \(label.label.debugDescription)")
+    print("value.value: \(label.value.debugDescription)")
+
+    XCTAssertTrue(Double(label.value as! String)! < 0.1)
 #else
-    throw XCTSkip("only runs on iOS")
+    throw XCTSkip("only runs on macOS")
 #endif
   }
 }

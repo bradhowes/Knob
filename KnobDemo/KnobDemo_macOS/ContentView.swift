@@ -49,20 +49,13 @@ struct ContentView: View {
               .accessibilityIdentifier("volume knob")
               .aspectRatio(1.0, contentMode: .fit)
 
-            let textValue = volumeManipulating ? valueFormatter.string(for: volumeValue * 100.0) ?? "?" : "Volume"
-            let inDuration = volumeManipulating ? 0.0 : 0.4
-            let inDelay = volumeManipulating ? 0.0 : 0.5
-            let outDuration = volumeManipulating ? 0.4 : 0.0
-            let outDelay = volumeManipulating ? 0.5 : 0.0
+            let textValue = valueFormatter.string(for: volumeValue * 100.0) ?? "?"
 
             Text(textValue)
               .font(.system(size: 24, weight: .medium, design: .default))
               .foregroundColor(textColor)
               .accessibilityIdentifier("volume label")
-              .transition(.asymmetric(
-                insertion: .opacity.animation(.linear(duration: inDuration).delay(inDelay)),
-                removal: .opacity.animation(.linear(duration: outDuration).delay(outDelay))))
-              .id("Volume \(volumeManipulating)")
+              .id("Volume")
           }
 
           VStack(alignment: .center, spacing: -24) {
