@@ -4,11 +4,11 @@ import SwiftUI
 import Knob_iOS
 
 struct ContentView: View {
+  @State var panValue: Float = 0.25
+  @State var panManipulating: Bool = false
+
   @State var volumeValue: Float = 0.25
   @State var volumeManipulating: Bool = false
-
-  @State var delayValue: Float = 0.25
-  @State var delayManipulating: Bool = false
 
   let valueFormatter: NumberFormatter = {
     let valueFormatter = NumberFormatter()
@@ -41,7 +41,26 @@ struct ContentView: View {
           
           VStack(alignment: .center, spacing: -24) {
 
-            KnobView(value: $volumeValue, manipulating: $volumeManipulating, minimum: -50, maximum: 50)
+            KnobView(value: $panValue, manipulating: $panManipulating, minimum: -30, maximum: 50)
+              .trackStyle(widthFactor: trackWidthFactor, color: trackColor)
+              .progressStyle(widthFactor: progressWidthFactor, color: progressColor)
+              .indicatorStyle(widthFactor: progressWidthFactor, color: progressColor, length: 0.3)
+              .accessibilityIdentifier("pan knob")
+              .frame(minWidth: 40, maxWidth: 240, minHeight: 40, maxHeight: 240)
+              .aspectRatio(1.0, contentMode: .fit)
+
+            let textValue = valueFormatter.string(for: panValue) ?? "?"
+
+            Text(textValue)
+              .font(.system(size: 24, weight: .medium, design: .default))
+              .foregroundColor(textColor)
+              .accessibilityIdentifier("pan label")
+              .id("pan label")
+          }
+
+          VStack(alignment: .center, spacing: -24) {
+
+            KnobView(value: $volumeValue, manipulating: $volumeManipulating)
               .trackStyle(widthFactor: trackWidthFactor, color: trackColor)
               .progressStyle(widthFactor: progressWidthFactor, color: progressColor)
               .indicatorStyle(widthFactor: progressWidthFactor, color: progressColor, length: 0.3)
@@ -49,39 +68,20 @@ struct ContentView: View {
               .frame(minWidth: 40, maxWidth: 240, minHeight: 40, maxHeight: 240)
               .aspectRatio(1.0, contentMode: .fit)
 
-            let textValue = valueFormatter.string(for: volumeValue) ?? "?"
+            let textValue = volumeManipulating ? valueFormatter.string(for: volumeValue * 100.0) ?? "?" : "Volume"
+            let inDuration = volumeManipulating ? 0.0 : 0.4
+            let inDelay = volumeManipulating ? 0.0 : 0.5
+            let outDuration = volumeManipulating ? 0.4 : 0.0
+            let outDelay = volumeManipulating ? 0.5 : 0.0
 
             Text(textValue)
               .font(.system(size: 24, weight: .medium, design: .default))
               .foregroundColor(textColor)
               .accessibilityIdentifier("volume label")
-              .id("Volume label")
-          }
-
-          VStack(alignment: .center, spacing: -24) {
-
-            KnobView(value: $delayValue, manipulating: $delayManipulating)
-              .trackStyle(widthFactor: trackWidthFactor, color: trackColor)
-              .progressStyle(widthFactor: progressWidthFactor, color: progressColor)
-              .indicatorStyle(widthFactor: progressWidthFactor, color: progressColor, length: 0.3)
-              .accessibilityIdentifier("delay knob")
-              .frame(minWidth: 40, maxWidth: 240, minHeight: 40, maxHeight: 240)
-              .aspectRatio(1.0, contentMode: .fit)
-
-            let textValue = delayManipulating ? valueFormatter.string(for: delayValue * 100.0) ?? "?" : "Delay"
-            let inDuration = delayManipulating ? 0.0 : 0.4
-            let inDelay = delayManipulating ? 0.0 : 0.5
-            let outDuration = delayManipulating ? 0.4 : 0.0
-            let outDelay = delayManipulating ? 0.5 : 0.0
-
-            Text(textValue)
-              .font(.system(size: 24, weight: .medium, design: .default))
-              .foregroundColor(textColor)
-              .accessibilityIdentifier("delay label")
               .transition(.asymmetric(
                 insertion: .opacity.animation(.linear(duration: inDuration).delay(inDelay)),
                 removal: .opacity.animation(.linear(duration: outDuration).delay(outDelay))))
-              .id("Delay \(delayManipulating)")
+              .id("Volume \(volumeManipulating)")
           }
         }
       }
