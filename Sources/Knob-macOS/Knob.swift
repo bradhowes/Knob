@@ -17,15 +17,25 @@ import AppKit
 open class Knob: NSControl {
 
   /// The minimum value reported by the control.
-  public var minimumValue: Float = 0.0 { didSet { setValue(_value, animated: false) } }
+  public var minimumValue: Float = 0.0 {
+    didSet {
+      if minimumValue > maximumValue { maximumValue = minimumValue + 1.0 }
+      setValue(_normalizedValue * (maximumValue - oldValue) + oldValue)
+    }
+  }
 
   /// The maximum value reported by the control.
-  public var maximumValue: Float = 1.0 { didSet { setValue(_value, animated: false) } }
+  public var maximumValue: Float = 1.0 {
+    didSet {
+      if maximumValue < minimumValue { minimumValue = maximumValue - 1.0 }
+      setValue(_normalizedValue * (oldValue - minimumValue) + minimumValue)
+    }
+  }
 
-  /// The current value of the control.
+  /// The current value of the control, expressed in a value between `minimumValue` and `maximumValue`
   @objc public dynamic var value: Float {
-    get { _value }
-    set { setValue(newValue, animated: false) }
+    get { _normalizedValue * (maximumValue - minimumValue) + minimumValue }
+    set { setValue(newValue) }
   }
 
   /// The distance in pixels used for calculating mouse/touch changes to the knob value. By default, use the smaller of
@@ -104,7 +114,7 @@ open class Knob: NSControl {
   public var nameTransitionDuration = 0.5
 
   /// Obtain a formatted value of the knob's current value.
-  public var formattedValue: String { valueFormatter?.string(from: .init(value: _value)) ?? "\(_value)" }
+  public var formattedValue: String { valueFormatter?.string(from: .init(value: value)) ?? "\(value)" }
 
   /// Obtain the manipulating state of the knob. This is `true` during a touch event or a mouse-down event, and it goes
   /// back to `false` once the event ends.
@@ -141,14 +151,15 @@ open class Knob: NSControl {
   private let ticksLayer = CAShapeLayer()
   private let updateQueue = DispatchQueue(label: "KnobUpdates", qos: .userInteractive, attributes: [],
                                           autoreleaseFrequency: .inherit, target: .main)
-  private var _value: Float = 0.0
+
+  private var _normalizedValue: Float = 0.0
   private var panOrigin: CGPoint = .zero
   private var restorationTimer: Timer?
   private var backingLayer: CALayer { layer! }
 
   private var expanse: CGFloat { min(bounds.width, bounds.height) }
   private var radius: CGFloat { expanse / 2 - trackLineWidth }
-  private var angleForValue: CGFloat { angle(for: (self.value - minimumValue) / (maximumValue - minimumValue)) }
+  private var angleForNormalizedValue: CGFloat { angle(for: _normalizedValue) }
 
   private var trackLineWidth: CGFloat { expanse * trackWidthFactor }
   private var progressLineWidth: CGFloat { expanse * progressWidthFactor }
@@ -159,6 +170,7 @@ open class Knob: NSControl {
   }
 
   private func clampedValue(_ value: Float) -> Float { min(maximumValue, max(minimumValue, value)) }
+  private func normalizedValue(_ value: Float) -> Float { (value - minimumValue) / (maximumValue - minimumValue) }
 
   override public var acceptsFirstResponder: Bool { get { true } }
   override public var isFlipped: Bool { true }
@@ -206,10 +218,9 @@ extension Knob {
    Set the value of the knob.
 
    - parameter value: the new value to use
-   - parameter animated: true if animating the change to the new value
    */
-  public func setValue(_ value: Float, animated: Bool = false) {
-    _value = clampedValue(value)
+  public func setValue(_ value: Float) {
+    _normalizedValue = normalizedValue(clampedValue(value))
     restorationTimer?.invalidate()
     valueLabel?.stringValue = formattedValue
     progressLayer.setNeedsDisplay()
@@ -384,7 +395,7 @@ extension Knob {
     indicator.move(to: CGPoint(x: radius, y: 0.0))
     indicator.line(to: CGPoint(x: radius * (1.0 - indicatorLineLength), y: 0.0))
     indicator.apply(.init(translationX: bounds.width / 2, y: bounds.height / 2)
-      .rotated(by: angle(for: value)))
+      .rotated(by: angleForNormalizedValue))
     indicatorLayer.path = indicator.cgPath
   }
 

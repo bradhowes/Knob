@@ -41,7 +41,7 @@ struct ContentView: View {
 
           VStack(alignment: .center, spacing: -24) {
 
-            KnobView(value: $volumeValue, manipulating: $volumeManipulating)
+            KnobView(value: $volumeValue, manipulating: $volumeManipulating, minimum: -50.0, maximum: 50.0)
               .trackStyle(widthFactor: trackWidthFactor, color: trackColor)
               .progressStyle(widthFactor: progressWidthFactor, color: progressColor)
               .indicatorStyle(widthFactor: progressWidthFactor, color: progressColor, length: 0.3)
@@ -49,7 +49,7 @@ struct ContentView: View {
               .accessibilityIdentifier("volume knob")
               .aspectRatio(1.0, contentMode: .fit)
 
-            let textValue = valueFormatter.string(for: volumeValue * 100.0) ?? "?"
+            let textValue = valueFormatter.string(for: volumeValue) ?? "?"
 
             Text(textValue)
               .font(.system(size: 24, weight: .medium, design: .default))

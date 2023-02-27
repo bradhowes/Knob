@@ -2,7 +2,7 @@
 
 import UIKit
 import PlaygroundSupport
-import Knob
+import Knob-iOS
 
 class MyViewController : UIViewController {
   
@@ -21,29 +21,29 @@ class MyViewController : UIViewController {
     self.view = view
     
     stackView.axis = .vertical
-    stackView.spacing = -10
+    // stackView.spacing = -10
     
     view.addSubview(stackView)
 
-    knob.valueLabel = label
-    knob.valueName = knobLabel
+    // knob.valueLabel = label
+    // knob.valueName = knobLabel
 
-    knob.trackLineWidth = 15.0
-    knob.trackColor = .darkGray.withAlphaComponent(0.2)
-    
-    knob.progressLineWidth = 10.0
-    knob.progressColor = .systemBlue
-    
-    knob.indicatorLineWidth = 0.0
-    knob.indicatorColor = .systemBlue
-    
-    knob.tickCount = 5
-    knob.tickColor = .systemBlue.withAlphaComponent(0.3)
-    knob.tickLineOffset = 0.15
-    knob.tickLineLength = 0.22
-    
-    knob.touchSensitivity = 2.0
-    
+//    knob.trackWidthFactor = 0.1
+//    knob.trackColor = .darkGray.withAlphaComponent(0.2)
+//
+//    knob.progressWidthFactor = 0.8
+//    knob.progressColor = .systemBlue
+//
+//    knob.indicatorWidthFactor = 0.4
+//    knob.indicatorColor = .systemBlue
+//
+//    knob.tickCount = 5
+//    knob.tickColor = .systemBlue.withAlphaComponent(0.3)
+//    knob.tickLineOffset = 0.15
+//    knob.tickLineLength = 0.22
+//
+//    knob.touchSensitivity = 2.0
+//
     knob.maximumValue = 100.0
     knob.minimumValue = 0.0
     knob.setValue(30.0)
@@ -51,14 +51,14 @@ class MyViewController : UIViewController {
     // knob.addTarget(self, action: #selector(updateLabel), for: .valueChanged)
     // knob.addTarget(self, action: #selector(restoreLabel), for: .touchCancel)
     
-    valueFormatter.minimumFractionDigits = 2
-    valueFormatter.maximumFractionDigits = 2
-    valueFormatter.maximumIntegerDigits = 3
-    knob.valueFormatter = valueFormatter
+//    valueFormatter.minimumFractionDigits = 2
+//    valueFormatter.maximumFractionDigits = 2
+//    valueFormatter.maximumIntegerDigits = 3
+//    knob.valueFormatter = valueFormatter
 
-    label.textAlignment = .center
-    label.textColor = .systemBlue
-    label.text = knobLabel
+//    label.textAlignment = .center
+//    label.textColor = .systemBlue
+//    label.text = knobLabel
   }
   
   override func viewDidLayoutSubviews() {
