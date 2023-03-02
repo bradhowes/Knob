@@ -193,6 +193,38 @@ final class KnobTests: XCTestCase {
     knob.setValue(-20.0)
     try assertSnapshot(matching: knob)
   }
+
+  func testMovementDown() throws {
+    // isRecording = false
+    let knob = Knob(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
+    knob.minimumValue = -50.0
+    knob.maximumValue = 10.0
+    knob.setValue(-20.0)
+
+    knob.beginMove(with: CGPoint(x: 50.0, y: 50.0))
+    knob.move(to: CGPoint(x: 50.0, y: 80.0))
+    knob.endMove()
+
+    XCTAssertEqual(knob.value, -38.0)
+
+    try assertSnapshot(matching: knob)
+  }
+
+  func testMovementUp() throws {
+    // isRecording = true
+    let knob = Knob(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
+    knob.minimumValue = -50.0
+    knob.maximumValue = 10.0
+    knob.setValue(-20.0)
+
+    knob.beginMove(with: CGPoint(x: 50.0, y: 50.0))
+    knob.move(to: CGPoint(x: 50.0, y: 30.0))
+    knob.endMove()
+
+    XCTAssertEqual(knob.value, -8.0)
+
+    try assertSnapshot(matching: knob)
+  }
 }
 
 #endif

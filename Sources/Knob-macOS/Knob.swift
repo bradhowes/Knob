@@ -291,19 +291,15 @@ extension Knob {
   }
 
   override open func mouseDown(with event: NSEvent) {
-    panOrigin = convert(event.locationInWindow, from: nil)
-    manipulating = true
-    notifyTarget()
+    beginMove(with: convert(event.locationInWindow, from: nil))
   }
 
   override open func mouseDragged(with event: NSEvent) {
-    guard manipulating == true else { return }
-    updateValue(with: convert(event.locationInWindow, from: nil))
+    move(to: convert(event.locationInWindow, from: nil))
   }
 
   override open func mouseUp(with event: NSEvent) {
-    manipulating = false
-    restoreLabelWithName()
+    endMove()
   }
 }
 
@@ -319,7 +315,24 @@ extension Knob {
   private var maxChangeRegionWidthHalf: CGFloat { min(4, travelDistance * maxChangeRegionWidthPercentage) / 2 }
   private var halfTravelDistance: CGFloat { travelDistance / 2 }
 
-  private func updateValue(with point: CGPoint) {
+  internal func beginMove(with point: CGPoint) {
+    panOrigin = point
+    manipulating = true
+    notifyTarget()
+  }
+
+  internal func move(to point: CGPoint) {
+    guard manipulating == true else { return }
+    updateValue(with: point)
+  }
+
+  internal func endMove() {
+    manipulating = false
+    restoreLabelWithName()
+  }
+
+  /// Made internal for testing
+  internal func updateValue(with point: CGPoint) {
     defer { panOrigin = CGPoint(x: panOrigin.x, y: point.y) }
 
     // dX should never be equal to or greater than minDimensionHalf
@@ -333,8 +346,6 @@ extension Knob {
     // - otherwise, it linearly gets smaller as X moves away from the center
     //
     let scaleT = dX <= maxChangeRegionWidthHalf ? 1.0 : (1.0 - dX / halfTravelDistance)
-    print(dX, scaleT)
-
     let deltaT = Float((dY * scaleT) / (travelDistance * touchSensitivity))
     let change = deltaT * (maximumValue - minimumValue)
     self.value += change
