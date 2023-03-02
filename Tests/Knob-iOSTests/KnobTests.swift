@@ -185,9 +185,14 @@ final class KnobTests: XCTestCase {
     try assertSnapshot(matching: knob)
   }
 
-  static var allTests = [
-    ("testExample", testValueClamping),
-  ]
+  func testNonNormalUserRange() throws {
+    // isRecording = true
+    let knob = Knob(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
+    knob.minimumValue = -50.0
+    knob.maximumValue = 10.0
+    knob.setValue(-20.0)
+    try assertSnapshot(matching: knob)
+  }
 }
 
 #endif
