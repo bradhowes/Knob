@@ -9,19 +9,13 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Build
-      run: swift build -v
-    - name: Run Tests
-      run: swift test -v --enable-code-coverage
-    - name: Generat Test Coverage
+    - name: Run Make
+      run: make
+    - name: Get Test Coverage
       run: |
         set -x
-        XCTEST_PATH="$(find . -name '*.xctest')"
-        xcrun llvm-cov report ${XCTEST_PATH}/Contents/MacOS/*PackageTests -instr-profile .build/debug/codecov/default.profdata -ignore-filename-regex='.build/|Tests/|KnobView' > coverage.txt
-        cat coverage.txt
-        set -- $(tail -1 coverage.txt)
-        echo "${10}" > .build/debug/codecov/percentage.txt
-        echo "PERCENTAGE=$4" >> $GITHUB_ENV
+        set -- $(< percentage.txt)
+        echo "PERCENTAGE=${1}" >> $GITHUB_ENV
     - name: Create Coverage Badge
       uses: schneegans/dynamic-badges-action@v1.1.0
       with:
