@@ -19,7 +19,7 @@ open class Knob: NSControl {
   /// The minimum value reported by the control.
   public var minimumValue: Float = 0.0 {
     didSet {
-      if minimumValue > maximumValue { maximumValue = minimumValue + 1.0 }
+      if minimumValue >= maximumValue { maximumValue = minimumValue + 1.0 }
       setValue(_normalizedValue * (maximumValue - oldValue) + oldValue)
     }
   }
@@ -27,7 +27,7 @@ open class Knob: NSControl {
   /// The maximum value reported by the control.
   public var maximumValue: Float = 1.0 {
     didSet {
-      if maximumValue < minimumValue { minimumValue = maximumValue - 1.0 }
+      if maximumValue <= minimumValue { minimumValue = maximumValue - 1.0 }
       setValue(_normalizedValue * (oldValue - minimumValue) + minimumValue)
     }
   }
@@ -290,22 +290,10 @@ extension Knob {
 // MARK: - Event Tracking
 
 extension Knob {
-
-  override public func acceptsFirstMouse(for event: NSEvent?) -> Bool {
-    return true
-  }
-
-  override open func mouseDown(with event: NSEvent) {
-    beginMove(with: convert(event.locationInWindow, from: nil))
-  }
-
-  override open func mouseDragged(with event: NSEvent) {
-    move(to: convert(event.locationInWindow, from: nil))
-  }
-
-  override open func mouseUp(with event: NSEvent) {
-    endMove()
-  }
+  override public func acceptsFirstMouse(for event: NSEvent?) -> Bool { true }
+  override open func mouseDown(with event: NSEvent) { beginMove(with: convert(event.locationInWindow, from: nil)) }
+  override open func mouseDragged(with event: NSEvent) { move(to: convert(event.locationInWindow, from: nil)) }
+  override open func mouseUp(with event: NSEvent) { endMove() }
 }
 
 extension Knob : NSAccessibilitySlider {

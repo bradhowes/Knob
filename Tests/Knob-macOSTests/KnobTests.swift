@@ -50,6 +50,14 @@ final class KnobTests: XCTestCase {
     knob.value = 1.0
     knob.maximumValue = 0.6
     XCTAssertEqual(knob.value, 0.6)
+
+    knob.minimumValue = 1.0
+    XCTAssertEqual(knob.maximumValue, 2.0)
+    XCTAssertEqual(knob.value, 1.0)
+
+    knob.maximumValue = 1.0
+    XCTAssertEqual(knob.minimumValue, 0.0)
+    XCTAssertEqual(knob.value, 1.0)
   }
 
   func testDefault() throws {
@@ -170,6 +178,20 @@ final class KnobTests: XCTestCase {
     try assertSnapshot(matching: knob)
   }
 
+  func testManipulatingState() throws {
+    XCTAssertFalse(knob.manipulating)
+    knob.move(to: CGPoint(x: 50.0, y: 50.0))
+    XCTAssertFalse(knob.manipulating)
+    knob.beginMove(with: CGPoint(x: 50.0, y: 50.0))
+    XCTAssertTrue(knob.manipulating)
+    knob.move(to: CGPoint(x: 50.0, y: 55.0))
+    XCTAssertTrue(knob.manipulating)
+    knob.move(to: CGPoint(x: 50.0, y: 60.0))
+    XCTAssertTrue(knob.manipulating)
+    knob.endMove()
+    XCTAssertFalse(knob.manipulating)
+  }
+
   func testMovementDown() throws {
     knob.minimumValue = -50.0
     knob.maximumValue = 10.0
@@ -196,6 +218,39 @@ final class KnobTests: XCTestCase {
     XCTAssertEqual(knob.value, -8.0)
 
     try assertSnapshot(matching: knob)
+  }
+
+  func testSlowMovementUp() throws {
+    knob.minimumValue = -50.0
+    knob.maximumValue = 10.0
+    knob.setValue(-20.0)
+
+    knob.beginMove(with: CGPoint(x: 50.0, y: 50.0))
+    knob.move(to: CGPoint(x: 150.0, y: 30.0))
+    knob.move(to: CGPoint(x: 150.0, y: 30.0))
+    knob.endMove()
+
+    XCTAssertEqual(knob.value, -19.76)
+
+    try assertSnapshot(matching: knob)
+  }
+
+  func testBackgroundColor() throws {
+    knob.backgroundColor = .green
+    XCTAssertEqual(knob.backgroundColor, .green)
+  }
+
+  func testAcceptsFirstReponder() {
+    XCTAssertTrue(knob.acceptsFirstResponder)
+  }
+
+  func testAcceptsFirstMouse() {
+    XCTAssertTrue(knob.acceptsFirstMouse(for: .none))
+  }
+
+  func testAccessibilityTraits() {
+    XCTAssertTrue(knob.isAccessibilityElement())
+    XCTAssertTrue(knob.isAccessibilityEnabled())
   }
 }
 
