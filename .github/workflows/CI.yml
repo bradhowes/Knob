@@ -17,7 +17,9 @@ jobs:
       run: |
         set -x
         XCTEST_PATH="$(find . -name '*.xctest')"
-        set -- $(xcrun llvm-cov report ${XCTEST_PATH}/Contents/MacOS/*PackageTests -instr-profile .build/debug/codecov/default.profdata -ignore-filename-regex='.build/|Tests/|KnobView' | tail -1)
+        xcrun llvm-cov report ${XCTEST_PATH}/Contents/MacOS/*PackageTests -instr-profile .build/debug/codecov/default.profdata -ignore-filename-regex='.build/|Tests/|KnobView' > coverage.txt
+        cat coverage.txt
+        set -- $(tail -1 coverage.txt)
         echo "${10}" > .build/debug/codecov/percentage.txt
         echo "PERCENTAGE=$4" >> $GITHUB_ENV
     - name: Create Coverage Badge
