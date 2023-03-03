@@ -96,6 +96,11 @@ open class Knob: NSControl {
   /// The color of the tick line.
   public var tickColor: NSColor = .black { didSet { ticksLayer.setNeedsDisplay() } }
 
+  public var backgroundColor: NSColor {
+    get { return NSColor(cgColor: backingLayer.backgroundColor ?? .clear) ?? .clear }
+    set { backingLayer.backgroundColor = newValue.cgColor }
+  }
+
   /// The text element to use to show the knob's value and name.
   public var valueLabel: NSTextField?
 
