@@ -238,6 +238,7 @@ extension Knob {
 extension Knob: CALayerDelegate {
 
   public func display(_ layer: CALayer) {
+    needsDisplay = true
     if layer === trackLayer {
       trackLayer.lineWidth = trackLineWidth
       trackLayer.strokeColor = trackColor.cgColor

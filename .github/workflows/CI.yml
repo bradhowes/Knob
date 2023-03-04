@@ -10,7 +10,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run Make
-      run: make
+      run: SNAPSHOT_DIR="$PWD/.snapshots" make
+    - uses: actions/upload-artifact@v3
+      with:
+        name: snapshots
+        path: .snapshots/
     - name: Get Test Coverage
       run: |
         set -x
