@@ -28,12 +28,11 @@ final class KnobTests: XCTestCase {
     knob.layoutSubtreeIfNeeded()
     knob.display()
 
-    let snapshotDirectory = ProcessInfo.processInfo.environment["SNAPSHOT_DIR"]
     let failure = verifySnapshot(matching: knob,
-                                 as: .image(precision: 0.9, perceptualPrecision: 0.9),
+                                 as: .image(precision: 1.0, perceptualPrecision: 1.0),
                                  named: nil,
                                  record: isRecording,
-                                 snapshotDirectory: snapshotDirectory,
+                                 snapshotDirectory: nil,
                                  file: file,
                                  testName: testName,
                                  line: line)
