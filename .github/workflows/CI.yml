@@ -12,17 +12,17 @@ jobs:
     - name: Run Make
       run: make
       env:
-        ARTIFACTS_SNAPSHOT: "$PWD/.snapshots"
+        SNAPSHOT_ARTIFACTS: "$PWD/.snapshots"
+        SNAPSHOT_ENV: ci
     - uses: actions/upload-artifact@v3
-      if: failure()
+      if: ${{ failure() }}
       with:
         name: snapshots
         path: .snapshots/
     - name: Get Test Coverage
       run: |
-        set -x
         set -- $(< percentage.txt)
-        echo "PERCENTAGE=${1}" >> $GITHUB_ENV
+        echo "PERCENTAGE=${1}" >> ${GITHUB_ENV}
     - name: Create Coverage Badge
       uses: schneegans/dynamic-badges-action@v1.1.0
       with:
