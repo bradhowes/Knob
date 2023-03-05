@@ -17,14 +17,14 @@ jobs:
     - name: Copy Snapshots
       if: ${{ failure() }}
       run: |
-        mkdir ${PWD}/.snapshots
-        cp -r $(find . -name Knob-macOSTests)/__Snapshots__ ${PWD}/.snapshots
+        mkdir .snapshots
+        cp -r $(find . -name Knob-macOSTests)/__Snapshots__ .snapshots/
     - name: Upload Snapshot Failures
       uses: actions/upload-artifact@v3
       if: ${{ failure() }}
       with:
         name: snapshots
-        path: ${PWD}/.snapshots/
+        path: .snapshots/
     - name: Get Test Coverage
       run: |
         set -- $(< percentage.txt)
