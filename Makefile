@@ -21,7 +21,7 @@ test-macos:
 		-scheme KnobPackage-Package \
 		-derivedDataPath "$(PWD)/DerivedData-macos" \
 		-destination platform="$(PLATFORM_MACOS)"
-	-xcodebuild test \
+	xcodebuild test \
 		-scheme KnobPackage-Package \
 		-derivedDataPath "$(PWD)/DerivedData-macos" \
 		-destination platform="$(PLATFORM_MACOS)" \

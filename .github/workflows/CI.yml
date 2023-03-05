@@ -9,12 +9,17 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Run Make
+    - name: Build and Test
       run: make
       env:
         SNAPSHOT_ARTIFACTS: "$PWD/.snapshots"
         SNAPSHOT_ENV: ci
-    - uses: actions/upload-artifact@v3
+    - name: Copy Snapshots
+      if: ${{ failure() }}
+      run: |
+        cp -r $(find . -name Knob-macOSTests)/__Snapshots__ $PWD/.snapshots
+    - name: Upload Snapshot Failures
+      uses: actions/upload-artifact@v3
       if: ${{ failure() }}
       with:
         name: snapshots
