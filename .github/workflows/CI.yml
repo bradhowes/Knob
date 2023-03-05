@@ -8,10 +8,13 @@ jobs:
   build:
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Run Make 2
-      run: SNAPSHOT_ARTIFACTS="$PWD/.snapshots" make
+    - uses: actions/checkout@v3
+    - name: Run Make
+      run: make
+      env:
+        ARTIFACTS_SNAPSHOT: "$PWD/.snapshots"
     - uses: actions/upload-artifact@v3
+      if: failure()
       with:
         name: snapshots
         path: .snapshots/
