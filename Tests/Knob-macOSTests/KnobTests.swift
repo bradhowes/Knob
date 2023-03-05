@@ -27,10 +27,10 @@ final class KnobTests: XCTestCase {
   func assertSnapshot(file: StaticString = #file, testName: String = #function, line: UInt = #line) throws {
     knob.layoutSubtreeIfNeeded()
     knob.display()
-
+    let scaling = NSScreen.main?.backingScaleFactor ?? 1
     let failure = verifySnapshot(matching: knob,
                                  as: .image(precision: 1.0, perceptualPrecision: 1.0),
-                                 named: nil,
+                                 named: "\(scaling)",
                                  record: isRecording,
                                  snapshotDirectory: nil,
                                  file: file,
