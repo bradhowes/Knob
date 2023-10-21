@@ -5,13 +5,13 @@ PLATFORM_TVOS = tvOS Simulator,name=Apple TV 4K (3rd generation) (at 1080p)
 default: percentage
 
 test-ios:
-	rm -rf "$(PWD)/DerivedData-ios"
+	rm -rf "$(PWD)/.DerivedData-ios"
 	xcodebuild test \
 		-scheme Knob-iOS \
 		-destination platform="$(PLATFORM_IOS)"
 
 test-tvos:
-	rm -rf "$(PWD)/DerivedData-tvos"
+	rm -rf "$(PWD)/.DerivedData-tvos"
 	xcodebuild test \
 		-scheme Knob-iOS \
 		-destination platform="$(PLATFORM_TVOS)"
@@ -19,11 +19,11 @@ test-tvos:
 test-macos:
 	xcodebuild clean \
 		-scheme Knob-Package \
-		-derivedDataPath "$(PWD)/DerivedData-macos" \
+		-derivedDataPath "$(PWD)/.DerivedData-macos" \
 		-destination platform="$(PLATFORM_MACOS)"
 	xcodebuild test \
 		-scheme Knob-Package \
-		-derivedDataPath "$(PWD)/DerivedData-macos" \
+		-derivedDataPath "$(PWD)/.DerivedData-macos" \
 		-destination platform="$(PLATFORM_MACOS)" \
 		-enableCodeCoverage YES
 
@@ -39,14 +39,18 @@ test-linux:
 test-swift:
 	swift test --parallel
 
+COV = xcrun xccov view --report --files-for-target
+
 coverage: test-macos
-# xcrun xccov view --report --only-targets $(PWD)/DerivedData-macos/Logs/Test/*.xcresult > coverage.txt
-	xcrun xccov view --report --files-for-target Knob-macOS $(PWD)/DerivedData-macos/Logs/Test/*.xcresult > coverage.txt
+	$(COV) Knob-macOS $(PWD)/.DerivedData-macos/Logs/Test/*.xcresult > coverage.txt
 	cat coverage.txt
 
+# Visit each line in coverage report that starts with a number, and add the coverage percentage
+# (skipping the one that involves the SwiftUI containers). Print the average at the end.
+AWK_CMD = 'END {print sum / count;} /^[1-9]/ { if ($$2 !~ /KnobView/) { sum+=$$4; count+=1; } }'
+
 percentage: coverage
-# awk '/ Knob / { if ($$3 > 0) print $$4; }' coverage.txt > percentage.txt
-	awk 'END {print sum / count;} /^[1-9]/ { if ($$2 !~ /KnobView/) { sum+=$$4; count+=1; } }' coverage.txt > percentage.txt
+	awk $(AWK_CMD) coverage.txt > percentage.txt
 	cat percentage.txt
 
 test: test-ios test-tvos percentage

@@ -91,3 +91,5 @@ iOSInjectionProject/
 
 coverage.txt
 percentage.txt
+.DerivedData-macOS/
+.DerivedData-iOS/
