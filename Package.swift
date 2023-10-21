@@ -1,10 +1,10 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.9
 
 import PackageDescription
 
 let package = Package(
-  name: "KnobPackage",
-  platforms: [.macOS(.v10_15), .iOS(.v12)],
+  name: "Knob",
+  platforms: [.macOS(.v11), .iOS(.v13)],
   products: [
     .library(name: "Knob-iOS", targets: ["Knob-iOS"]),
     .library(name: "Knob-macOS", targets: ["Knob-macOS"]),
@@ -31,7 +31,7 @@ let package = Package(
       name: "Knob-iOSTests",
       dependencies: [
         "Knob-iOS",
-        .productItem(name: "SnapshotTesting", package: "swift-snapshot-testing", condition: .none)
+        .product(name: "SnapshotTesting", package: "swift-snapshot-testing", condition: .none)
       ],
       exclude: ["__Snapshots__"]
     ),
@@ -39,7 +39,7 @@ let package = Package(
       name: "Knob-macOSTests",
       dependencies: [
         "Knob-macOS",
-        .productItem(name: "SnapshotTesting", package: "swift-snapshot-testing", condition: .none)
+        .product(name: "SnapshotTesting", package: "swift-snapshot-testing", condition: .none)
       ],
       exclude: ["__Snapshots__"]
     ),

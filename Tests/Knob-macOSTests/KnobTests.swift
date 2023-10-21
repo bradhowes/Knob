@@ -22,8 +22,6 @@ final class KnobTests: XCTestCase {
     knob.backgroundColor = .white
   }
 
-  func makeName(_ funcName: String) -> String { funcName + "-" + "macOS" }
-
   func assertSnapshot(file: StaticString = #file, testName: String = #function, line: UInt = #line) throws {
     knob.layoutSubtreeIfNeeded()
     knob.display()

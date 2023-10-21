@@ -18,11 +18,11 @@ test-tvos:
 
 test-macos:
 	xcodebuild clean \
-		-scheme KnobPackage-Package \
+		-scheme Knob-Package \
 		-derivedDataPath "$(PWD)/DerivedData-macos" \
 		-destination platform="$(PLATFORM_MACOS)"
 	xcodebuild test \
-		-scheme KnobPackage-Package \
+		-scheme Knob-Package \
 		-derivedDataPath "$(PWD)/DerivedData-macos" \
 		-destination platform="$(PLATFORM_MACOS)" \
 		-enableCodeCoverage YES
