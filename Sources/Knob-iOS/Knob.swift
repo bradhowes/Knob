@@ -53,7 +53,7 @@ open class Knob: UIControl {
 
   /// The distance in pixels used for calculating mouse/touch changes to the knob value. By default, use the smaller of
   /// the view's width and height.
-  open var travelDistance: CGFloat { (min(bounds.height, bounds.width)) }
+  open var travelDistance: CGFloat { min(bounds.height, bounds.width) }
 
   /// How much travel is need to change the knob from `minimumValue` to `maximumValue`.
   /// By default this is 1x the `travelDistance` value. Setting it to 2 will require 2x the `travelDistance` to go from
@@ -345,8 +345,6 @@ extension Knob {
     // - otherwise, it linearly gets smaller as X moves away from the center
     //
     let scaleT = dX <= maxChangeRegionWidthHalf ? 1.0 : (1.0 - dX / halfTravelDistance)
-    print(dX, scaleT)
-
     let deltaT = Float((dY * scaleT) / (travelDistance * touchSensitivity))
     let change = deltaT * (maximumValue - minimumValue)
     self.value += change
