@@ -38,6 +38,8 @@ open class Knob: NSControl {
     set { setValue(newValue) }
   }
 
+  @objc public dynamic var currentValue: Float { value }
+
   /// The distance in pixels used for calculating mouse/touch changes to the knob value. By default, use the smaller of
   /// the view's width and height.
   open var travelDistance: CGFloat { (min(bounds.height, bounds.width)) }
@@ -238,7 +240,6 @@ extension Knob {
 extension Knob: CALayerDelegate {
 
   public func display(_ layer: CALayer) {
-    needsDisplay = true
     if layer === trackLayer {
       trackLayer.lineWidth = trackLineWidth
       trackLayer.strokeColor = trackColor.cgColor
@@ -300,6 +301,23 @@ extension Knob {
 extension Knob : NSAccessibilitySlider {
   public override func isAccessibilityElement() -> Bool { true }
   public override func isAccessibilityEnabled() -> Bool { true }
+
+  // Value is a NSString or a NSNumber
+  override public func accessibilityValue() -> Any? {
+    return NSNumber(value: value)
+  }
+
+  override public func accessibilityPerformIncrement() -> Bool {
+    guard value < maximumValue else { return false }
+    value += 1.0
+    return true
+  }
+
+  override public func accessibilityPerformDecrement() -> Bool {
+    guard value > minimumValue else { return false }
+    value -= 1.0
+    return true
+  }
 }
 
 // MARK: - Private

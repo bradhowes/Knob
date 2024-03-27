@@ -52,19 +52,13 @@ class KnobDemoUITests: XCTestCase {
     
     let knob = app.sliders["volume knob"]
     XCTAssertTrue(knob.waitForExistence(timeout: 5))
-
-    let label = app.staticTexts["volume label"]
-    XCTAssertTrue(label.waitForExistence(timeout: 5))
+    checkValue(knob, expected: 0.25)
 
     let posA = knob.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
     let posB = knob.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.0))
     posA.press(forDuration: 0.1, thenDragTo: posB)
 
-    print("value: \(label.debugDescription)")
-    print("value.label: \(label.label.debugDescription)")
-    print("value.value: \(label.value.debugDescription)")
-
-    XCTAssertTrue(Double(label.value as! String)! >= 70.0)
+    checkValue(knob, expected: 0.75)
 #else
     throw XCTSkip("only runs on macOS")
 #endif
@@ -77,21 +71,19 @@ class KnobDemoUITests: XCTestCase {
 
     let knob = app.sliders["volume knob"]
     XCTAssertTrue(knob.waitForExistence(timeout: 5))
-
-    let label = app.staticTexts["volume label"]
-    XCTAssertTrue(label.waitForExistence(timeout: 5))
+    checkValue(knob, expected: 0.25)
 
     let posA = knob.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
     let posB = knob.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.9))
     posA.press(forDuration: 0.1, thenDragTo: posB)
+    checkValue(knob, expected: 0.0)
 
-    print("value: \(label.debugDescription)")
-    print("value.label: \(label.label.debugDescription)")
-    print("value.value: \(label.value.debugDescription)")
-
-    XCTAssertTrue(Double(label.value as! String)! < 0.1)
 #else
     throw XCTSkip("only runs on macOS")
 #endif
   }
+}
+
+private func checkValue(_ knob: XCUIElement, expected: Float) {
+  XCTAssertTrue(abs((knob.value as! NSNumber).floatValue - expected) < 1e-5)
 }
