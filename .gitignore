@@ -91,5 +91,8 @@ iOSInjectionProject/
 
 coverage.txt
 percentage.txt
+coverage-ui.txt
+percentage-ui.txt
 .DerivedData-macOS/
+.DerivedData-macOS-ui/
 .DerivedData-iOS/
