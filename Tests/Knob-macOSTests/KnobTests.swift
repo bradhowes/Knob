@@ -24,7 +24,8 @@ final class KnobTests: XCTestCase {
   func assertSnapshot(file: StaticString = #file, testName: String = #function, line: UInt = #line) throws {
     knob.layoutSubtreeIfNeeded()
     knob.display()
-    let snapshotEnv = ProcessInfo.processInfo.environment["SNAPSHOT_ENV"] ?? "dev"
+    let isOnGithub = ProcessInfo.processInfo.environment["XCTestBundlePath"]?.contains("/Users/runner/work") ?? false
+    let snapshotEnv = isOnGithub ? "ci" : "dev"
     withSnapshotTesting(record: .missing) {
       let failure = verifySnapshot(of: knob,
                                    as: .image(precision: 1.0, perceptualPrecision: 1.0),

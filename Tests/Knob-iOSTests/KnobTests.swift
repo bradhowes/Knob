@@ -10,7 +10,6 @@ final class KnobTests: XCTestCase {
 
   override func setUp() {
     super.setUp()
-    isRecording = false
     self.knob = .init(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
     knob.minimumValue = 0.0
     knob.maximumValue = 1.0
@@ -28,9 +27,20 @@ final class KnobTests: XCTestCase {
     return funcName + "-" + platform
   }
 
-  func assertSnapshot(matching: Knob, file: StaticString = #file, testName: String = #function, line: UInt = #line) throws {
-    // try XCTSkipIf(ProcessInfo.processInfo.environment.keys.contains("GITHUB_WORKFLOW"), "GitHub CI")
-    SnapshotTesting.assertSnapshot(matching: matching, as: .image, named: makeName(testName), file: file, testName: testName, line: line)
+  func assertSnapshot(file: StaticString = #file, testName: String = #function, line: UInt = #line) throws {
+    let isOnGithub = ProcessInfo.processInfo.environment["XCTestBundlePath"]?.contains("/Users/runner/work") ?? false
+    let snapshotEnv = isOnGithub ? "ci" : "dev"
+    withSnapshotTesting(record: .missing) {
+      let failure = verifySnapshot(of: knob,
+                                   as: .image(precision: 1.0, perceptualPrecision: 1.0),
+                                   named: snapshotEnv,
+                                   snapshotDirectory: nil,
+                                   file: file,
+                                   testName: testName,
+                                   line: line)
+      guard let message = failure else { return }
+      XCTFail(message, file: file, line: line)
+    }
   }
 
   func testValueClamping() {
@@ -54,56 +64,56 @@ final class KnobTests: XCTestCase {
 
   func testDefault() throws {
     knob.value = 0.4
-    try assertSnapshot(matching: knob)
+    try assertSnapshot()
   }
 
   func testTrackLineWidth() throws {
     knob.trackWidthFactor = 0.07
     knob.trackColor = .black
     knob.value = 0.5
-    try assertSnapshot(matching: knob)
+    try assertSnapshot()
   }
 
   func testTrackColor() throws {
     knob.trackColor = .systemTeal
     knob.value = 0.5
-    try assertSnapshot(matching: knob)
+    try assertSnapshot()
   }
 
   func testProgressLineWidth() throws {
     knob.progressWidthFactor = 0.6
     knob.value = 0.5
-    try assertSnapshot(matching: knob)
+    try assertSnapshot()
   }
 
   func testProgressColor() throws {
     knob.progressColor = .systemTeal
     knob.value = 0.5
-    try assertSnapshot(matching: knob)
+    try assertSnapshot()
   }
 
   func testIndicatorLineWidth() throws {
     knob.indicatorWidthFactor = 0.04
     knob.value = 0.5
-    try assertSnapshot(matching: knob)
+    try assertSnapshot()
   }
 
   func testIndicatorColor() throws {
     knob.indicatorColor = .systemTeal
     knob.value = 0.5
-    try assertSnapshot(matching: knob)
+    try assertSnapshot()
   }
 
   func testIndicatorLineLength() throws {
     knob.indicatorLineLength = 1.0
     knob.value = 0.5
-    try assertSnapshot(matching: knob)
+    try assertSnapshot()
   }
 
   func testTickCount() throws {
     knob.tickCount = 5
     knob.value = 0.3
-    try assertSnapshot(matching: knob)
+    try assertSnapshot()
   }
 
   func testTickLineWidth() throws {
@@ -111,14 +121,14 @@ final class KnobTests: XCTestCase {
     knob.tickLineWidth = 12.0
     knob.tickColor = .systemTeal
     knob.value = 0.3
-    try assertSnapshot(matching: knob)
+    try assertSnapshot()
   }
 
   func testTickColor() throws {
     knob.tickCount = 5
     knob.tickColor = .systemTeal
     knob.value = 0.3
-    try assertSnapshot(matching: knob)
+    try assertSnapshot()
   }
 
   func testTickLineLength() throws {
@@ -126,7 +136,7 @@ final class KnobTests: XCTestCase {
     knob.tickLineLength = 0.5
     knob.tickColor = .systemTeal
     knob.value = 0.3
-    try assertSnapshot(matching: knob)
+    try assertSnapshot()
   }
 
   func testTickLineOffset() throws {
@@ -134,7 +144,7 @@ final class KnobTests: XCTestCase {
     knob.tickLineOffset = 0.5
     knob.tickColor = .systemTeal
     knob.value = 0.3
-    try assertSnapshot(matching: knob)
+    try assertSnapshot()
   }
 
   func testFormattedValue() throws {
@@ -148,12 +158,12 @@ final class KnobTests: XCTestCase {
 
   func testStartAngle() throws {
     knob.startAngle = -CGFloat.pi / 180.0 * 220.0
-    try assertSnapshot(matching: knob)
+    try assertSnapshot()
   }
 
   func testEndAngle() throws {
     knob.endAngle = -CGFloat.pi / 180.0 * 240.0
-    try assertSnapshot(matching: knob)
+    try assertSnapshot()
   }
 
   func testTagging() throws {
@@ -164,14 +174,14 @@ final class KnobTests: XCTestCase {
   func testSetValue() throws {
     knob.setValue(0.5)
     XCTAssertEqual(knob.value, 0.5)
-    try assertSnapshot(matching: knob)
+    try assertSnapshot()
   }
 
   func testNonNormalUserRange() throws {
     knob.minimumValue = -50.0
     knob.maximumValue = 10.0
     knob.setValue(-20.0)
-    try assertSnapshot(matching: knob)
+    try assertSnapshot()
   }
 }
 
