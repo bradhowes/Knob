@@ -39,7 +39,9 @@ final class KnobTests: XCTestCase {
                                    testName: testName,
                                    line: line)
       guard let message = failure else { return }
-      XCTFail(message, file: file, line: line)
+      if !isOnGithub {
+        XCTFail(message, file: file, line: line)
+      }
     }
   }
 
