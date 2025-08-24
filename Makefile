@@ -20,7 +20,7 @@ coverage-iOS: test-iOS
 	cat coverage_iOS.txt
 
 percentage-iOS: coverage-iOS
-	awk $(AWK_CMD) coverage_iOS.txt > percentage_iOS.txt
+	awk '/ Knob-iOS / { print $$4 }' coverage_iOS.txt > percentage_iOS.txt
 	echo "iOS Coverage Pct:"
 	cat percentage_iOS.txt
 
