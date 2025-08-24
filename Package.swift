@@ -10,7 +10,7 @@ let package = Package(
     .library(name: "Knob-macOS", targets: ["Knob-macOS"]),
   ],
   dependencies: [
-    .package(url: "https://github.com/pointfreeco/swift-snapshot-testing.git", from: "1.11.0"),
+    .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.17.0")
   ],
   targets: [
     .target(

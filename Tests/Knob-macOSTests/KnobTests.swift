@@ -10,7 +10,6 @@ final class KnobTests: XCTestCase {
 
   override func setUp() {
     super.setUp()
-    isRecording = false
     self.knob = .init(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 100.0))
     knob.minimumValue = 0.0
     knob.maximumValue = 1.0
@@ -26,16 +25,17 @@ final class KnobTests: XCTestCase {
     knob.layoutSubtreeIfNeeded()
     knob.display()
     let snapshotEnv = ProcessInfo.processInfo.environment["SNAPSHOT_ENV"] ?? "dev"
-    let failure = verifySnapshot(matching: knob,
-                                 as: .image(precision: 1.0, perceptualPrecision: 1.0),
-                                 named: snapshotEnv,
-                                 record: isRecording,
-                                 snapshotDirectory: nil,
-                                 file: file,
-                                 testName: testName,
-                                 line: line)
-    guard let message = failure else { return }
-    XCTFail(message, file: file, line: line)
+    withSnapshotTesting(record: .missing) {
+      let failure = verifySnapshot(of: knob,
+                                   as: .image(precision: 1.0, perceptualPrecision: 1.0),
+                                   named: snapshotEnv,
+                                   snapshotDirectory: nil,
+                                   file: file,
+                                   testName: testName,
+                                   line: line)
+      guard let message = failure else { return }
+      XCTFail(message, file: file, line: line)
+    }
   }
 
   func testValueClamping() {
