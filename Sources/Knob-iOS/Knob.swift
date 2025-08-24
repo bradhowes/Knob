@@ -224,8 +224,10 @@ extension Knob {
     _normalizedValue = normalizedValue(clampedValue(value))
     restorationTimer?.invalidate()
     valueLabel?.text = formattedValue
-    progressLayer.setNeedsDisplay()
-    indicatorLayer.setNeedsDisplay()
+//    progressLayer.setNeedsDisplay()
+//    indicatorLayer.setNeedsDisplay()
+    progressLayer.strokeEnd = CGFloat((value - minimumValue) / (maximumValue - minimumValue))
+    //indicatorLayer.transform = CATransform3DMakeRotation(angleForValue, 0, 0, 1)
   }
 }
 
@@ -379,6 +381,10 @@ extension Knob {
     trackLayer.strokeEnd = 1.0
     progressLayer.strokeEnd = 0.0
     indicatorLayer.strokeEnd = 1.0
+
+    accessibilityLabel = valueName
+    accessibilityValue = formattedValue
+    accessibilityTraits = [.adjustable, .button]
   }
 
   private func createRing() -> UIBezierPath {

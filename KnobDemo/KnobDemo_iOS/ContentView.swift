@@ -41,7 +41,7 @@ struct ContentView: View {
           
           VStack(alignment: .center, spacing: -24) {
 
-            KnobView(value: $panValue, manipulating: $panManipulating, minimum: -30, maximum: 50)
+            KnobView(value: $panValue, manipulating: $panManipulating, minimum: -50, maximum: 50)
               .trackStyle(widthFactor: trackWidthFactor, color: trackColor)
               .progressStyle(widthFactor: progressWidthFactor, color: progressColor)
               .indicatorStyle(widthFactor: progressWidthFactor, color: progressColor, length: 0.3)
@@ -56,6 +56,25 @@ struct ContentView: View {
               .foregroundColor(textColor)
               .accessibilityIdentifier("pan label")
               .id("pan label")
+
+            HStack {
+              Button {
+                panValue = -50.0
+              } label: {
+                Text("Left")
+              }
+              Button {
+                panValue = 0.0
+              } label: {
+                Text("Center")
+              }
+              Button {
+                panValue = 50.0
+              } label: {
+                Text("Right")
+              }
+            }
+            .padding(.vertical, 32)
           }
 
           VStack(alignment: .center, spacing: -24) {
